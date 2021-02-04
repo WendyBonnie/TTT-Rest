@@ -1,0 +1,10 @@
+.homepage .qr {
+  border: none;
+
+  padding: 50px;
+}
+
+.homepage .titleQR {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}

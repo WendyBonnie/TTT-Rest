@@ -1,0 +1,105 @@
+.styleProfil {
+  background: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 30px;
+  border-radius: 12px 9px 12px;
+  border: none;
+  color: #4a4a4a;
+
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 5%;
+  margin-bottom: 80px;
+}
+
+.styleProfil .title {
+  text-align: center;
+  margin-bottom: 10%;
+}
+.styleProfil .formLogo {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.styleProfil .formProfil {
+  padding-top: 5px;
+  margin-top: 0px;
+}
+.styleProfil .buttonVal {
+  border-radius: 28px !important;
+  background-color: #f5a624 !important;
+
+  border-color: #f5a624 !important;
+  padding-top: 1% !important;
+  padding-bottom: 1% !important;
+  font-size: 23px !important;
+  margin-bottom: 10%;
+  border-width: 0px;
+  margin-top: 10%;
+  color: white;
+}
+.styleProfil .button {
+  border-radius: 28px !important;
+  background-color: #f5a624 !important;
+
+  border-color: #f5a624 !important;
+  padding-top: 1% !important;
+  padding-bottom: 1% !important;
+  font-size: 23px !important;
+  margin-bottom: 10%;
+  border-width: 0px;
+  margin-top: 10%;
+  margin-right: 2%;
+  color: white;
+}
+
+.modalStyle .buttonModal {
+  background-color: #f4a521 !important;
+  font-size: 0.8rem !important;
+  border-radius: 5px !important;
+  border: 2px solid #f4a521 !important;
+  margin: 5px !important;
+  font-size: 0.8rem !important;
+  color: white !important;
+}
+
+.styleProfil .fas {
+  font-size: 0.8rem;
+  padding: 1%;
+  margin-top: 2%;
+  color: #f4a521;
+}
+.styleProfil .signOut1 {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.styleProfil .formProfil {
+  text-align: center;
+}
+.styleProfil .signOut {
+  text-align: center;
+  margin-top: 0px;
+}
+.styleProfil .nomProfil {
+  font-size: 20px;
+}
+.styleProfil .center {
+  text-align: center;
+}
+.styleProfil .addImage {
+  margin-bottom: 30px;
+}
+.styleProfil .textProfil {
+  color: #4a4a4a;
+  text-align: center;
+  margin-top: -3%;
+}
+
+.styleProfil .textProfilTitre {
+  color: #f4a521;
+}
+
+.styleProfil .restaurantLogo {
+  max-width: 200px;
+}

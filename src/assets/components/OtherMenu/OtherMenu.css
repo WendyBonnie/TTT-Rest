@@ -1,0 +1,31 @@
+.menuContain .carousel {
+  width: 100%;
+}
+
+.menuContain {
+}
+
+.menuContain .menu {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  border-radius: 12px 9px 12px;
+
+  border: none;
+  color: #555;
+  padding: 30px 30px 58px 30px;
+}
+
+.menuContain .bouton {
+  font-size: 23px;
+  margin: 2%;
+  padding: 2%;
+  background-color: #f4a521;
+  color: white;
+  font-size: 19px;
+  border-radius: 28px;
+  border: 0px solid #4a4a4a !important;
+}
+
+.menuContain .maxFile {
+  font-size: 12px;
+}

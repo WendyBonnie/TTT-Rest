@@ -1,0 +1,56 @@
+.monAbonnement {
+  border-radius: 28px;
+  background: #ffffff;
+  border: none;
+  color: #555;
+  padding: 6px 10px 6px 0;
+  box-shadow: 1px 1px 3px #999;
+  padding: 29px;
+  margin-top: 2%;
+  text-align: center;
+}
+
+.monAbonnement .ajouterDoc {
+  border-radius: 12px 9px 12px;
+  background: #ffffff;
+  border: none;
+  color: #555;
+  padding: 6px 10px 6px 0;
+  box-shadow: 1px 1px 3px #999;
+  padding: 29px;
+  border-left: 8px solid #f4a521;
+  text-align: center;
+  margin-top: 2%;
+}
+.monAbonnement .infoAbonnement .annulation {
+  text-decoration: none;
+  color: #f4a521;
+  font-size: large;
+}
+
+.submitButton {
+  border-radius: 28px !important;
+  background-color: #f5a624 !important;
+  width: 100%;
+  border-color: #f5a624 !important;
+  padding-top: 3% !important;
+  padding-bottom: 3% !important;
+  font-size: 23px !important;
+  margin-bottom: 10%;
+  margin-top: 8%;
+}
+
+@media only screen and (min-device-width: 1024px) {
+  .monAbonnement{
+    margin-top: 0%;
+    box-shadow: none
+    
+  }
+
+  .submitButton{
+    width: 38%;
+    padding-top:0%!important;
+    padding-bottom:0%!important;
+
+  }
+}

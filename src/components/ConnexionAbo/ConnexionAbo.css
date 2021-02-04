@@ -1,0 +1,48 @@
+.connexionAbo-container {
+  font-family: "Montserrat", sans-serif;
+  background: #ffffff;
+  font: bold 12px;
+  font-family: "Montserrat", sans-serif;
+  width: 40%;
+  margin: auto;
+  margin-bottom: 45px;
+  border-radius: 12px 9px 12px;
+  border: none;
+  color: #555;
+  border-left: 8px solid #f4a521;
+  box-shadow: 1px 1px 3px #999;
+  padding: 30px 70px;
+  margin-top: 130px;
+}
+
+.connexionAbo-container .sign-up {
+  background-color: #f4a521;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  border: 2px solid #f4a521 !important;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.connexionAbo-container .sign-up:hover,
+.connexionAbo-container .sign-up:active {
+  background-color: white;
+  color: #f4a521;
+}
+
+.connexionAbo-container .mdp,
+.connexionAbo-container .inscription {
+  color: #555;
+}
+.connexionAbo-container .mdp:hover,
+.connexionAbo-container .inscription:hover {
+  color: #f4a521;
+  text-decoration: none;
+}
+
+.connexionAbo-container .mdp {
+  margin-bottom: 20px;
+}
+.connexionAbo-container .titreconnexionAbo {
+  color: #f4a521;
+  margin-bottom: 20px;
+}

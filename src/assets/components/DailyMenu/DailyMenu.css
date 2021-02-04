@@ -1,0 +1,64 @@
+.dailyMenuContain .menujour {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+
+  border: none;
+  color: #555;
+  padding: 30px 30px 9px 30px;
+}
+.dailyMenuContain {
+  margin-bottom: 40px;
+}
+.dailyMenuContain .bouton {
+  border-radius: 28px !important;
+  background-color: #f5a624 !important;
+  width: 47%;
+  border-color: #f5a624 !important;
+  padding-top: 1% !important;
+  padding-bottom: 1% !important;
+  font-size: 23px !important;
+  margin-bottom: 10%;
+  color: white;
+  border-width: 0px;
+  margin-top: 10%;
+}
+.dailyMenuContain .legend {
+  border-radius: 5px;
+  font-size: 0.8rem;
+  border: 2px solid #4a4a4a !important;
+}
+
+.dailyMenuContain .cardsupp {
+  text-align: center;
+}
+
+.dailyMenuContain .boutonSupprimer {
+  border-radius: 28px !important;
+  background-color: #f5a624 !important;
+
+  border-color: #f5a624 !important;
+  padding-top: 1% !important;
+  padding-bottom: 1% !important;
+  font-size: 23px !important;
+  margin-bottom: 10%;
+  color: white;
+  border-width: 0px;
+}
+
+.dailyMenuContain .colMenu {
+  text-align: center;
+}
+
+.dailyMenuContain .formMenu {
+  display: inline-block;
+  text-align: center;
+  align-items: center;
+}
+
+.dailyMenuContain .bouton:hover,
+.dailyMenuContain .boutonSupprimer:hover,
+.dailyMenuContain .boutonSupprimer:active,
+.dailyMenuContain .bouton:active {
+  background-color: white;
+  color: #f4a521;
+}

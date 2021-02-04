@@ -1,0 +1,66 @@
+.personnel {
+  background: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  margin: auto;
+  border-radius: 28px;
+  border: none;
+  color: #555;
+
+  padding: 30px 70px;
+}
+
+.personnel .button {
+  border-radius: 28px !important;
+  background-color: #f5a624 !important;
+  margin-left: 2%;
+  border-color: #f5a624 !important;
+  padding-top: 1% !important;
+  padding-bottom: 1% !important;
+  font-size: 19px !important;
+
+  color: white;
+  border-width: 0px;
+}
+.personnel .titleWaiter {
+  text-align: center;
+  margin-top: 20px;
+  padding-bottom: 5%;
+}
+.personnel .affiliation {
+  text-align: center;
+  margin-bottom: 10%;
+}
+
+.personnel .demandeAffiliation {
+  margin-top: 20px;
+  margin-bottom: 10%;
+  color: #f4a521;
+}
+
+.personnel .colAffiliation {
+  text-align: center;
+}
+
+.personnel .inputAffi {
+  border-radius: 28px;
+  border-width: 1px;
+  border-color: #9c9c9c14;
+  margin-bottom: 8%;
+  padding: 1%;
+
+  box-shadow: 1px 1px 1px #999;
+}
+.personnel .title-container {
+  text-align: center;
+}
+.personnel .articles {
+  text-align: center;
+}
+.personnel .crewStyle {
+  margin-bottom: 15%;
+}
+.personnel .serveurDiv {
+  border-radius: 28px;
+  margin: 3%;
+  padding: 10%;
+}

@@ -1,0 +1,12 @@
+.coForm .submitButton {
+  background-color: #f4a521;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  border: 2px solid #f4a521 !important;
+  color: white;
+}
+.coForm .submitButton:hover,
+.coForm .submitButton:active {
+  background-color: white;
+  color: #f4a521;
+}

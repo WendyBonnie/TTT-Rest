@@ -1,0 +1,11 @@
+.deconnect .signOut {
+  text-align: center;
+  margin-top: 10px;
+  color: white;
+  background-color: #f4a521;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  border: 2px solid #f4a521 !important;
+  margin: 5px;
+  font-size: 17px;
+}

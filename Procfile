@@ -1,1 +1,1 @@
-web: /app/bin/www
+web: react-scripts start

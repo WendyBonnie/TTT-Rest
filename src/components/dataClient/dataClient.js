@@ -21,7 +21,7 @@ class DataClient extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/restaurateur/getDataClient", options)
+    fetch("https://back-end.osc-fr1.scalingo.io/restaurateur/getDataClient", options)
       .then((response) => {
         return response.json();
       })

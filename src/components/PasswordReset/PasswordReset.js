@@ -46,7 +46,7 @@ class PasswordReset extends Component {
       body: JSON.stringify(data),
     };
 
-    fetch("http://localhost:8080/serveur/password-reset", options)
+    fetch("https://back-end.osc-fr1.scalingo.io/serveur/password-reset", options)
       .then((response) => response.json())
       .then(
         (responseObject) => {

@@ -118,7 +118,7 @@ class Profil extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/restaurateur/profil", options)
+    fetch("https://back-end.osc-fr1.scalingo.io/restaurateur/profil", options)
       .then((response) => {
         return response.json();
       })
@@ -144,7 +144,7 @@ class Profil extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/restaurateur/delete", options)
+    fetch("https://back-end.osc-fr1.scalingo.io/restaurateur/delete", options)
       .then((response) => {
         return response.json();
       })
@@ -182,7 +182,7 @@ class Profil extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/restaurateur/profil/edit", options)
+    fetch("https://back-end.osc-fr1.scalingo.io/restaurateur/profil/edit", options)
       .then((response) => {
         return response.json();
       })
@@ -215,7 +215,7 @@ class Profil extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/restaurateur/profil/edit/logo", options)
+    fetch("https://back-end.osc-fr1.scalingo.io/restaurateur/profil/edit/logo", options)
       .then((response) => {
         return response.json();
       })
@@ -249,7 +249,7 @@ class Profil extends Component {
           <form onSubmit={this.modifProfilLogo} className="formLogo">
             <img
               className="restaurantLogo"
-              src={"http://localhost:8080/" + this.state.profil.logo}
+              src={"https://back-end.osc-fr1.scalingo.io/" + this.state.profil.logo}
             ></img>
             <br />
             <br />

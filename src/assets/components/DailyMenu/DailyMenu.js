@@ -31,7 +31,10 @@ class DailyMenu extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/restaurateur/dailymenu/delete", options)
+    fetch(
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/dailymenu/delete",
+      options
+    )
       .then((response) => {
         return response.json();
       })
@@ -61,7 +64,10 @@ class DailyMenu extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/restaurateur/dailymenu/add", options)
+    fetch(
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/dailymenu/add",
+      options
+    )
       .then((response) => {
         return response.json();
       })
@@ -86,7 +92,7 @@ class DailyMenu extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/restaurateur/menu", options)
+    fetch("https://back-end.osc-fr1.scalingo.io/restaurateur/menu", options)
       .then((response) => {
         return response.json();
       })
@@ -110,7 +116,10 @@ class DailyMenu extends Component {
       return (
         <Card.Img
           variant="top"
-          src={"http://localhost:8080/" + this.state.menu.dailyMenu.picture}
+          src={
+            "https://back-end.osc-fr1.scalingo.io/" +
+            this.state.menu.dailyMenu.picture
+          }
           className="dailyMenu"
           alt="Menu du Jour"
         />

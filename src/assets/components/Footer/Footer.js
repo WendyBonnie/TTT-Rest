@@ -26,7 +26,10 @@ class Footer extends Component {
               >
                 Condition Général
               </Nav.Link>
-              <Nav.Link href="https://tipourboire.com" className="textFooter">
+              <Nav.Link
+                href="mailto:contact@tipourboire.com"
+                className="textFooter"
+              >
                 Contact
               </Nav.Link>
             </Nav>
@@ -34,7 +37,11 @@ class Footer extends Component {
               {/*<Nav.Link href="#deets" className="textFooter">
                 Langues
     </Nav.Link>*/}
-              <Nav.Link eventKey={2} href="https://tipourboire.com" className="textFooter">
+              <Nav.Link
+                eventKey={2}
+                href="https://tipourboire.com"
+                className="textFooter"
+              >
                 A propos
               </Nav.Link>
             </Nav>

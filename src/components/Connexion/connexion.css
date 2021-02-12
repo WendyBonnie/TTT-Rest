@@ -2,14 +2,13 @@
   color: #f5a624 !important;
 }
 
-
 .connexion-container h1 {
   font-size: 28px;
 }
 
 .connexion-container .form-control {
   border-radius: 28px !important;
-  width:50%!important
+  width: 50% !important;
 }
 
 .connexion .inscrip {
@@ -25,8 +24,9 @@
   font-size: 19px !important;
 }
 .connexion-container .sign-up:hover {
-  background-color: white;
-  color: #f5a624;
+  background-color: rgba(255, 102, 0, 0.774) !important;
+  color: white !important;
+  border-color: yellow !important;
 }
 
 .connexion-container .mdp,
@@ -58,37 +58,35 @@
   padding-right: 5px;
 }
 
-
 @media only screen and (min-device-width: 1024px) {
-  .connexion-container .imageDeskRestau{
+  .connexion-container .imageDeskRestau {
     display: block;
     background-color: #4a4a4a;
     background-image: url("/image/drink (7).jpg");
     background-repeat: no-repeat;
     width: 100%;
-
   }
 
-  .connexion-container .sizeForm{
-    width: 50%!important;
+  .connexion-container .sizeForm {
+    width: 50% !important;
   }
 
-  .connexion-container .connexionPass{
+  .connexion-container .connexionPass {
     padding-top: 10%;
     padding-bottom: 10%;
   }
-.connexion-container .colMembre{
-  padding-left: 0%!important;
-}
-  .connexion-container .sign-up{
-    width:32%!important;
-    margin-bottom:3%
+  .connexion-container .colMembre {
+    padding-left: 0% !important;
   }
-  .connexion-container{
-    margin-right: 0%!important;
+  .connexion-container .sign-up {
+    width: 32% !important;
+    margin-bottom: 3%;
+  }
+  .connexion-container {
+    margin-right: 0% !important;
   }
 
-  .connexion-container .mdp{
-    text-align: left!important;
+  .connexion-container .mdp {
+    text-align: left !important;
   }
 }

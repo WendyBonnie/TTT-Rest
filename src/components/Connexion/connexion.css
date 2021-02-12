@@ -24,9 +24,7 @@
   font-size: 19px !important;
 }
 .connexion-container .sign-up:hover {
-  background-color: rgba(255, 102, 0, 0.774) !important;
-  color: white !important;
-  border-color: yellow !important;
+  background-color: #f5a624 !important;
 }
 
 .connexion-container .mdp,

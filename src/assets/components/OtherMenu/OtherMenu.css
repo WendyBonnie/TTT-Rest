@@ -25,6 +25,11 @@
   border-radius: 28px;
   border: 0px solid #4a4a4a !important;
 }
+.menuContain .bouton:hover {
+  background-color: rgba(255, 102, 0, 0.774) !important;
+  color: white !important;
+  border-color: yellow !important;
+}
 
 .menuContain .maxFile {
   font-size: 12px;

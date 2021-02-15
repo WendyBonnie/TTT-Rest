@@ -38,6 +38,11 @@
   margin-top: 10%;
   color: white;
 }
+.styleProfil .buttonVal:hover {
+  background-color: rgba(255, 102, 0, 0.774) !important;
+  color: white !important;
+  border-color: yellow !important;
+}
 .styleProfil .button {
   border-radius: 28px !important;
   background-color: #f5a624 !important;
@@ -52,6 +57,11 @@
   margin-right: 2%;
   color: white;
 }
+.styleProfil .button:hover {
+  background-color: rgba(255, 102, 0, 0.774) !important;
+  color: white !important;
+  border-color: yellow !important;
+}
 
 .modalStyle .buttonModal {
   background-color: #f4a521 !important;
@@ -61,6 +71,11 @@
   margin: 5px !important;
   font-size: 0.8rem !important;
   color: white !important;
+}
+.modalStyle .buttonModal:hover {
+  background-color: rgba(255, 102, 0, 0.774) !important;
+  color: white !important;
+  border-color: yellow !important;
 }
 
 .styleProfil .fas {

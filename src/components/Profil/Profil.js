@@ -53,7 +53,7 @@ class Profil extends Component {
               this.props.history.push("/abonnement");
             }}
           >
-            Devenir Premium !<br />
+            Souscrire à l'abonnement Premium <br />
           </button>
         </div>
       );
@@ -182,7 +182,10 @@ class Profil extends Component {
       headers: headers,
     };
 
-    fetch("https://back-end.osc-fr1.scalingo.io/restaurateur/profil/edit", options)
+    fetch(
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/profil/edit",
+      options
+    )
       .then((response) => {
         return response.json();
       })
@@ -215,7 +218,10 @@ class Profil extends Component {
       headers: headers,
     };
 
-    fetch("https://back-end.osc-fr1.scalingo.io/restaurateur/profil/edit/logo", options)
+    fetch(
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/profil/edit/logo",
+      options
+    )
       .then((response) => {
         return response.json();
       })
@@ -242,14 +248,15 @@ class Profil extends Component {
 
   render() {
     return (
-      <Container className="styleProfil ">
-        <h2 className="title">Votre Profil</h2>
-
-        <Col className="addImage ">
+      <Container className="styleProfil">
+        <Col className="addImage">
+          <h1 className="title">Mon Logo </h1>
           <form onSubmit={this.modifProfilLogo} className="formLogo">
             <img
               className="restaurantLogo"
-              src={"https://back-end.osc-fr1.scalingo.io/" + this.state.profil.logo}
+              src={
+                "https://back-end.osc-fr1.scalingo.io/" + this.state.profil.logo
+              }
             ></img>
             <br />
             <br />
@@ -263,6 +270,7 @@ class Profil extends Component {
         <Row>
           {" "}
           <Col md={12} className="formProfil ">
+            <h1 className="title">Mes informations </h1>
             <p>
               {this.state.editing ? (
                 <h1 className="textProfilTitre">
@@ -291,6 +299,7 @@ class Profil extends Component {
                 />
               )}
             </p>
+
             <p>
               {this.state.editing ? (
                 <span className="textProfil">{this.state.profil.bossName}</span>
@@ -343,18 +352,25 @@ class Profil extends Component {
 
             {this.buttonCancel()}
           </Col>
-          <Col md={12} className="formProfil nomProfil center">
-            <p className="qr">QR CODE Ticket </p>
-            <QrCodeTicket
-              className="qrCodeTicket"
-              restaurantName={this.state.profil.restaurantName}
-            />
-
-            <p className="qr">QR CODE </p>
-            <QrCode
-              className="qrCode"
-              restaurantName={this.state.profil.restaurantName}
-            />
+          <Col className="formProfil nomProfil center">
+            <h1 className="title">Mes QR Codes </h1>
+            <Row>
+              <Col xs={6}>
+                <p className="qr">QR CODE Ticket </p>
+                <QrCodeTicket
+                  className="qrCodeTicket"
+                  restaurantName={this.state.profil.restaurantName}
+                />
+              </Col>
+              <Col xs={6}>
+                <p className="qr"> QR CODE Table </p>
+                <QrCode
+                  className="qrCode"
+                  restaurantName={this.state.profil.restaurantName}
+                />
+              </Col>
+            </Row>
+            <br />
             <Button
               onClick={() => {
                 window.confirm("Voulez vous vous déconnecter ?");

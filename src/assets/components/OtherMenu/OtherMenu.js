@@ -150,7 +150,7 @@ class OtherMenu extends Component {
           <Col md={{ span: 6, offset: 3 }} className="menu">
             <h2>Mes Menus</h2>
           </Col>
-          <Col md={12}>
+          <Col className="menuOther" md={12}>
             <form onSubmit={this.onSubmit}>
               <input
                 type="file"

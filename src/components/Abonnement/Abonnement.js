@@ -21,7 +21,7 @@ class Abonnement extends Component {
       <Container className="monAbonnement">
         <Row className="infoAbonnement">
           <Col>
-            <h3>Votre abonnement premium restaurateur TipPourBoire</h3>
+            <h3>Votre abonnement premium restaurateur Tipourboire</h3>
             <Elements className="cbInput" stripe={stripePromise}>
               <CheckoutForm />
             </Elements>

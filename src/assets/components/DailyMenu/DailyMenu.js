@@ -5,6 +5,7 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 
 import "./DailyMenu.css";
+import { Link } from "react-router-dom";
 
 class DailyMenu extends Component {
   constructor(props) {
@@ -135,7 +136,9 @@ class DailyMenu extends Component {
       <Container className="dailyMenuContain">
         <Row>
           <Col md={{ span: 6, offset: 3 }}>
-            <h2 className="menujour">Menu du Jour</h2>
+            <Link className="linkButton" to="/menus">
+              <h1 className="menujour">Menu du Jour</h1>
+            </Link>
           </Col>
           <Col className="colMenu" md={12}>
             <form className="formMenu" onSubmit={this.onSubmit}>

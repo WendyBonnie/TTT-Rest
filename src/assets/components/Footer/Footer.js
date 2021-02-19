@@ -14,7 +14,7 @@ class Footer extends Component {
       <div className="footer">
         <Navbar fixed="bottom" collapseOnSelect expand="lg" bg="#edeaea">
           <Navbar.Brand href="#home" className="textFooter">
-            @TiPourBoire
+            @Tipourboire
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
@@ -24,7 +24,7 @@ class Footer extends Component {
                 target="_blanck"
                 className="textFooter"
               >
-                Condition Général
+                Conditions Générales
               </Nav.Link>
               <Nav.Link
                 href="mailto:contact@tipourboire.com"

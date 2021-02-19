@@ -15,7 +15,7 @@ class QrCodeTicket extends Component {
       this.props.restaurantName;
     return (
       <Row className="qrCode">
-        <QRCode className="qr" value={encodeURI(uri)} size={250} />
+        <QRCode className="qr" src="coucou" value={encodeURI(uri)} size={150} />
       </Row>
     );
   }

@@ -4,6 +4,7 @@ import "@brainhubeu/react-carousel/lib/style.css";
 import Carousel, { Dots } from "@brainhubeu/react-carousel";
 import "./Personnel.css";
 import Icon from "react-fa";
+import { Link } from "react-router-dom";
 class Personnel extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +20,10 @@ class Personnel extends Component {
       headers: headers,
     };
 
-    fetch("https://back-end.osc-fr1.scalingo.io/restaurateur/management/waiter-list", options)
+    fetch(
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/management/waiter-list",
+      options
+    )
       .then((response) => {
         return response.json();
       })
@@ -74,7 +78,7 @@ class Personnel extends Component {
                 );
             }}
           >
-            X
+            Supprimer
           </button>
         </div>
       );
@@ -103,7 +107,10 @@ class Personnel extends Component {
       headers: headers,
     };
 
-    fetch("https://back-end.osc-fr1.scalingo.io/restaurateur/management/affiliation", options)
+    fetch(
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/management/affiliation",
+      options
+    )
       .then((response) => {
         return response.json();
       })
@@ -130,7 +137,10 @@ class Personnel extends Component {
       headers: headers,
     };
 
-    fetch("https://back-end.osc-fr1.scalingo.io/restaurateur/management/referent", options)
+    fetch(
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/management/referent",
+      options
+    )
       .then((response) => {
         return response.json();
       })
@@ -186,7 +196,9 @@ class Personnel extends Component {
       <Container className="container personnel">
         <Row>
           <Col>
-            <h2 className="title-container">Gestion de mon équipe</h2>
+            <Link className="linkButton" to="/equipe">
+              <h1 className="title-container">Gestion de mon équipe</h1>
+            </Link>
           </Col>
         </Row>
         <Row>
@@ -233,7 +245,7 @@ class Personnel extends Component {
             {this.state.message}
           </Col>
         </Row>
-        <h2 className="titleWaiter">Votre équipe </h2>
+        <h1 className="titleWaiter">Mon équipe </h1>
         {this.crew()}
       </Container>
     );

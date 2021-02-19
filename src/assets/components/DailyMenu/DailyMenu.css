@@ -6,8 +6,14 @@
   color: #555;
   padding: 30px 30px 9px 30px;
 }
+.dailyMenuContain .menujour:hover {
+  color: #f5a624;
+}
 .dailyMenuContain {
   margin-bottom: 40px;
+}
+.dailyMenuContain .linkButton {
+  text-decoration: none;
 }
 .dailyMenuContain .bouton {
   border-radius: 28px !important;

@@ -6,7 +6,7 @@
   font-family: "Montserrat", sans-serif;
   text-align: center;
   border-radius: 12px 9px 12px;
-
+  text-align: center;
   border: none;
   color: #555;
   padding: 30px 30px 58px 30px;
@@ -27,7 +27,9 @@
   color: white !important;
   border-color: yellow !important;
 }
-
+.menuContain .menuOther {
+  text-align: center;
+}
 .menuContain .maxFile {
   font-size: 12px;
 }

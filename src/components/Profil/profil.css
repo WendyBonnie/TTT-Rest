@@ -63,6 +63,10 @@
   border-color: yellow !important;
 }
 
+.styleProfil .profilTitle {
+  text-align: center;
+}
+
 .modalStyle .buttonModal {
   background-color: #f4a521 !important;
   font-size: 0.8rem !important;

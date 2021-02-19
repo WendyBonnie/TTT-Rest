@@ -91,6 +91,11 @@ class DataClient extends Component {
                     sheet="tablexls"
                     buttonText="Télécharger"/>
         <Table id="table-to-xls" striped bordered hover>
+        <th className='colorTitre'>Nom</th>
+         <th className='colorTitre'>Prenom</th>
+        <th className='colorTitre'>Mail</th>
+        <th className='colorTitre'>Téléphone</th>
+        <th className='colorTitre'>Age</th>
         <tbody>
         {this.display()}
         </tbody>

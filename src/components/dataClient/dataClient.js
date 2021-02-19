@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Table from "react-bootstrap/Table";
+import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+import "./dataClient.css";
 
 class DataClient extends Component {
   constructor(props) {
@@ -39,8 +41,10 @@ class DataClient extends Component {
   display = () => {
     return this.state.client.map((element, index) => {
       return (
-        <Table striped bordered hover>
-        <tbody>
+       
+          
+        
+        
           <tr>
             <td type="text" id="firstname" name="firstname">
               {" "}
@@ -63,8 +67,9 @@ class DataClient extends Component {
               {element.age}
             </td>
           </tr>
-        </tbody>
-      </Table>
+        
+     
+     
       )
     })
   }
@@ -75,10 +80,26 @@ class DataClient extends Component {
 
   render() {
     return (
-      <div>  
+      <div className='bloc-data'>  
         <h3>Base de données client</h3>
-        <div>
+        <div class="table-responsive">
+        <ReactHTMLTableToExcel
+                    id="test-table-xls-button"
+                    className="Telecharger"
+                    table="table-to-xls"
+                    filename="tablexls"
+                    sheet="tablexls"
+                    buttonText="Télécharger"/>
+        <Table id="table-to-xls" striped bordered hover>
+        <th className='colorTitre'>Nom</th>
+         <th className='colorTitre'>Prenom</th>
+        <th className='colorTitre'>Mail</th>
+        <th className='colorTitre'>Téléphone</th>
+        <th className='colorTitre'>Age</th>
+        <tbody>
         {this.display()}
+        </tbody>
+        </Table>
         </div>
        
       </div>

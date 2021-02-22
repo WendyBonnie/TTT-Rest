@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import DailyMenu from "../../assets/components/DailyMenu/DailyMenu";
 import Profil from "../Profil/Profil";
 import QrCode from "../../assets/components/QRCode/QrCode";
+import QrCodeTicket from "../../assets/QRCodeTicket/QRCodeTicket";
 import Personnel from "../Personnel/Personnel";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -32,12 +33,44 @@ class HomePage extends Component {
       .then(
         (responseObject) => {
           this.setState({ restaurantName: responseObject.restaurantName });
+          this.setState({ abonne: responseObject.abonne });
         },
 
         (error) => {
           console.log(error);
         }
       );
+  };
+  renderButtonSub = () => {
+    if (this.state.abonne === true) {
+      return (
+        <div>
+          <button
+            className="buttonPremium"
+            variant="primary"
+            onClick={() => {
+              this.props.history.push("/dataClient");
+            }}
+          >
+            Espace premium <br />
+          </button>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <button
+            className="buttonPremium"
+            variant="primary"
+            onClick={() => {
+              this.props.history.push("/abonnement");
+            }}
+          >
+            Souscrire à l'abonnement premium <br />
+          </button>
+        </div>
+      );
+    }
   };
 
   componentDidMount() {
@@ -50,9 +83,27 @@ class HomePage extends Component {
         <Row>
           <Col md={{ span: 6, offset: 3 }}>
             <Personnel className="personnel" />
-            <h2 className="titleQR">Votre QR Code </h2>
-            <QrCode restaurantName={this.state.restaurantName} />
+            <div className="titleQR">{this.renderButtonSub()}</div>
+            <h1 className="titleQR">Mes QR Codes</h1>
+
+            <Row>
+              <Col>
+                <p className="titleQR">QR CODE Ticket </p>
+                <QrCodeTicket
+                  className="qrCodeTicket"
+                  restaurantName={this.state.restaurantName}
+                />
+              </Col>
+              <Col>
+                <p className="titleQR"> QR CODE Table </p>
+                <QrCode
+                  className="qrCode"
+                  restaurantName={this.state.restaurantName}
+                />
+              </Col>
+            </Row>
           </Col>
+
           <Col md={{ span: 6, offset: 3 }}>
             <DailyMenu className="menuhome" />
           </Col>

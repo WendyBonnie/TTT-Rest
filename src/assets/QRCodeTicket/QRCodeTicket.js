@@ -11,11 +11,11 @@ class QrCodeTicket extends Component {
 
   render() {
     let uri =
-      "http://localhost:8080/client/getMenuTicket?restaurantName=" +
+      "https://back-end.osc-fr1.scalingo.io/client/getMenuTicket?restaurantName=" +
       this.props.restaurantName;
     return (
       <Row className="qrCode">
-        <QRCode className="qr" value={encodeURI(uri)} size={250} />
+        <QRCode className="qr" src="coucou" value={encodeURI(uri)} size={150} />
       </Row>
     );
   }

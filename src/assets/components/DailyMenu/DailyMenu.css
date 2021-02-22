@@ -6,8 +6,14 @@
   color: #555;
   padding: 30px 30px 9px 30px;
 }
+.dailyMenuContain .menujour:hover {
+  color: #f5a624;
+}
 .dailyMenuContain {
   margin-bottom: 40px;
+}
+.dailyMenuContain .linkButton {
+  text-decoration: none;
 }
 .dailyMenuContain .bouton {
   border-radius: 28px !important;
@@ -21,6 +27,11 @@
   color: white;
   border-width: 0px;
   margin-top: 10%;
+}
+.dailyMenuContain .bouton:hover {
+  background-color: rgba(255, 102, 0, 0.774) !important;
+  color: white !important;
+  border-color: yellow !important;
 }
 .dailyMenuContain .legend {
   border-radius: 5px;
@@ -44,7 +55,11 @@
   color: white;
   border-width: 0px;
 }
-
+.dailyMenuContain .boutonSupprimer:hover {
+  background-color: rgba(255, 102, 0, 0.774) !important;
+  color: white !important;
+  border-color: yellow !important;
+}
 .dailyMenuContain .colMenu {
   text-align: center;
 }

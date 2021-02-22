@@ -56,7 +56,7 @@ class Connexion extends Component {
     return (
       <Container className="connexion-container">
         <Row>
-          <Col className="connexionPass" md={7}>
+          <Col className="connexionPass" md={7} lg={12}>
             <h1 className="titreCo">Déjà membre ?</h1>
             <h1 className="titreCo">Connectez-vous !</h1>
 

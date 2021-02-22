@@ -14,7 +14,7 @@ class Footer extends Component {
       <div className="footer">
         <Navbar fixed="bottom" collapseOnSelect expand="lg" bg="#edeaea">
           <Navbar.Brand href="#home" className="textFooter">
-            @TiPourBoire
+            @Tipourboire
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
@@ -24,9 +24,12 @@ class Footer extends Component {
                 target="_blanck"
                 className="textFooter"
               >
-                Condition Général
+                Conditions Générales
               </Nav.Link>
-              <Nav.Link href="https://tipourboire.com" className="textFooter">
+              <Nav.Link
+                href="mailto:contact@tipourboire.com"
+                className="textFooter"
+              >
                 Contact
               </Nav.Link>
             </Nav>
@@ -34,7 +37,11 @@ class Footer extends Component {
               {/*<Nav.Link href="#deets" className="textFooter">
                 Langues
     </Nav.Link>*/}
-              <Nav.Link eventKey={2} href="https://tipourboire.com" className="textFooter">
+              <Nav.Link
+                eventKey={2}
+                href="https://tipourboire.com"
+                className="textFooter"
+              >
                 A propos
               </Nav.Link>
             </Nav>

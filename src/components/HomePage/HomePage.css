@@ -1,10 +1,27 @@
 .homepage .qr {
   border: none;
-
-  padding: 50px;
 }
 
 .homepage .titleQR {
   text-align: center;
   font-family: "Montserrat", sans-serif;
+  margin-bottom: 5%;
+}
+
+.homepage .buttonPremium {
+  border-radius: 28px !important;
+  background-color: #f5a624 !important;
+  margin-left: 2%;
+  border-color: #f5a624 !important;
+  padding-top: 1% !important;
+  padding-bottom: 1% !important;
+  font-size: 15px !important;
+
+  color: white;
+  border-width: 0px;
+}
+.homepage .buttonPremium:hover {
+  background-color: rgba(255, 102, 0, 0.774) !important;
+  color: white !important;
+  border-color: yellow !important;
 }

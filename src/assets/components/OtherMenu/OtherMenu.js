@@ -25,7 +25,7 @@ class OtherMenu extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/restaurateur/menu", options)
+    fetch("https://back-end.osc-fr1.scalingo.io/restaurateur/menu", options)
       .then((response) => {
         return response.json();
       })
@@ -70,7 +70,7 @@ class OtherMenu extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/restaurateur/menu/add", options)
+    fetch("https://back-end.osc-fr1.scalingo.io/restaurateur/menu/add", options)
       .then((response) => {
         return response.json();
       })
@@ -100,7 +100,10 @@ class OtherMenu extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/restaurateur/menu/delete", options)
+    fetch(
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/menu/delete",
+      options
+    )
       .then((response) => {
         return response.json();
       })
@@ -123,7 +126,7 @@ class OtherMenu extends Component {
           <Card style={{ width: "100%" }}>
             <Card.Img
               variant="top"
-              src={"http://localhost:8080/" + element.picture}
+              src={"https://back-end.osc-fr1.scalingo.io/" + element.picture}
             />
             <Card.Body>
               <Button
@@ -147,7 +150,7 @@ class OtherMenu extends Component {
           <Col md={{ span: 6, offset: 3 }} className="menu">
             <h2>Mes Menus</h2>
           </Col>
-          <Col md={12}>
+          <Col className="menuOther" md={12}>
             <form onSubmit={this.onSubmit}>
               <input
                 type="file"

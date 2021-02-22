@@ -23,7 +23,40 @@ class Barremenu extends Component {
   }
 
   connect = () => {
-    if (!this.props.login) {
+    if (this.props.login) {
+      return (
+        <Container fluid>
+          <Row className="partie1">
+            <Dropdown className="nav justify-content-right">
+              <Dropdown.Toggle alignRight variant="success" id="dropdown-basic">
+                <img src="/image/user.png" />
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="/Profil">Profil</Dropdown.Item>
+                <Dropdown.Item
+                  onClick={() => {
+                    window.confirm("Voulez vous vous déconnecter ?");
+                    localStorage.clear();
+                    this.props.setLogin(false);
+                    this.props.history.push("/");
+                  }}
+                  href="/"
+                >
+                  Déconnexion
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+
+            <Col className="logoPartie1" md={12}>
+              <Link to="/homepage">
+                <img src="/image/logoJaune.png" />
+              </Link>
+            </Col>
+          </Row>
+        </Container>
+      );
+    } else {
       return (
         <Container fluid>
           <Row className="partie1">
@@ -46,35 +79,12 @@ class Barremenu extends Component {
           </Row>
         </Container>
       );
-    } else {
-      return (
-        <Container fluid>
-          <Row className="partie1">
-            <Dropdown className="nav justify-content-right">
-              <Dropdown.Toggle alignRight variant="success" id="dropdown-basic">
-                <img src="/image/user.png" />
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="/Profil">profil</Dropdown.Item>
-                <Dropdown.Item href="/menus">Menu</Dropdown.Item>
-                <Dropdown.Item href="/equipe">Mon équipe</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-
-            <Col className="logoPartie1" md={12}>
-              <Link to="/homepage">
-                <img src="/image/logoJaune.png" />
-              </Link>
-            </Col>
-          </Row>
-        </Container>
-      );
     }
   };
 
   componentDidUpdate() {
     this.connect();
+    console.log("coucou", this.props.login);
   }
   render() {
     return <div className="barre-de-menu">{this.connect()}</div>;

@@ -24,11 +24,7 @@ class App extends Component {
       login: false,
     };
   }
-  componentDidMount() {
-    if (localStorage.getItem("token") !== null) {
-      this.setState({ login: true });
-    }
-  }
+  
 
   setLogin = (value) => {
     this.setState({ login: value });

@@ -39,7 +39,7 @@ class Profil extends Component {
               this.props.history.push("/dataClient");
             }}
           >
-            Espace premium <br />
+            Accès à mon espace premium <br />
           </button>
         </div>
       );

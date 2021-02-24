@@ -33,6 +33,7 @@ class Barremenu extends Component {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
+                <Dropdown.Item href="/homepage">Accueil</Dropdown.Item>
                 <Dropdown.Item href="/Profil">Profil</Dropdown.Item>
                 <Dropdown.Item
                   onClick={() => {

@@ -24,8 +24,12 @@ class App extends Component {
       login: false,
     };
   }
-  
 
+  componentDidMount() {
+    if (localStorage.getItem("token") != null) {
+      this.setState({ login: true });
+    }
+  }
   setLogin = (value) => {
     this.setState({ login: value });
   };
@@ -50,13 +54,12 @@ class App extends Component {
               path="/profil"
               render={(props) => <Profil setLogin={this.setLogin} {...props} />}
             />
-            <Route path="/dataClient" component={DataClient} /> 
+            <Route path="/dataClient" component={DataClient} />
             <Route path="/menus" component={Menu} />
             <Route path="/equipe" component={Personnel} />
             <Route path="/abonnement" component={Abonnement} />
             <Route path="/passwordRenew" component={PasswordRenew} />
             <Route path="/passwordReset" component={PasswordReset} />
-            
           </Switch>
 
           <Footer />

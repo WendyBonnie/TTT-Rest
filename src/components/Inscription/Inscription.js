@@ -184,18 +184,18 @@ class Inscription extends Component {
               </Form.Group>
               <Row>
                 <Col md={9}>
-                  <Form.Group controlId="formBasicCheckbox">
+                <Form.Group controlId="formBasicCheckbox">
                     <Row style={{ marginLeft: "2px" }}>
-                      <Form.Check type="checkbox" />
                       <a
                         className="cgvLink"
                         href="/CGV_TIPTOTHANK.pdf"
                         target="_blanck"
                       >
-                        Acceptez les CGU
+                        J'ai lu et j'accepte les CGU et CGV
                       </a>
                     </Row>
                   </Form.Group>
+
                 </Col>
                 <Col md={3}>
                   <Button className="submitButton" block type="submit">

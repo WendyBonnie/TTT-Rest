@@ -1,92 +1,68 @@
 .connexion-container a {
   color: #f5a624 !important;
 }
+.connexion-container {
+  margin-top: -8%;
+  background-color: white;
+  border-radius: 28px;
+  padding-top: 10%;
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-bottom: 20%;
+}
 
 .connexion-container h1 {
-  font-size: 28px;
+  font-size: 31px;
 }
 
 .connexion-container .form-control {
   border-radius: 28px !important;
-  width: 50% !important;
 }
 
-.connexion .inscrip {
-  color: #f5a624;
-}
-.connexion-container .sign-up {
-  border-radius: 28px !important;
-  background-color: #f5a624 !important;
-  width: 50%;
-  border-color: #f5a624 !important;
-  padding-top: 1% !important;
-  padding-bottom: 1% !important;
-  font-size: 19px !important;
-}
-.connexion-container .sign-up:hover {
-  background-color: rgb(245, 206, 36) !important;
-  color: white !important;
-  border-color: yellow !important;
-}
-
-.connexion-container .mdp,
-.connexion-container .inscription {
-  color: #555;
-}
-.connexion-container .mdp:hover,
-.connexion-container .inscription:hover {
-  color: #4a4a4a;
-  text-decoration: none;
-}
-
-.connexion-container .mdp {
-  margin-bottom: 10px;
+.forgetpwd {
+  font-size: 10px;
+  color: #e05858;
+  display: inherit;
+  margin-top: -20px;
+  text-decoration: none !important;
+  margin-top: 10px;
   text-align: right;
-  padding-right: 8px;
-  color: #f5a624;
-}
-.connexion-container .politique {
-  text-align: right;
-  font-size: 14px;
-  padding-right: 4px;
-}
-.connexion-container .titreCo {
-  color: #4a4a4a;
 }
 
-.form-row > [class*="col-"] {
-  padding-right: 5px;
+.blocCompte {
+  text-align: right;
+}
+.connectButton {
+  border-radius: 28px;
+  border-color: #f5a624;
+  background-color: #f5a624;
+  color: white;
+  padding-left: 28%;
+  padding-right: 28%;
+}
+
+.connectButton:hover {
+  background-color: #555;
+}
+
+.text2 {
+  font-size: 30px;
+  font-weight: lighter;
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
+.alignRight {
+  text-align: right;
+}
+
+.form-control {
+  padding: 2.375rem 0.75rem;
+  margin-bottom: 3%;
 }
 
 @media only screen and (min-device-width: 1024px) {
-  .connexion-container .imageDeskRestau {
-    display: block;
-    background-color: #4a4a4a;
-    background-image: url("/image/drink (7).jpg");
-    background-repeat: no-repeat;
-    width: 100%;
-  }
-
-  .connexion-container .sizeForm {
-    width: 50% !important;
-  }
-
-  .connexion-container .connexionPass {
-    padding-top: 10%;
-    padding-bottom: 10%;
-  }
-  .connexion-container .colMembre {
-    padding-left: 0% !important;
-  }
-  .connexion-container .sign-up {
-    width: 32% !important;
-    margin-bottom: 3%;
-  }
   .connexion-container {
-    margin-right: 0% !important;
-  }
-
-  .connexion-container .mdp {
-    text-align: left !important;
+    margin-top: 0%;
   }
 }

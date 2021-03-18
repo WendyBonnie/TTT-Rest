@@ -2,25 +2,26 @@
   color: #f5a624 !important;
 }
 .connexion-container {
-  margin-top: -8%;
+  margin-top: -5%;
   background-color: white;
   border-radius: 28px;
-  padding-top: 10%;
+  padding-top: 3%;
   padding-left: 10%;
   padding-right: 10%;
-  margin-bottom: 20%;
 }
 
 .connexion-container h1 {
-  font-size: 31px;
+  font-size: 28px;
+  margin-top: 5%;
 }
 
 .connexion-container .form-control {
   border-radius: 28px !important;
+  margin-top: 5%;
 }
 
 .forgetpwd {
-  font-size: 10px;
+  font-size: 16px;
   color: #e05858;
   display: inherit;
   margin-top: -20px;
@@ -46,7 +47,7 @@
 }
 
 .text2 {
-  font-size: 30px;
+  font-size: 22px;
   font-weight: lighter;
   margin-top: 10px;
   margin-bottom: -10px;
@@ -65,4 +66,28 @@
   .connexion-container {
     margin-top: 0%;
   }
+  .connexion-container h1 {
+    font-size: 28px !important;
+    margin-top: 0%;
+  }
+  .connexion-container .form-control {
+    border-radius: 28px !important;
+    margin-top: 5% !important;
+  }
+  .text2 {
+    font-size: 22px;
+    font-weight: lighter;
+    margin-top: 10px;
+    margin-bottom: -10px;
+  }
+  .forgetpwd {
+    font-size: 14px;
+    color: #e05858;
+    display: inherit;
+    margin-top: -20px;
+    text-decoration: none !important;
+    margin-top: 10px;
+    text-align: right;
+  }
+  
 }

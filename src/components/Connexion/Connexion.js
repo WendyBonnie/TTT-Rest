@@ -72,11 +72,11 @@ class Connexion extends Component {
             value={this.state.email}
           />
           <Form.Control
-            name="email"
-            type="email"
+            name="password"
+            type="password"
             ClassName="formMail"
             placeholder="Votre mot de passe"
-            id="email"
+            id="password"
             onChange={this.handleInput}
             value={this.state.password}
           />

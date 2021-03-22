@@ -67,7 +67,7 @@ class Barremenu extends Component {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="/Home">Inscription</Dropdown.Item>
+                <Dropdown.Item href="/inscription">Inscription</Dropdown.Item>
                 <Dropdown.Item href="/">Connexion</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
@@ -85,7 +85,6 @@ class Barremenu extends Component {
 
   componentDidUpdate() {
     this.connect();
-    console.log("coucou", this.props.login);
   }
   render() {
     return <div className="barre-de-menu">{this.connect()}</div>;

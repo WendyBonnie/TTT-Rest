@@ -47,7 +47,12 @@ class App extends Component {
                 <Connexion setLogin={this.setLogin} {...props} />
               )}
             />
-            <Route path="/homepage" component={HomePage} />
+            <Route
+              path="/homepage"
+              render={(props) => (
+                <HomePage setLogin={this.setLogin} {...props} />
+              )}
+            />
 
             <Route path="/inscription" component={Inscription} />
             <Route

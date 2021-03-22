@@ -11,7 +11,7 @@ function QrHookTicket() {
     JSON.parse(localStorage.getItem("propsRestaurant"));
   useEffect(() => {
     console.log("dsqdsq", JSON.parse(localStorage.getItem("propsRestaurant")));
-    new QRCODE(document.getElementById("qrCodeRef"), {
+    new QRCODE(document.getElementById("qrCodeTicketRef"), {
       text: encodeURI(uri),
       width: 200,
       height: 200,
@@ -28,7 +28,7 @@ function QrHookTicket() {
       subTitleTop: 50, // draws y coordinates. default is 0
     });
   }, []);
-  return <div id="qrCodeRef" />;
+  return <div id="qrCodeTicketRef" />;
 }
 class QrCodeTicket extends Component {
   constructor(props) {

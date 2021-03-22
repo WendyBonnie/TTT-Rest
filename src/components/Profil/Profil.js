@@ -15,13 +15,7 @@ class Profil extends Component {
       redirect: false,
     };
   }
-  redirect = () => {
-    if (this.state.redirect) {
-      localStorage.clear();
-      this.props.setLogin(false);
-      return <Redirect to="/connexion" />;
-    }
-  };
+
   handleShow = () => {
     this.setState({ show: true });
   };
@@ -126,7 +120,12 @@ class Profil extends Component {
         (responseObject) => {
           const monProfil = responseObject;
           this.setState({ profil: monProfil });
-          console.log(this.state);
+
+          localStorage.setItem(
+            "propsRestaurant",
+            JSON.stringify(responseObject.restaurantName)
+          );
+          console.log();
         },
 
         (error) => {
@@ -194,6 +193,8 @@ class Profil extends Component {
         (responseObject) => {
           this.setState({ message: responseObject.message });
           this.setState({ editing: true });
+
+          console.log("ro", responseObject);
         },
 
         (error) => {
@@ -364,6 +365,7 @@ class Profil extends Component {
               </Col>
               <Col xs={6}>
                 <p className="qr"> QR CODE Table </p>
+
                 <QrCode
                   className="qrCode"
                   restaurantName={this.state.profil.restaurantName}
@@ -374,7 +376,7 @@ class Profil extends Component {
             <Button
               onClick={() => {
                 window.confirm("Voulez vous vous déconnecter ?");
-                localStorage.clear();
+
                 this.props.setLogin(false);
                 this.props.history.push("/");
               }}

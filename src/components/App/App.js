@@ -29,9 +29,6 @@ class App extends Component {
     if (localStorage.getItem("token") != null) {
       this.setState({ login: true });
     }
-    window.addEventListener("beforeunload", () =>
-      localStorage.removeItem("token")
-    );
   }
   setLogin = (value) => {
     this.setState({ login: value });
@@ -50,7 +47,12 @@ class App extends Component {
                 <Connexion setLogin={this.setLogin} {...props} />
               )}
             />
-            <Route path="/homepage" component={HomePage} />
+            <Route
+              path="/homepage"
+              render={(props) => (
+                <HomePage setLogin={this.setLogin} {...props} />
+              )}
+            />
 
             <Route path="/inscription" component={Inscription} />
             <Route

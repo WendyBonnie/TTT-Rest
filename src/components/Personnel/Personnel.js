@@ -222,9 +222,12 @@ class Personnel extends Component {
               onClick={this.addAffiliation}
               className="button"
             />
+            <p>
+              "Le serveur doit avoir crée son compte avant de pouvoir s'affilier à un restaurant"
+            </p>
             <Col md={12}>
               <label className="demandeAffiliation">
-                Création compte référent pour le pourboire commun
+                Demande d'affiliation d'un serveur referent (pourboire commun)
               </label>
             </Col>
             <input

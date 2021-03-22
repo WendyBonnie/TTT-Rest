@@ -56,58 +56,50 @@ class Connexion extends Component {
     return (
       <Container className="connexion-container">
         <Row>
-          <Col className="connexionPass" md={7} lg={12}>
-            <h1 className="titreCo">Déjà membre ?</h1>
-            <h1 className="titreCo">Connectez-vous !</h1>
-
-            <Form className="identifiants">
-              <InputGroup className="mb-2 sizeForm">
-                <FormControl
-                  name="email"
-                  id="inlineFormInputGroup"
-                  placeholder="Email"
-                  onChange={this.handleInput}
-                />
-              </InputGroup>
-
-              <Form.Label htmlFor="inlineFormInput" srOnly>
-                Mot de passe
-              </Form.Label>
-              <Form.Control
-                name="password"
-                className="mb-2"
-                id="inlineFormInput"
-                placeholder="Mot de passe"
-                type="password"
-                onChange={this.handleInput}
-              />
-
-              <Link className="inscrip" to="/passwordReset">
-                <p className="mdp">Mot de passe oublié ?</p>
-              </Link>
-
-              <Button
-                type="submit"
-                className="mb-2"
-                className="sign-up"
-                onClick={this.addLogin}
-              >
-                Se connecter
-              </Button>
-
-              <Col className="colMembre" xs={12}>
-                <p className="membre">
-                  Pas encore membre ?
-                  <Link className="compte" to="/inscription">
-                    {""} Créer mon compte
-                  </Link>
-                </p>
-              </Col>
-            </Form>
-            {this.state.message}
+          <Col>
+            <h1>Déja membre ? </h1>
+            <h1>Connectez-vous!</h1>
           </Col>
-          <Col className="imageDeskRestau" md={5}></Col>
         </Row>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Control
+            name="email"
+            type="email"
+            ClassName="formMail"
+            placeholder="Votre e-mail"
+            id="email"
+            onChange={this.handleInput}
+            value={this.state.email}
+          />
+          <Form.Control
+            name="password"
+            type="password"
+            ClassName="formMail"
+            placeholder="Votre mot de passe"
+            id="password"
+            onChange={this.handleInput}
+            value={this.state.password}
+          />
+        </Form.Group>
+        <Col className="colMdp" xs={12} md={12}>
+          <Link className="forgetpwd" to="/passwordReset">
+            <p>Mot de passe oublié ?</p>
+          </Link>
+        </Col>
+        <Col md={12} className="blocCompte">
+          <Button className="connectButton" onClick={this.addLogin}>
+            Se connecter
+          </Button>
+          <p>{this.state.message}</p>
+        </Col>
+        <Col className="alignRight">
+          <Form.Label className="text2">
+            Pas encore membre ?{" "}
+            <Link className="creerCompte" to="/Inscription">
+              Créer mon compte
+            </Link>
+          </Form.Label>
+        </Col>
       </Container>
     );
   }

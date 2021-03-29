@@ -21,9 +21,10 @@ function QrHookTicket() {
       titleBackgroundColor: "#fff", // background color. default is "#fff"
       titleHeight: 70, // height, including subTitle. default is 0
       titleTop: 25, // draws y coordinates. default is 30
-      subTitle: "Le nouveau pourboire digital", // content
+      subTitle: "Scannez, Donnez avec Tipourboire", // content
+      subTitleFont: "5px Arial",
 
-      subTitleFont: "15px Arial", // font. default is "14px Arial"
+      subTitleFont: "13px Arial", // font. default is "14px Arial"
       subTitleColor: "#f5a624", // color. default is "4F4F4F"
       subTitleTop: 50, // draws y coordinates. default is 0
     });

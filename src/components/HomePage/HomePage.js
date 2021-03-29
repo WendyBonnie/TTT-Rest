@@ -89,6 +89,10 @@ class HomePage extends Component {
             <Row>
               <Col>
                 <p className="titleQR">QR CODE Ticket </p>
+                <p className="qrSub">
+                  à insérer sur vos tickets d'addition depuis votre logiciel de
+                  caisse
+                </p>
                 <QrCodeTicket
                   className="qrCodeTicket"
                   restaurantName={this.state.restaurantName}
@@ -96,6 +100,9 @@ class HomePage extends Component {
               </Col>
               <Col>
                 <p className="titleQR"> QR CODE Table </p>
+                <p className="qrSub">
+                  à imprimer et coller sur les tables de votre restaurant
+                </p>
                 <QrCode
                   className="qrCode"
                   restaurantName={this.state.restaurantName}

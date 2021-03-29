@@ -222,8 +222,10 @@ class Personnel extends Component {
               onClick={this.addAffiliation}
               className="button"
             />
-            <p>
-              "Le serveur doit avoir crée son compte avant de pouvoir s'affilier à un restaurant"
+            <p className="infoAffi">
+              "Si votre serveur n'est pas encore sur Tipourboire. Demandez-lui
+              de créer son compte Tipourboire avant de lui envoyer votre mail
+              d'affiliation"
             </p>
             <Col md={12}>
               <label className="demandeAffiliation">
@@ -244,6 +246,11 @@ class Personnel extends Component {
               onClick={this.addReferent}
               className="button"
             />
+            <p className="infoAffi">
+              "Si votre serveur référent n'est pas encore sur Tipourboire.
+              Demandez-lui de créer son compte Tipourboire avant de lui envoyer
+              votre mail d'affiliation"
+            </p>
             <br />
             {this.state.message}
           </Col>

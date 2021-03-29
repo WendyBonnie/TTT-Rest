@@ -17,12 +17,12 @@
   padding-top: 1% !important;
   padding-bottom: 1% !important;
   font-size: 12px !important;
-
+  border: 0px solid #4a4a4a !important;
   color: white;
   border-width: 0px;
 }
 .personnel .button:hover {
-  background-color: #fcba03!important;
+  background-color: #555 !important;
   color: white !important;
   border-color: yellow !important;
 }
@@ -40,11 +40,15 @@
 }
 
 .personnel .demandeAffiliation {
-  margin-top: 20px;
-  margin-bottom: 10%;
+  margin-top: 5%;
+  margin-bottom: 25px;
   color: #f4a521;
+  font-size: 22px;
+  font-weight: bold;
 }
-
+.personnel .infoAffi {
+  font-weight: bold;
+}
 .personnel .colAffiliation {
   text-align: center;
 }
@@ -53,7 +57,7 @@
   border-radius: 28px;
   border-width: 1px;
   border-color: #9c9c9c14;
-  margin-bottom: 8%;
+  margin-bottom: 6%;
   padding: 1%;
 
   box-shadow: 1px 1px 1px #999;

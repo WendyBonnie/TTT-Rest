@@ -17,12 +17,12 @@
   padding-top: 1% !important;
   padding-bottom: 1% !important;
   font-size: 12px !important;
-
+  border: 0px solid #4a4a4a !important;
   color: white;
   border-width: 0px;
 }
 .personnel .button:hover {
-  background-color: #fcba03 !important;
+  background-color: #555 !important;
   color: white !important;
   border-color: yellow !important;
 }

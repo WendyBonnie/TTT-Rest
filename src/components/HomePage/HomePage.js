@@ -32,8 +32,16 @@ class HomePage extends Component {
       })
       .then(
         (responseObject) => {
+          localStorage.setItem(
+            "propsRestaurant",
+            JSON.stringify(responseObject.restaurantName)
+          );
           this.setState({ restaurantName: responseObject.restaurantName });
           this.setState({ abonne: responseObject.abonne });
+          console.log(
+            "consolelog",
+            JSON.parse(localStorage.getItem("propsRestaurant"))
+          );
         },
 
         (error) => {

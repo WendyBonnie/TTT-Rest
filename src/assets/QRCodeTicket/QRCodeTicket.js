@@ -37,9 +37,6 @@ class QrCodeTicket extends Component {
   }
 
   render() {
-    let uri =
-      "https://back-end.osc-fr1.scalingo.io/client/getMenuTicket?restaurantName=" +
-      this.props.restaurantName;
     return (
       <Row className="qrCode">
         <QrHookTicket className="qr" />

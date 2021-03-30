@@ -58,7 +58,7 @@ class Connexion extends Component {
         <Row>
           <Col>
             <h1>Déja membre ? </h1>
-            <h1>Connectez-vous!</h1>
+            <h1>Connectez-vous !</h1>
           </Col>
         </Row>
         <Form.Group controlId="formBasicEmail">

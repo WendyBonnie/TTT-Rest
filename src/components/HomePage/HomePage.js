@@ -95,7 +95,7 @@ class HomePage extends Component {
                 />
               </Col>
               <Col>
-                <p className="titleQR"> QR CODE Table </p>
+                <p className="titleQR"> QR CODE Menu </p>
                 <QrCode
                   className="qrCode"
                   restaurantName={this.state.restaurantName}

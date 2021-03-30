@@ -32,8 +32,16 @@ class HomePage extends Component {
       })
       .then(
         (responseObject) => {
+          localStorage.setItem(
+            "propsRestaurant",
+            JSON.stringify(responseObject.restaurantName)
+          );
           this.setState({ restaurantName: responseObject.restaurantName });
           this.setState({ abonne: responseObject.abonne });
+          console.log(
+            "consolelog",
+            JSON.parse(localStorage.getItem("propsRestaurant"))
+          );
         },
 
         (error) => {
@@ -89,6 +97,10 @@ class HomePage extends Component {
             <Row>
               <Col>
                 <p className="titleQR">QR CODE Ticket </p>
+                <p className="qrSub">
+                  à insérer sur vos tickets d'addition depuis votre logiciel de
+                  caisse
+                </p>
                 <QrCodeTicket
                   className="qrCodeTicket"
                   restaurantName={this.state.restaurantName}
@@ -96,6 +108,9 @@ class HomePage extends Component {
               </Col>
               <Col>
                 <p className="titleQR"> QR CODE Menu </p>
+                <p className="qrSub">
+                  à imprimer et coller sur les tables de votre restaurant
+                </p>
                 <QrCode
                   className="qrCode"
                   restaurantName={this.state.restaurantName}

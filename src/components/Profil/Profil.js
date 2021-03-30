@@ -358,6 +358,11 @@ class Profil extends Component {
             <Row>
               <Col xs={6}>
                 <p className="qr">QR CODE Ticket </p>
+                <p className="qrSub">
+                  à insérer sur vos tickets d'addition depuis votre logiciel de
+                  caisse
+                </p>
+
                 <QrCodeTicket
                   className="qrCodeTicket"
                   restaurantName={this.state.profil.restaurantName}
@@ -365,6 +370,9 @@ class Profil extends Component {
               </Col>
               <Col xs={6}>
                 <p className="qr"> QR CODE Table </p>
+                <p className="qrSub">
+                  à imprimer et coller sur les tables de votre restaurant
+                </p>
 
                 <QrCode
                   className="qrCode"

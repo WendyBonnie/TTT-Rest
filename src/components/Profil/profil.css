@@ -126,3 +126,39 @@
 .styleProfil .restaurantLogo {
   max-width: 200px;
 }
+/**
+*Style parrainage 
+*/
+.parrainage .inputParrainage {
+  padding: 0.5rem;
+  border-radius: 28px;
+  border-width: 1px;
+  text-align: center !important;
+  margin-right: 3%;
+  margin-top: 3%;
+}
+.parrainage .demandeParrainage {
+  color: #f4a521;
+  font-size: 34px !important;
+}
+.parrainage .colParrainage {
+  text-align: center !important;
+  margin-top: 10%;
+}
+.parrainage .buttonParrainage {
+  border-radius: 28px !important;
+  background-color: #f5a624 !important;
+  margin-left: 1%;
+  border-color: #f5a624 !important;
+  padding-top: 1% !important;
+  padding-bottom: 1% !important;
+  font-size: 16px !important;
+  border: 0px solid #4a4a4a !important;
+  color: white;
+  border-width: 0px;
+}
+.parrainage .infoParrainage {
+  font-weight: bold;
+  margin-top: 2% !important;
+  margin-bottom: 10% !important;
+}

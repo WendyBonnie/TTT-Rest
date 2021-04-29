@@ -27,7 +27,7 @@ function QrHook() {
       titleBackgroundColor: "#fff", // background color. default is "#fff"
       titleHeight: 70, // height, including subTitle. default is 0
       titleTop: 25, // draws y coordinates. default is 30
-      subTitle: "Scannez, Donnez avec Tipourboire", // content
+      subTitle: "Votre menu avec Tipourboire.", // content
 
       subTitleFont: "11px Montserrat", // font. default is "14px Arial"
       subTitleColor: "#f5a624", // color. default is "4F4F4F"

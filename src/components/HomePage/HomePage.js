@@ -107,7 +107,7 @@ class HomePage extends Component {
                 />
               </Col>
               <Col>
-                <p className="titleQR"> QR CODE Table </p>
+                <p className="titleQR"> QR CODE Menu </p>
                 <p className="qrSub">
                   à imprimer et coller sur les tables de votre restaurant
                 </p>

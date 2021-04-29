@@ -12,7 +12,7 @@ import Menu from "../Menu/Menu";
 import Personnel from "../Personnel/Personnel";
 import PasswordRenew from "../PasswordRenew/PasswordRenew";
 import PasswordReset from "../PasswordReset/PasswordReset";
-
+import InscriptionParrainage from "../InscriptionParrainage/inscriptionParrainage";
 import Navbar from "../../assets/components/Navbar/Navbar";
 import Footer from "../../assets/components/Footer/Footer";
 import DataClient from "../dataClient/dataClient";
@@ -65,6 +65,10 @@ class App extends Component {
             <Route path="/abonnement" component={Abonnement} />
             <Route path="/passwordRenew" component={PasswordRenew} />
             <Route path="/passwordReset" component={PasswordReset} />
+            <Route
+              path="/inscriptionParrainageRestaurateur"
+              component={InscriptionParrainage}
+            />
           </Switch>
 
           <Footer />

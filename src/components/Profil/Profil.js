@@ -249,7 +249,7 @@ class Profil extends Component {
 
   render() {
     return (
-      <Container className="styleProfil">
+      <Container className="styleProfil parrainage">
         <Col className="addImage">
           <h1 className="title">Mon Logo </h1>
           <form onSubmit={this.modifProfilLogo} className="formLogo">
@@ -353,6 +353,32 @@ class Profil extends Component {
 
             {this.buttonCancel()}
           </Col>
+          <Row>
+            <Col className="colParrainage">
+              <Col md={12}>
+                <label className="demandeParrainage">Parrainé un ami</label>
+              </Col>
+              <input
+                type="text"
+                name="email"
+                onChange={this.handleInput}
+                placeholder="Email du parrainé"
+                className="inputParrainage"
+              />
+
+              <input
+                type="submit"
+                value="Envoyer"
+                onClick={this.postParrainage}
+                className="buttonParrainage"
+              />
+              <p className="infoParrainage">
+                " Vous pouvez envoyer une invitation à rejoindre la communauté
+                Tipourboire avec 2 mois d'abonnement premium gratuit à vos amis
+                ! "
+              </p>
+            </Col>
+          </Row>
           <Col className="formProfil nomProfil center">
             <h1 className="title">Mes QR Codes </h1>
             <Row>

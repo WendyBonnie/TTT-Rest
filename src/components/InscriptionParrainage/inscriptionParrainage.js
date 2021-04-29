@@ -18,6 +18,7 @@ class InscriptionParrainage extends Component {
   handleInput = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
   addNewRegister = (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
@@ -32,7 +33,7 @@ class InscriptionParrainage extends Component {
     };
 
     fetch(
-      "https://back-end.osc-fr1.scalingo.io/restaurateur/inscription",
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/inscriptionParrainage",
       options
     )
       .then((response) => {

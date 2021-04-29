@@ -42,6 +42,7 @@ class Inscription extends Component {
       .then(
         (responseObject) => {
           this.setState({ message: responseObject.message });
+         
         },
 
         (error) => {

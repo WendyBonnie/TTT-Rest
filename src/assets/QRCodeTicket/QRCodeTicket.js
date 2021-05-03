@@ -16,8 +16,8 @@ function QrHookTicket() {
       text: encodeURI(uri),
       width: 200,
       height: 200,
-      title: "TIPOURBOIRE", // content
-      titleFont: "bold 18px  Montserrat", //font. default is "bold 16px Arial"
+      title: "Tipourboire", // content
+      titleFont: "bold 20px  Montserrat", //font. default is "bold 16px Arial"
       titleColor: "#f5a624", // color. default is "#000"
       titleBackgroundColor: "#fff", // background color. default is "#fff"
       titleHeight: 70, // height, including subTitle. default is 0

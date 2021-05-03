@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-class InscriptionParrainage extends Component {
+class inscriptionParrainage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,7 +32,7 @@ class InscriptionParrainage extends Component {
     };
 
     fetch(
-      "https://back-end.osc-fr1.scalingo.io/restaurateur/inscription",
+      "http://localhost:8080/restaurateur/inscriptionParrainage",
       options
     )
       .then((response) => {
@@ -42,6 +42,7 @@ class InscriptionParrainage extends Component {
       .then(
         (responseObject) => {
           this.setState({ message: responseObject.message });
+         
         },
 
         (error) => {
@@ -55,10 +56,7 @@ class InscriptionParrainage extends Component {
         <Row>
           <Col className="colInscr" md={6}>
             <Row className="Titre">
-              <h1>
-                Vous avez été parrainé, crée votre compte afin de profiter de
-                votre offre.{" "}
-              </h1>
+              <h1>Créer mon compte</h1>
             </Row>
             <Row>
               <p>
@@ -136,8 +134,7 @@ class InscriptionParrainage extends Component {
                   <Col xs={6}>
                     <Form.Group
                       className="servicePropose"
-                      controlId="formService"
-                    >
+                      controlId="formService">
                       <Form.Label controlId="formService">
                         Services proposés
                       </Form.Label>
@@ -195,8 +192,7 @@ class InscriptionParrainage extends Component {
                         <a
                           className="cgvLink"
                           href="/CGV_TIPTOTHANK.pdf"
-                          target="_blanck"
-                        >
+                          target="_blanck">
                           J'ai lu et j'accepte les CGU et CGV
                         </a>
                       </Row>
@@ -217,4 +213,4 @@ class InscriptionParrainage extends Component {
     );
   }
 }
-export default InscriptionParrainage;
+export default inscriptionParrainage;

@@ -356,7 +356,9 @@ class Profil extends Component {
           <Row>
             <Col className="colParrainage">
               <Col md={12}>
-                <label className="demandeParrainage">Parrainé un ami</label>
+                <label className="demandeParrainage">
+                  Parrainer un Serveur et/ou Restaurateur
+                </label>
               </Col>
               <input
                 type="text"
@@ -365,7 +367,6 @@ class Profil extends Component {
                 placeholder="Email du parrainé"
                 className="inputParrainage"
               />
-
               <input
                 type="submit"
                 value="Envoyer"
@@ -373,9 +374,9 @@ class Profil extends Component {
                 className="buttonParrainage"
               />
               <p className="infoParrainage">
-                " Vous pouvez envoyer une invitation à rejoindre la communauté
-                Tipourboire avec 2 mois d'abonnement premium gratuit à vos amis
-                ! "
+                " Vous êtes satisfaits : parlez-en autour de vous ! A chaque
+                parrainage d'un restaurateur, vous et votre confrère gagnez 2
+                mois d'abonnements Premium "
               </p>
             </Col>
           </Row>

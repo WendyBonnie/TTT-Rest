@@ -8,6 +8,10 @@ body {
   margin-top: 2%;
 }
 
+.Bloc-principal .annonce {
+  color: #f5a624;
+  font-size: 8px;
+}
 .Bloc-principal .form-group .form-control {
   font-size: 1.2rem;
   border-radius: 28px;
@@ -27,7 +31,7 @@ body {
   margin-bottom: 20%;
 }
 .Bloc-principal .submitButton:hover {
-  background-color: #fcba03!important;
+  background-color: #fcba03 !important;
   color: white !important;
   border-color: yellow !important;
 }
@@ -51,7 +55,7 @@ body {
 }
 
 .Bloc-principal .cgvLink {
- color:#f5a624 !important;
+  color: #f5a624 !important;
   padding-top: 3px;
   padding-left: 10px;
 }

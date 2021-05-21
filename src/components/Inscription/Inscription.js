@@ -42,7 +42,6 @@ class Inscription extends Component {
       .then(
         (responseObject) => {
           this.setState({ message: responseObject.message });
-         
         },
 
         (error) => {
@@ -108,6 +107,14 @@ class Inscription extends Component {
                     onChange={this.handleInput}
                   />
                 </Form.Group>
+                <Form.Group controlId="formCity">
+                  <Form.Control
+                    type="text"
+                    placeholder="Ville"
+                    name="city"
+                    onChange={this.handleInput}
+                  />
+                </Form.Group>
                 <Row>
                   <Col>
                     <Form.Group controlId="formVille">
@@ -134,7 +141,8 @@ class Inscription extends Component {
                   <Col xs={6}>
                     <Form.Group
                       className="servicePropose"
-                      controlId="formService">
+                      controlId="formService"
+                    >
                       <Form.Label controlId="formService">
                         Services proposés
                       </Form.Label>
@@ -192,7 +200,8 @@ class Inscription extends Component {
                         <a
                           className="cgvLink"
                           href="/CGV_TIPTOTHANK.pdf"
-                          target="_blanck">
+                          target="_blanck"
+                        >
                           J'ai lu et j'accepte les CGU et CGV
                         </a>
                       </Row>
@@ -203,6 +212,15 @@ class Inscription extends Component {
                       S'inscrire
                     </Button>
                   </Col>
+                  <p className="annonce">
+                    *TIPOURBOIRE est responsable du traitement des données
+                    personnelles collectées sur ce site. Elles sont collectées
+                    aux fins de : l'exécution du contrat/vous informer de nos
+                    nouveautés et actualités/à des fins statistiques, les bases
+                    légales respectives des traitements pouvant être l'exécution
+                    du contrat, l'intérêt légitime, ou le consentement. Pour
+                    plus d'informations voir notre politique de confidentialité.
+                  </p>
                 </Row>
               </Form>
               <Col md={{ span: 6, offset: 3 }}>{this.state.message}</Col>

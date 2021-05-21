@@ -8,7 +8,9 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-class inscriptionParrainage extends Component {
+
+
+class InscriptionParrainage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,7 +20,6 @@ class inscriptionParrainage extends Component {
   handleInput = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
-
   addNewRegister = (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
@@ -28,12 +29,12 @@ class inscriptionParrainage extends Component {
 
     const options = {
       method: "POST",
-      body: data,
+      body: JSON.stringify(data),
       headers: headers,
     };
 
     fetch(
-      "https://back-end.osc-fr1.scalingo.io/restaurateur/inscriptionParrainage",
+      "http://localhost:8080/restaurateur/inscriptionParrainage",
       options
     )
       .then((response) => {
@@ -61,8 +62,7 @@ class inscriptionParrainage extends Component {
             </Row>
             <Row>
               <p>
-                Merci de remplir les informations ci-dessous pour finaliser la
-                création de votre compte.
+               Félicitation ! Vous avez été parrainé(e), veuillez remplir les champs ci-dessous pour finaliser votre inscription.
               </p>
             </Row>
             <Row>
@@ -214,4 +214,4 @@ class inscriptionParrainage extends Component {
     );
   }
 }
-export default inscriptionParrainage;
+export default InscriptionParrainage;

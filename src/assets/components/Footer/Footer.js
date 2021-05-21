@@ -66,7 +66,7 @@ class Footer extends Component {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="" className="textFooter">
+              <Nav.Link href="MentionsLégales.pdf" className="textFooter">
                 Mentions Légales
               </Nav.Link>
               <Nav.Link
@@ -75,10 +75,7 @@ class Footer extends Component {
               >
                 CGU
               </Nav.Link>
-              <Nav.Link
-                href="cgu-cgv/CGV_TIPTOTHANK.pdf"
-                className="textFooter"
-              >
+              <Nav.Link href="" className="textFooter">
                 Confidentialité
               </Nav.Link>
               <Nav.Link

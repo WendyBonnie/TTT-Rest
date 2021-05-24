@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 
+
 import "./DailyMenu.css";
 import { Link } from "react-router-dom";
 
@@ -13,6 +14,10 @@ class DailyMenu extends Component {
     this.state = {
       message: "",
       menu: { dailyMenu: { picture: "", label: "" } },
+      image: null,
+      progress:0,
+      downloadURL: null
+    
     };
   }
 
@@ -75,7 +80,10 @@ class DailyMenu extends Component {
       .then(
         (responseData) => {
           this.setState({ message: responseData.message });
+          console.log(data)
           this.getDailyMenu();
+
+          
         },
         (err) => {
           console.log(err);
@@ -83,6 +91,7 @@ class DailyMenu extends Component {
       );
   };
 
+ 
   getDailyMenu = () => {
     const headers = new Headers({
       Authorization: "bearer " + localStorage.getItem("token"),

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import firebase from 'firebase';
 
 
 
@@ -29,7 +30,7 @@ class InscriptionParrainage extends Component {
 
     const options = {
       method: "POST",
-      body: JSON.stringify(data),
+      body: data,
       headers: headers,
     };
 

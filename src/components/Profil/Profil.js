@@ -164,6 +164,7 @@ class Profil extends Component {
       restaurantName: this.state.profil.restaurantName,
       bossName: this.state.profil.bossName,
       adress: this.state.profil.adress,
+      city: this.state.profil.city,
       email: this.state.profil.email,
       bossFirstName: this.state.profil.bossFirstName,
       phone: this.state.profil.phone,
@@ -295,6 +296,7 @@ class Profil extends Component {
                 <input
                   type="text"
                   name="bossFirstName"
+                  placeholder="Prénom"
                   onChange={this.handleInput}
                   Value={this.state.profil.bossFirstName}
                 />
@@ -308,6 +310,7 @@ class Profil extends Component {
                 <input
                   type="text"
                   name="bossName"
+                  placeholder="Nom"
                   onChange={this.handleInput}
                   Value={this.state.profil.bossName}
                 />
@@ -320,8 +323,22 @@ class Profil extends Component {
                 <input
                   type="text"
                   name="adress"
+                  placeholder="Adresse"
                   onChange={this.handleInput}
                   Value={this.state.profil.adress}
+                />
+              )}
+            </p>
+            <p>
+              {this.state.editing ? (
+                <span className="textProfil">{this.state.profil.city}</span>
+              ) : (
+                <input
+                  type="text"
+                  name="city"
+                  placeholder="Ville"
+                  onChange={this.handleInput}
+                  Value={this.state.profil.city}
                 />
               )}
             </p>
@@ -332,6 +349,7 @@ class Profil extends Component {
                 <input
                   type="text"
                   name="email"
+                  placeholder="Email"
                   onChange={this.handleInput}
                   Value={this.state.profil.email}
                 />
@@ -344,6 +362,7 @@ class Profil extends Component {
                 <input
                   type="text"
                   Value={this.state.profil.phone}
+                  placeholder="Téléphone"
                   name="phone"
                   onChange={this.handleInput}
                 />

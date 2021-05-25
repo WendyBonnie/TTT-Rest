@@ -1,11 +1,75 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import Row from "react-bootstrap/Row";
 import { Container } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
+import storage from '../../../firebase';
+
 
 import "./DailyMenu.css";
 import { Link } from "react-router-dom";
+
+function UploadMenu() {
+  const [image , setImage] = useState('');
+  const [message, setMessage]= useState('')
+
+  const upload = (e)=>{
+    if(image == null)
+      return;
+    storage.ref(`/DailyMenu/${image.name}`).put(image)
+    .on("state_changed" , alert("Votre menu a bien été enregistré") , alert);
+    console.log(image)
+  }
+    
+    return (
+      <div className="App">
+      <form className="formMenu" onSubmit={(e) => {
+        
+    e.preventDefault();
+
+    const data = new FormData(e.target);
+
+    const headers = new Headers({
+      Authorization: "bearer " + localStorage.getItem("token"),
+    });
+
+    const options = {
+      method: "PUT",
+      body: data,
+      headers: headers,
+    };
+
+    fetch(
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/dailymenu/add",
+      options
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then(
+        (responseData) => {
+         setMessage(responseData.message);
+          console.log(data)
+          
+
+          
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+  }}>
+      <input className="button" type="file" name="file" onChange={(e)=>{setImage(e.target.files[0])}} />
+
+      <button className="bouton" type="submit" onClick={upload}>
+        Valider
+      </button>
+    </form>
+    </div>
+       
+      
+    );
+  }
 
 class DailyMenu extends Component {
   constructor(props) {
@@ -13,6 +77,10 @@ class DailyMenu extends Component {
     this.state = {
       message: "",
       menu: { dailyMenu: { picture: "", label: "" } },
+      image: null,
+      progress:0,
+      downloadURL: null
+    
     };
   }
 
@@ -75,7 +143,10 @@ class DailyMenu extends Component {
       .then(
         (responseData) => {
           this.setState({ message: responseData.message });
+          console.log(data)
           this.getDailyMenu();
+
+          
         },
         (err) => {
           console.log(err);
@@ -83,6 +154,7 @@ class DailyMenu extends Component {
       );
   };
 
+ 
   getDailyMenu = () => {
     const headers = new Headers({
       Authorization: "bearer " + localStorage.getItem("token"),
@@ -141,15 +213,8 @@ class DailyMenu extends Component {
             </Link>
           </Col>
           <Col className="colMenu" md={12}>
-            <form className="formMenu" onSubmit={this.onSubmit}>
-              <input className="button" type="file" name="file" />
-
-              <button className="bouton" type="submit">
-                Valider
-              </button>
-            </form>
-
             {this.noMenu()}
+            <UploadMenu/>
             <Card.Body classNam="cardsupp">
               <p>{this.state.menu.dailyMenu.label}</p>
               <button

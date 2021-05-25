@@ -5,8 +5,20 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
-
 import "./OtherMenu.css";
+import storage from "../../../firebase";
+
+const uploadOtherMenu = (e) => {
+  if (image == null) return;
+  storage
+    .ref(`/DailyMenu/${image.name}`)
+    .put(image)
+    .on("state_changed", alert("Votre menu a bien été enregistré"), alert);
+};
+
+
+
+
 class OtherMenu extends Component {
   constructor(props) {
     super(props);

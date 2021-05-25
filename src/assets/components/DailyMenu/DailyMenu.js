@@ -9,17 +9,17 @@ import "./DailyMenu.css";
 import { Link } from "react-router-dom";
 
 function UploadMenu() {
-  const [image, setImage] = useState("");
+  const [imageStorage, setImageStorage] = useState("");
   const [images, setImages] = useState("");
   const [label, setLabel] = useState("");
   const [message, setMessage] = useState("");
   const [dailyMenu, setDailyMenu] = useState({});
 
   const upload = (e) => {
-    if (image == null) return;
+    if (imageStorage == null) return;
     storage
-      .ref(`/DailyMenu/${image.name}`)
-      .put(image)
+      .ref(`/DailyMenu/${imageStorage.name}`)
+      .put(imageStorage)
       .on("state_changed", alert("Votre menu a bien été enregistré"), alert);
   };
 
@@ -143,7 +143,7 @@ function UploadMenu() {
                       })
                       .then(
                         (data) => {
-                          setImage(data.menu.dailyMenu.picture);
+                          setImageStorage(data.menu.dailyMenu.picture);
                           setLabel(data.menu.dailyMenu.label);
                           setDailyMenu(data.menu);
                         },
@@ -164,7 +164,7 @@ function UploadMenu() {
               type="file"
               name="file"
               onChange={(e) => {
-                setImage(e.target.files[0]);
+                setImageStorage(e.target.files[0]);
               }}
             />
             <button className="bouton" type="submit" onClick={upload}>

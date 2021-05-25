@@ -9,17 +9,17 @@ import "./DailyMenu.css";
 import { Link } from "react-router-dom";
 
 function UploadMenu() {
-  const [image, setImage] = useState("");
+  const [imageStorage, setImageStorage] = useState("");
   const [images, setImages] = useState("");
   const [label, setLabel] = useState("");
   const [message, setMessage] = useState("");
   const [dailyMenu, setDailyMenu] = useState({});
 
   const upload = (e) => {
-    if (image == null) return;
+    if (imageStorage == null) return;
     storage
-      .ref(`/DailyMenu/${image.name}`)
-      .put(image)
+      .ref(`/DailyMenu/${imageStorage.name}`)
+      .put(imageStorage)
       .on("state_changed", alert("Votre menu a bien été enregistré"), alert);
   };
 

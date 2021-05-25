@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 function UploadMenu() {
   const [image , setImage] = useState('');
   const [message, setMessage]= useState('')
+  const [dailyMenu, setDailyMenu]= useState('')
 
   const upload = (e)=>{
     if(image == null)
@@ -50,7 +51,27 @@ function UploadMenu() {
         (responseData) => {
          setMessage(responseData.message);
           console.log(data)
-          
+          const headers = new Headers({
+            Authorization: "bearer " + localStorage.getItem("token"),
+          });
+      
+          const options = {
+            method: "GET",
+            headers: headers,
+          };
+      
+          fetch("https://back-end.osc-fr1.scalingo.io/restaurateur/menu", options)
+            .then((response) => {
+              return response.json();
+            })
+            .then(
+              (data) => {
+                setImage({ menu: data.menu });
+              },
+              (err) => {
+                console.log(err);
+              }
+            );
 
           
         },
@@ -65,6 +86,9 @@ function UploadMenu() {
         Valider
       </button>
     </form>
+   
+
+   
     </div>
        
       

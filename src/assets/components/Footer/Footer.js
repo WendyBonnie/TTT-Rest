@@ -79,6 +79,12 @@ class Footer extends Component {
                 Confidentialité
               </Nav.Link>
               <Nav.Link
+                href="cgu-cgv/CGV_TIPTOTHANK.pdf"
+                className="textFooter"
+              >
+                Cookies
+              </Nav.Link>
+              <Nav.Link
                 href="mailto:contact@tipourboire.com"
                 className="textFooter"
               >

@@ -42,7 +42,6 @@ class Inscription extends Component {
       .then(
         (responseObject) => {
           this.setState({ message: responseObject.message });
-         
         },
 
         (error) => {
@@ -134,7 +133,8 @@ class Inscription extends Component {
                   <Col xs={6}>
                     <Form.Group
                       className="servicePropose"
-                      controlId="formService">
+                      controlId="formService"
+                    >
                       <Form.Label controlId="formService">
                         Services proposés
                       </Form.Label>
@@ -192,7 +192,8 @@ class Inscription extends Component {
                         <a
                           className="cgvLink"
                           href="/CGV_TIPTOTHANK.pdf"
-                          target="_blanck">
+                          target="_blanck"
+                        >
                           J'ai lu et j'accepte les CGU et CGV
                         </a>
                       </Row>

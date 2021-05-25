@@ -8,8 +8,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-
-
 class InscriptionParrainage extends Component {
   constructor(props) {
     super(props);
@@ -22,9 +20,28 @@ class InscriptionParrainage extends Component {
   };
   addNewRegister = (e) => {
     e.preventDefault();
-    const data = new FormData(e.target);
+    const data = {
+      firstname: this.state.firstname,
+      lastname: this.state.lastname,
+      city: this.state.city,
+      adress: this.state.adress,
+      restaurantName: this.state.restaurantName,
+      bossFirstName: this.state.bossFirstName,
+
+      bossName: this.state.bossName,
+      noon: this.state.noon,
+      evening: this.state.evening,
+      pourboireGeneral: this.state.pourboireGeneral,
+      pourboireIndividuel: this.state.pourboireIndividuel,
+
+      date: this.state.date,
+      email: this.state.email,
+      phone: this.state.phone,
+      password: this.state.password,
+    };
     const headers = new Headers({
       "X-Requested-With": "XMLHttpRequest",
+      "Content-Type": "application/json",
     });
 
     const options = {
@@ -33,10 +50,7 @@ class InscriptionParrainage extends Component {
       headers: headers,
     };
 
-    fetch(
-      "http://localhost:8080/restaurateur/inscriptionParrainage",
-      options
-    )
+    fetch("http://localhost:8080/restaurateur/parrainInscription", options)
       .then((response) => {
         return response.json();
       })
@@ -44,7 +58,6 @@ class InscriptionParrainage extends Component {
       .then(
         (responseObject) => {
           this.setState({ message: responseObject.message });
-         
         },
 
         (error) => {
@@ -62,11 +75,12 @@ class InscriptionParrainage extends Component {
             </Row>
             <Row>
               <p>
-               Félicitation ! Vous avez été parrainé(e), veuillez remplir les champs ci-dessous pour finaliser votre inscription.
+                Félicitation ! Vous avez été parrainé(e), veuillez remplir les
+                champs ci-dessous pour finaliser votre inscription.
               </p>
             </Row>
             <Row>
-              <Form className="form" onSubmit={this.addNewRegister}>
+              <Form className="form">
                 <Row>
                   <Col>
                     <Form.Group controlId="formNom">
@@ -135,7 +149,8 @@ class InscriptionParrainage extends Component {
                   <Col xs={6}>
                     <Form.Group
                       className="servicePropose"
-                      controlId="formService">
+                      controlId="formService"
+                    >
                       <Form.Label controlId="formService">
                         Services proposés
                       </Form.Label>
@@ -193,14 +208,21 @@ class InscriptionParrainage extends Component {
                         <a
                           className="cgvLink"
                           href="/CGV_TIPTOTHANK.pdf"
-                          target="_blanck">
+                          target="_blanck"
+                        >
                           J'ai lu et j'accepte les CGU et CGV
                         </a>
                       </Row>
                     </Form.Group>
                   </Col>
                   <Col md={3}>
-                    <Button className="submitButton" block type="submit">
+                    <Button
+                      className="submitButton"
+                      variant="primary"
+                      block
+                      type="submit"
+                      onClick={this.addNewRegister}
+                    >
                       S'inscrire
                     </Button>
                   </Col>

@@ -1,118 +1,60 @@
-import React, { Component, useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 import Row from "react-bootstrap/Row";
 import { Container } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
-import storage from '../../../firebase';
-
+import storage from "../../../firebase";
 
 import "./DailyMenu.css";
 import { Link } from "react-router-dom";
 
 function UploadMenu() {
-  const [image , setImage] = useState('');
-  const [message, setMessage]= useState('')
-  const [dailyMenu, setDailyMenu]= useState('')
+  const [image, setImage] = useState("");
+  const [images, setImages] = useState("");
+  const [label, setLabel] = useState("");
+  const [message, setMessage] = useState("");
+  const [dailyMenu, setDailyMenu] = useState({});
 
-  const upload = (e)=>{
-    if(image == null)
-      return;
-    storage.ref(`/DailyMenu/${image.name}`).put(image)
-    .on("state_changed" , alert("Votre menu a bien été enregistré") , alert);
-    console.log(image)
-  }
-    
-    return (
-      <div className="App">
-      <form className="formMenu" onSubmit={(e) => {
-        
-    e.preventDefault();
+  const upload = (e) => {
+    if (image == null) return;
+    storage
+      .ref(`/DailyMenu/${image.name}`)
+      .put(image)
+      .on("state_changed", alert("Votre menu a bien été enregistré"), alert);
+  };
 
-    const data = new FormData(e.target);
-
+  const getDailyMenu = () => {
     const headers = new Headers({
       Authorization: "bearer " + localStorage.getItem("token"),
     });
 
     const options = {
-      method: "PUT",
-      body: data,
+      method: "GET",
       headers: headers,
     };
 
-    fetch(
-      "https://back-end.osc-fr1.scalingo.io/restaurateur/dailymenu/add",
-      options
-    )
+    fetch("https://back-end.osc-fr1.scalingo.io/restaurateur/menu", options)
       .then((response) => {
         return response.json();
       })
       .then(
-        (responseData) => {
-         setMessage(responseData.message);
-          console.log(data)
-          const headers = new Headers({
-            Authorization: "bearer " + localStorage.getItem("token"),
-          });
-      
-          const options = {
-            method: "GET",
-            headers: headers,
-          };
-      
-          fetch("https://back-end.osc-fr1.scalingo.io/restaurateur/menu", options)
-            .then((response) => {
-              return response.json();
-            })
-            .then(
-              (data) => {
-                setImage({ menu: data.menu });
-              },
-              (err) => {
-                console.log(err);
-              }
-            );
-
-          
+        (data) => {
+          setImages(data.menu.dailyMenu.picture);
+          setLabel(data.menu.dailyMenu.label);
+          setDailyMenu(data.menu);
+          console.log("image", data.menu.dailyMenu.picture);
+          console.log("image", images);
         },
         (err) => {
           console.log(err);
         }
       );
-  }}>
-      <input className="button" type="file" name="file" onChange={(e)=>{setImage(e.target.files[0])}} />
-
-      <button className="bouton" type="submit" onClick={upload}>
-        Valider
-      </button>
-    </form>
-   
-
-   
-    </div>
-       
-      
-    );
-  }
-
-class DailyMenu extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      message: "",
-      menu: { dailyMenu: { picture: "", label: "" } },
-      image: null,
-      progress:0,
-      downloadURL: null
-    
-    };
-  }
-
-  delete = (e) => {
+  };
+  const deleteMenu = (e) => {
     window.confirm("Etes-vous sur de vouloir supprimer le menu du jour ?");
     e.preventDefault();
     const data = {
-      dailyMenu: this.state.menu.dailyMenu,
+      dailyMenu: dailyMenu,
     };
     const headers = new Headers({
       Authorization: "bearer " + localStorage.getItem("token"),
@@ -133,14 +75,138 @@ class DailyMenu extends Component {
       })
       .then(
         (responseData) => {
-          this.setState({ message: responseData.message });
-          this.getDailyMenu();
+          setMessage(responseData.message);
+          getDailyMenu();
         },
         (err) => {
           console.log(err);
         }
       );
   };
+
+  useEffect(() => {
+    getDailyMenu();
+  }, []);
+
+  return (
+    <Container className="dailyMenuContain">
+      <Row>
+        <Col md={{ span: 6, offset: 3 }}>
+          <Link className="linkButton" to="/menus">
+            <h1 className="menujour">Menu du Jour</h1>
+          </Link>
+        </Col>
+        <Col className="colMenu" md={12}>
+          <form
+            className="formMenu"
+            onSubmit={(e) => {
+              e.preventDefault();
+
+              const data = new FormData(e.target);
+
+              const headers = new Headers({
+                Authorization: "bearer " + localStorage.getItem("token"),
+              });
+
+              const options = {
+                method: "PUT",
+                body: data,
+                headers: headers,
+              };
+
+              fetch(
+                "https://back-end.osc-fr1.scalingo.io/restaurateur/dailymenu/add",
+                options
+              )
+                .then((response) => {
+                  return response.json();
+                })
+                .then(
+                  (responseData) => {
+                    setMessage(responseData.message);
+
+                    const headers = new Headers({
+                      Authorization: "bearer " + localStorage.getItem("token"),
+                    });
+
+                    const options = {
+                      method: "GET",
+                      headers: headers,
+                    };
+
+                    fetch(
+                      "https://back-end.osc-fr1.scalingo.io/restaurateur/menu",
+                      options
+                    )
+                      .then((response) => {
+                        return response.json();
+                      })
+                      .then(
+                        (data) => {
+                          setImage(data.menu.dailyMenu.picture);
+                          setLabel(data.menu.dailyMenu.label);
+                          setDailyMenu(data.menu);
+                        },
+                        (err) => {
+                          console.log(err);
+                        }
+                      );
+                    getDailyMenu();
+                  },
+                  (err) => {
+                    console.log(err);
+                  }
+                );
+            }}
+          >
+            <input
+              className="button"
+              type="file"
+              name="file"
+              onChange={(e) => {
+                setImage(e.target.files[0]);
+              }}
+            />
+            <button className="bouton" type="submit" onClick={upload}>
+              Valider
+            </button>
+          </form>
+
+          <Card.Body className="cardsupp">
+            <p>{label}</p>
+
+            <Card.Img
+              variant="top"
+              src={"https://back-end.osc-fr1.scalingo.io/" + images}
+              className="dailyMenu"
+              alt="Menu du Jour1231312"
+            />
+
+            <button
+              className="boutonSupprimer"
+              type="submit"
+              onClick={() => deleteMenu()}
+            >
+              Supprimer le menu
+            </button>
+          </Card.Body>
+        </Col>
+      </Row>
+    </Container>
+  );
+}
+
+class DailyMenu extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      message: "",
+      menu: { dailyMenu: { picture: "", label: "" } },
+      image: null,
+      progress: 0,
+      downloadURL: null,
+    };
+  }
 
   onSubmit = (e) => {
     e.preventDefault();
@@ -167,10 +233,8 @@ class DailyMenu extends Component {
       .then(
         (responseData) => {
           this.setState({ message: responseData.message });
-          console.log(data)
+          console.log(data);
           this.getDailyMenu();
-
-          
         },
         (err) => {
           console.log(err);
@@ -178,7 +242,6 @@ class DailyMenu extends Component {
       );
   };
 
- 
   getDailyMenu = () => {
     const headers = new Headers({
       Authorization: "bearer " + localStorage.getItem("token"),
@@ -228,31 +291,7 @@ class DailyMenu extends Component {
   }
 
   render() {
-    return (
-      <Container className="dailyMenuContain">
-        <Row>
-          <Col md={{ span: 6, offset: 3 }}>
-            <Link className="linkButton" to="/menus">
-              <h1 className="menujour">Menu du Jour</h1>
-            </Link>
-          </Col>
-          <Col className="colMenu" md={12}>
-            {this.noMenu()}
-            <UploadMenu/>
-            <Card.Body classNam="cardsupp">
-              <p>{this.state.menu.dailyMenu.label}</p>
-              <button
-                className="boutonSupprimer"
-                type="submit"
-                onClick={this.delete}
-              >
-                Supprimer le menu
-              </button>
-            </Card.Body>
-          </Col>
-        </Row>
-      </Container>
-    );
+    return <UploadMenu />;
   }
 }
 

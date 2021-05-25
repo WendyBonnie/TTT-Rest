@@ -143,7 +143,7 @@ function UploadMenu() {
                       })
                       .then(
                         (data) => {
-                          setImage(data.menu.dailyMenu.picture);
+                          setImageStorage(data.menu.dailyMenu.picture);
                           setLabel(data.menu.dailyMenu.label);
                           setDailyMenu(data.menu);
                         },
@@ -164,7 +164,7 @@ function UploadMenu() {
               type="file"
               name="file"
               onChange={(e) => {
-                setImage(e.target.files[0]);
+                setImageStorage(e.target.files[0]);
               }}
             />
             <button className="bouton" type="submit" onClick={upload}>

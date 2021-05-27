@@ -31,10 +31,7 @@ class Inscription extends Component {
       headers: headers,
     };
 
-    fetch(
-      "https://back-end.osc-fr1.scalingo.io/restaurateur/inscription",
-      options
-    )
+    fetch("http://localhost:8080/restaurateur/inscription", options)
       .then((response) => {
         return response.json();
       })
@@ -200,9 +197,10 @@ class Inscription extends Component {
                       <Form.Check
                         className="checkboxCGU"
                         type="checkbox"
-                        name="CGU"
+                        name="acceptControl"
                         label="J'ai lu et j'accepte les CGU et CGV"
                         onChange={this.handleInput}
+                        required
                       />
                       <Row style={{ marginLeft: "10px", fontWeight: "bold" }}>
                         <a
@@ -216,7 +214,13 @@ class Inscription extends Component {
                     </Form.Group>
                   </Col>
                   <Col md={3}>
-                    <Button className="submitButton" block type="submit">
+                    <Button
+                      className="submitButton"
+                      block
+                      type="submit"
+                      block
+                      type="submit"
+                    >
                       S'inscrire
                     </Button>
                   </Col>

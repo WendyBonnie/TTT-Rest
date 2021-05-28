@@ -196,21 +196,13 @@ class Inscription extends Component {
                 <Row>
                   <Col md={9}>
                     <Form.Group controlId="formBasicCheckbox">
-                      <br />
-                      <Form.Check
-                        className="checkboxCGU"
-                        type="checkbox"
-                        name="CGU"
-                        label="J'ai lu et j'accepte les CGU et CGV"
-                        onChange={this.handleInput}
-                      />
-                      <Row style={{ marginLeft: "10px", fontWeight: "bold" }}>
+                      <Row style={{ marginLeft: "2px" }}>
                         <a
                           className="cgvLink"
                           href="/CGV_TIPTOTHANK.pdf"
                           target="_blanck"
                         >
-                          CGU
+                          J'ai lu et j'accepte les CGU et CGV
                         </a>
                       </Row>
                     </Form.Group>

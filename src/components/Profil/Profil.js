@@ -1,151 +1,9 @@
-import React, { Component, Input, useEffect,useState } from "react";
+import React, { Component, Input } from "react";
 import { Col, Row, Container, Button, Modal } from "react-bootstrap";
 import QrCode from "../../assets/components/QRCode/QrCode";
 import QrCodeTicket from "../../assets/QRCodeTicket/QRCodeTicket";
 import "./profil.css";
 import { Redirect } from "react-router-dom";
-import storage from "../../firebase";
-
-function UploadPicture() {
-  const [imageStorage, setImageStorage] = useState("");
-  const [images, setImages] = useState("");
-  const [label, setLabel] = useState("");
-  const [message, setMessage] = useState("");
-  const [dailyMenu, setDailyMenu] = useState({});
-
-  const upload = (e) => {
-    if (imageStorage == null) return;
-    storage
-      .ref(`/PictureRestau/${imageStorage.name}`)
-      .put(imageStorage)
-      .on("state_changed", alert("Votre logo a bien été enregistré"), alert);
-  };
-
-  const getMonProfil = () => {
-    const headers = new Headers({
-      Authorization: "Bearer " + localStorage.getItem("token"),
-
-      "X-Requested-With": "XMLHttpRequest",
-    });
-
-    const options = {
-      method: "GET",
-      headers: headers,
-    };
-
-    fetch("https://back-end.osc-fr1.scalingo.io/restaurateur/profil", options)
-      .then((response) => {
-        return response.json();
-      })
-      .then(
-        (responseObject) => {
-          
-          
-
-          console.log();
-        },
-
-        (error) => {
-          console.log(error);
-        }
-      );
-  };
-
-  const modifProfilLogo = (e) => {
-    e.preventDefault();
-    const data = new FormData(e.target);
-
-    const headers = new Headers({
-      "X-Requested-With": "XMLHttpRequest",
-      Authorization: "Bearer " + localStorage.getItem("token"),
-    });
-
-    const options = {
-      method: "PUT",
-      body: data,
-      headers: headers,
-    };
-
-    fetch(
-      "https://back-end.osc-fr1.scalingo.io/restaurateur/profil/edit/logo",
-      options
-    )
-      .then((response) => {
-        return response.json();
-      })
-
-      .then(
-        (responseObject) => {
-          setMessage(responseObject.message );
-          const headers = new Headers({
-            Authorization: "Bearer " + localStorage.getItem("token"),
-      
-            "X-Requested-With": "XMLHttpRequest",
-          });
-      
-          const options = {
-            method: "GET",
-            headers: headers,
-          };
-      
-          fetch("https://back-end.osc-fr1.scalingo.io/restaurateur/profil", options)
-            .then((response) => {
-              return response.json();
-            })
-            .then(
-              (responseObject) => {
-                
-                setImageStorage(responseObject.logo);
-      
-                console.log();
-              },
-      
-              (error) => {
-                console.log(error);
-              }
-            );
-        
-          
-     
-        },
-
-        (error) => {
-          console.log(error);
-        }
-      );
-  };
-
-  useEffect(() => {
-    getMonProfil();
-  }, []);
-
-  return(
-    <Col className="addImage">
-    <h1 className="title">Mon Logo </h1>
-    <form onSubmit={modifProfilLogo} className="formLogo">
-      <img
-        className="restaurantLogo"
-        src={
-          "https://back-end.osc-fr1.scalingo.io/" + imageStorage
-        }
-      ></img>
-      <br />
-      <br />
-      <input type="file"  name="file"
-              onChange={(e) => {
-                setImageStorage(e.target.files[0]);
-              }} />
-      <br />
-      <button className="buttonVal" type="submit" onClick={upload}>
-        Valider
-      </button>
-    </form>
-  </Col>
-  )
-}
-
-
-
 
 class Profil extends Component {
   constructor(props) {
@@ -393,9 +251,26 @@ class Profil extends Component {
   render() {
     return (
       <Container className="styleProfil parrainage">
-       <UploadPicture/>
+        <Col className="addImage">
+          <h1 className="title">Mon Logo </h1>
+          <form onSubmit={this.modifProfilLogo} className="formLogo">
+            <img
+              className="restaurantLogo"
+              src={
+                "https://back-end.osc-fr1.scalingo.io/" + this.state.profil.logo
+              }
+            ></img>
+            <br />
+            <br />
+            <input type="file" name="file" />
+            <br />
+            <button className="buttonVal" type="submit">
+              Valider
+            </button>
+          </form>
+        </Col>
         <Row>
-          
+          {" "}
           <Col md={12} className="formProfil ">
             <h1 className="title">Mes informations </h1>
             <p>

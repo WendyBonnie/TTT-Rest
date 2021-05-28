@@ -5,14 +5,8 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
+
 import "./OtherMenu.css";
-import storage from "../../../firebase";
-
-
-
-
-
-
 class OtherMenu extends Component {
   constructor(props) {
     super(props);

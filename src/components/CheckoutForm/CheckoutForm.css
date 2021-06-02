@@ -1,12 +1,15 @@
-.coForm .submitButton {
-  background-color: #f4a521;
-  font-size: 0.8rem;
-  border-radius: 5px;
-  border: 2px solid #f4a521 !important;
+.submitButtonSubRestau {
+  border-radius: 28px;
+  background-color: #f5a624;
   color: white;
+  border: none;
+  margin-bottom: 12px;
+  font-size: 22px;
+  padding: 1%;
+  margin-top: 3%;
 }
-.coForm .submitButton:hover,
-.coForm .submitButton:active {
-  background-color: white;
-  color: #f4a521;
+.checkboxRetRest {
+  color: #f5a624 !important;
+  font-weight: bold;
+  margin-top: 3%;
 }

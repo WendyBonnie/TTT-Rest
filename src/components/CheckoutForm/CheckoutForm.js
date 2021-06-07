@@ -108,13 +108,13 @@ export default function CheckoutForm() {
   return (
     <form className="coForm" onSubmit={handleSubmit}>
       <CardSection />
-      <Form.Check
+      {/* <Form.Check
         className="checkboxRetRest"
         type="checkbox"
         name="retractation"
         label=" Je renonce à mon droit de rétractation d'une durée de 14 jours, afin que le service commence immédiatement. "
         required
-      />
+     />*/}
       <button className="submitButtonSubRestau" disabled={!stripe}>
         Devenir un restaurateur Premium
       </button>

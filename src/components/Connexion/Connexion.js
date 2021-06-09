@@ -61,6 +61,12 @@ class Connexion extends Component {
           location="top"
           buttonText="Ok"
           expires={30}
+          enableDeclineButton
+          onDecline={() => {
+            alert(
+              "Le refus de nos cookies vous permets tout de même une bonne navigation sur notre site. A bientot :)"
+            );
+          }}
           cookieName="Tipourboire"
           style={{ background: "#2B373B" }}
           buttonStyle={{ color: "#4e503b", fontSize: "14px" }}

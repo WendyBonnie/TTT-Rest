@@ -2,6 +2,7 @@ import React from "react";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import "./CheckoutForm.css";
 import CardSection from "../../assets/components/CardSection/CardSection";
+import { Alert } from "bootstrap";
 export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
@@ -50,7 +51,7 @@ export default function CheckoutForm() {
     }
     function createSubscription({ customerId, paymentMethodId, priceId }) {
       return (
-        fetch("https://back-end.osc-fr1.scalingo.io/restaurateur/createsubscription", {
+        fetch("http://localhost:8080/restaurateur/createsubscription", {
           method: "post",
           headers: {
             "Content-type": "application/json",
@@ -68,6 +69,7 @@ export default function CheckoutForm() {
           // If the card is declined, display an error to the user.
           .then((result) => {
             if (result.error) {
+              window.alert(result.message);
               // The card had an error when trying to attach it to a customer.
               throw result;
             }
@@ -76,6 +78,7 @@ export default function CheckoutForm() {
           // Normalize the result to contain the object returned by Stripe.
           // Add the additional details we need.
           .then((result) => {
+            window.alert(result.message);
             return {
               paymentMethodId: paymentMethodId,
               priceId: priceId,

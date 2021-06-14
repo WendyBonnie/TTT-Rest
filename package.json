@@ -23,6 +23,7 @@
     "qs": "^6.9.4",
     "react": "^16.13.1",
     "react-bootstrap": "^1.2.2",
+    "react-cookie-consent": "^6.2.4",
     "react-dom": "^16.13.1",
     "react-fa": "^5.0.0",
     "react-html-table-to-excel": "^2.0.0",

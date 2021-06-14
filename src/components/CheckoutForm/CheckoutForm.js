@@ -3,6 +3,7 @@ import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import "./CheckoutForm.css";
 import CardSection from "../../assets/components/CardSection/CardSection";
 import { Alert } from "bootstrap";
+import Form from "react-bootstrap/Form";
 export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
@@ -51,18 +52,21 @@ export default function CheckoutForm() {
     }
     function createSubscription({ customerId, paymentMethodId, priceId }) {
       return (
-        fetch("http://localhost:8080/restaurateur/createsubscription", {
-          method: "post",
-          headers: {
-            "Content-type": "application/json",
-            Authorization: "Bearer " + localStorage.getItem("token"),
-          },
-          body: JSON.stringify({
-            customerId: customerId,
-            paymentMethodId: paymentMethodId,
-            priceId: "price_1IGLo3Hoh2Vgz5QdnS6OVonj",
-          }),
-        })
+        fetch(
+          "https://back-end.osc-fr1.scalingo.io/restaurateur/createsubscription",
+          {
+            method: "post",
+            headers: {
+              "Content-type": "application/json",
+              Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+            body: JSON.stringify({
+              customerId: customerId,
+              paymentMethodId: paymentMethodId,
+              priceId: "price_1IGLo3Hoh2Vgz5QdnS6OVonj",
+            }),
+          }
+        )
           .then((response) => {
             return response.json();
           })
@@ -107,7 +111,14 @@ export default function CheckoutForm() {
   return (
     <form className="coForm" onSubmit={handleSubmit}>
       <CardSection />
-      <button className="submitButton" disabled={!stripe}>
+      {/* <Form.Check
+        className="checkboxRetRest"
+        type="checkbox"
+        name="retractation"
+        label=" Je renonce à mon droit de rétractation d'une durée de 14 jours, afin que le service commence immédiatement. "
+        required
+     />*/}
+      <button className="submitButtonSubRestau" disabled={!stripe}>
         Devenir un restaurateur Premium
       </button>
     </form>

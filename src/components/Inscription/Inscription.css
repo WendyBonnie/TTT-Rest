@@ -36,6 +36,10 @@ body {
   border-color: yellow !important;
 }
 
+.Bloc-principal .checkboxCGU {
+  color: #f5a624 !important;
+  font-weight: bolder;
+}
 .Bloc-principal a {
   text-decoration: none !important;
 }

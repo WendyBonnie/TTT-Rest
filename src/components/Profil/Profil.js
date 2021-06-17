@@ -382,6 +382,38 @@ class Profil extends Component {
       );
   };
 
+  postParrainage = (e) => {
+    e.preventDefault();
+    const data = {
+      email: this.state.email,
+    };
+
+    const headers = new Headers({
+      "Content-Type": "application/json",
+      "X-Requested-With": "XMLHttpRequest",
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    });
+
+    const options = {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: headers,
+    };
+
+    fetch(
+      "https://back-end.osc-fr1.scalingo.io/serveur/emailParrainage?_id=" +
+        this.state.profil.email,
+      options
+    )
+      .then((response) => {
+        return response.json();
+      })
+
+      .then((responseData) => {
+        this.setState({ message: responseData.message });
+      });
+  };
+
   putProfilOnClick = () => {
     this.modifProfil();
   };

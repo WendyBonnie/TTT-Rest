@@ -14,9 +14,8 @@ function QrHook() {
   const [restaurant, setRestaurant] = useState();
   let uri =
     "https://back-end.osc-fr1.scalingo.io/client/getMenu?restaurantName=" +
-    JSON.parse(localStorage.getItem("propsRestaurant"));
+    localStorage.getItem("propsRestaurant");
   useEffect(() => {
-    console.log("dsqdsq", JSON.parse(localStorage.getItem("propsRestaurant")));
     new QRCODE(document.getElementById("qrCodeDivResto"), {
       text: encodeURI(uri),
       width: 220,

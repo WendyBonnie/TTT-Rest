@@ -9,7 +9,7 @@ import QrCode from "../components/QRCode/QrCode";
 function QrHookTicket() {
   let uri =
     "https://back-end.osc-fr1.scalingo.io/client/getMenuTicket?restaurantName=" +
-    JSON.parse(localStorage.getItem("propsRestaurant"));
+    localStorage.getItem("propsRestaurant");
 
   useEffect(() => {
     new QRCODE(document.getElementById("qrCodeDiv"), {

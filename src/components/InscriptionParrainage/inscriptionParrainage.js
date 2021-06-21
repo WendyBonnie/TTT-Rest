@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import firebase from 'firebase';
+import firebase from "firebase";
 
 class InscriptionParrainage extends Component {
   constructor(props) {
@@ -51,7 +51,10 @@ class InscriptionParrainage extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/restaurateur/parrainInscription", options)
+    fetch(
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/parrainInscription",
+      options
+    )
       .then((response) => {
         return response.json();
       })

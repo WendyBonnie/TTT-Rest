@@ -92,7 +92,6 @@ class Personnel extends Component {
     e.preventDefault();
     const data = {
       email: this.state.email,
-      nom: this.state.nom,
     };
 
     const headers = new Headers({
@@ -116,7 +115,7 @@ class Personnel extends Component {
       })
 
       .then((responseData) => {
-        this.setState({ message: responseData.message });
+        this.setState({ messageAffi: responseData.messageAffi });
       });
   };
   addReferent = (e) => {
@@ -227,6 +226,7 @@ class Personnel extends Component {
               de créer son compte Tipourboire avant de lui envoyer votre mail
               d'affiliation"
             </p>
+            {this.state.messageAffi}
             <Col md={12}>
               <label className="demandeAffiliation">
                 Demande d'affiliation d'un serveur referent (pourboire commun)

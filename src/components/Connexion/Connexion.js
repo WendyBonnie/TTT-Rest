@@ -57,9 +57,9 @@ class Connexion extends Component {
     return (
       <Container className="connexion-container">
         <CookieConsent
-          className="cookiesResto"
           location="top"
-          buttonText="Ok"
+          buttonText="J'accepte"
+          declineButtonText="Je refuse"
           expires={30}
           enableDeclineButton
           onDecline={() => {
@@ -68,8 +68,28 @@ class Connexion extends Component {
             );
           }}
           cookieName="Tipourboire"
-          style={{ background: "#2B373B" }}
-          buttonStyle={{ color: "#4e503b", fontSize: "14px" }}
+          style={{ background: "#ffffff", color: "#555" }}
+          declineButtonStyle={{
+            borderRadius: 12,
+            padding: 8,
+            color: "#fff",
+            fontSize: "18px",
+            background: "#f5a624",
+            fontWeight: "bold",
+          }}
+          buttonStyle={{
+            borderRadius: 12,
+            padding: 8,
+            color: "#fff",
+            fontSize: "18px",
+            background: "#f5a624",
+            fontWeight: "bold",
+          }}
+          style={{
+            fontSize: "20px",
+            fontfamily: "Montserrat",
+            fontWeight: "bold",
+          }}
         >
           Le Site Tipourboire utilise différents cookies afin d’améliorer ses
           services et effectuer des suivis d’audience. Certains cookies sont
@@ -79,7 +99,11 @@ class Connexion extends Component {
           <a
             href="/cookies/POLITIQUE_DE_COOKIES.pdf"
             target="_blank"
-            style={{ fontSize: "20px" }}
+            style={{
+              fontSize: "20px",
+              fontfamily: "Montserrat",
+              fontWeight: "bold",
+            }}
           >
             Politique de cookies
           </a>

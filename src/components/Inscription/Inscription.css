@@ -19,21 +19,18 @@ body {
 .Bloc-principal .form {
   display: inline-block;
 }
-.Bloc-principal .submitButton {
+.submitButtonRestau {
   border-radius: 28px !important;
   background-color: #f5a624 !important;
-  width: 100%;
+
   border-color: #f5a624 !important;
-  padding-top: 1% !important;
-  padding-bottom: 1% !important;
+
   font-size: 15px !important;
   text-align: center;
-  margin-bottom: 20%;
 }
-.Bloc-principal .submitButton:hover {
-  background-color: #fcba03 !important;
-  color: white !important;
-  border-color: yellow !important;
+.submitButtonRestau:hover {
+  background-color: #555 !important;
+  color: #f4a521 !important;
 }
 
 .Bloc-principal .checkboxCGU {

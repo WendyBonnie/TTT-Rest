@@ -43,9 +43,9 @@
   color: white;
 }
 .styleProfil .buttonVal:hover {
-  background-color: rgb(245, 206, 36) !important;
-  color: white !important;
-  border-color: yellow !important;
+  background-color: #555 !important;
+  color: #f5a624 !important;
+  border-color: #f5a624 !important ;
 }
 .styleProfil .button {
   border-radius: 28px !important;
@@ -62,9 +62,9 @@
   color: white;
 }
 .styleProfil .button:hover {
-  background-color: rgb(245, 206, 36) !important;
-  color: white !important;
-  border-color: yellow !important;
+  background-color: #555 !important;
+  color: #f5a624 !important;
+  border-color: #f5a624 !important ;
 }
 
 .styleProfil .profilTitle {
@@ -81,9 +81,9 @@
   color: white !important;
 }
 .modalStyle .buttonModal:hover {
-  background-color: rgb(245, 206, 36) !important;
-  color: white !important;
-  border-color: yellow !important;
+  background-color: #555 !important;
+  color: #f5a624 !important;
+  border-color: #f5a624 !important ;
 }
 
 .styleProfil .fas {
@@ -156,6 +156,11 @@
   border: 0px solid #4a4a4a !important;
   color: white;
   border-width: 0px;
+}
+.parrainage .buttonParrainage:hover {
+  background-color: #555 !important;
+  color: #f5a624 !important;
+  border-color: #f5a624 !important ;
 }
 .parrainage .infoParrainage {
   font-weight: bold;

@@ -45,7 +45,8 @@
 }
 
 .connectButton:hover {
-  background-color: #555;
+  background-color: #555 !important;
+  color: #f5a624 !important;
 }
 
 .text2 {

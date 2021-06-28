@@ -218,7 +218,7 @@ class Inscription extends Component {
                   </Col>
                   <Col md={3}>
                     <Button
-                      className="submitButton"
+                      className="submitButtonRestau"
                       block
                       type="submit"
                       block

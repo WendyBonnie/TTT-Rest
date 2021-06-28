@@ -22,7 +22,7 @@
 }
 .homepage .buttonPremium:hover {
   background-color: #555 !important;
-  color: white !important;
+  color: #f5a624 !important;
   border-color: yellow !important;
 }
 .homepage .qrSub {

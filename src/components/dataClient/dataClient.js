@@ -57,7 +57,10 @@ function AlertDismissible() {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/restaurateur/unsubscribe", options)
+    fetch(
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/unsubscribe",
+      options
+    )
       .then((response) => {
         return response.json();
       })

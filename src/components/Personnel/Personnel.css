@@ -23,8 +23,8 @@
 }
 .personnel .button:hover {
   background-color: #555 !important;
-  color: white !important;
-  border-color: yellow !important;
+  color: #f5a624 !important;
+  border-color: #f5a624 !important ;
 }
 .personnel .titleWaiter {
   text-align: center;

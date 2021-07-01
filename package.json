@@ -15,7 +15,7 @@
     "form-urlencoded": "^4.2.1",
     "i": "^0.3.6",
     "jquery": "^3.6.0",
-    "nodemailer": "^6.4.13",
+    "nodemailer": "^6.6.2",
     "npm": "^7.5.4",
     "pdfobject": "^2.1.1",
     "popper.js": "^1.16.1",

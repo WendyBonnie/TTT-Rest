@@ -8,11 +8,6 @@ import Row from "react-bootstrap/Row";
 import "./OtherMenu.css";
 import storage from "../../../firebase";
 
-
-
-
-
-
 class OtherMenu extends Component {
   constructor(props) {
     super(props);
@@ -137,7 +132,7 @@ class OtherMenu extends Component {
             <Card.Body>
               <Button
                 onClick={(e) => this.deleteMenu(e, index)}
-                className="bouton"
+                className="buttonMenuSup"
               >
                 Supprimer le menu
               </Button>
@@ -164,9 +159,9 @@ class OtherMenu extends Component {
                 multiple
                 accept="image/png, image/jpeg, image/jpg"
               />
-              <button className="bouton" type="submit">
+              <Button className="buttonMenu" type="submit">
                 Valider
-              </button>
+              </Button>
             </form>
             {this.noMenu()}
           </Col>

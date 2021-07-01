@@ -28,13 +28,11 @@ class InscriptionParrainage extends Component {
       adress: this.state.adress,
       restaurantName: this.state.restaurantName,
       bossFirstName: this.state.bossFirstName,
-
       bossName: this.state.bossName,
       noon: this.state.noon,
       evening: this.state.evening,
       pourboireGeneral: this.state.pourboireGeneral,
       pourboireIndividuel: this.state.pourboireIndividuel,
-
       date: this.state.date,
       email: this.state.email,
       phone: this.state.phone,
@@ -208,13 +206,22 @@ class InscriptionParrainage extends Component {
                 <Row>
                   <Col md={9}>
                     <Form.Group controlId="formBasicCheckbox">
-                      <Row style={{ marginLeft: "2px" }}>
+                      <br />
+                      <Form.Check
+                        className="checkboxCGUParrainage"
+                        type="checkbox"
+                        name="acceptControl"
+                        label="J'ai lu et j'accepte les CGU et CGV"
+                        onChange={this.handleInput}
+                        required
+                      />
+                      <Row style={{ marginLeft: "10px", fontWeight: "bold" }}>
                         <a
                           className="cgvLink"
                           href="/CGV_TIPTOTHANK.pdf"
                           target="_blanck"
                         >
-                          J'ai lu et j'accepte les CGU et CGV
+                          CGU
                         </a>
                       </Row>
                     </Form.Group>
@@ -230,6 +237,15 @@ class InscriptionParrainage extends Component {
                       S'inscrire
                     </Button>
                   </Col>
+                  <p className="annonceParrainage">
+                    *TIPOURBOIRE est responsable du traitement des données
+                    personnelles collectées sur ce site. Elles sont collectées
+                    aux fins de : l'exécution du contrat/vous informer de nos
+                    nouveautés et actualités/à des fins statistiques, les bases
+                    légales respectives des traitements pouvant être l'exécution
+                    du contrat, l'intérêt légitime, ou le consentement. Pour
+                    plus d'informations voir notre politique de confidentialité.
+                  </p>
                 </Row>
               </Form>
               <Col md={{ span: 6, offset: 3 }}>{this.state.message}</Col>

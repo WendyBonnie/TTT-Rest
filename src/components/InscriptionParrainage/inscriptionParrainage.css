@@ -27,11 +27,18 @@ body {
   margin-bottom: 20%;
 }
 .Bloc-principal .submitButton:hover {
-  background-color: #fcba03 !important;
-  color: white !important;
-  border-color: yellow !important;
+  background-color: #555 !important;
+  color: #f5a624 !important;
+  border-color: #f5a624 !important ;
 }
-
+.Bloc-principal .annonceParrainage {
+  color: #f5a624;
+  font-size: 8px;
+}
+.Bloc-principal .checkboxCGUParrainage {
+  color: #f5a624 !important;
+  font-weight: bolder;
+}
 .Bloc-principal a {
   text-decoration: none !important;
 }

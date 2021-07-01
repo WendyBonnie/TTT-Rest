@@ -24,7 +24,7 @@ function QrHookTicket() {
       titleTop: 25, // draws y coordinates. default is 30
       subTitle: "Scannez, Donnez avec Tipourboire", // content
       subTitleFont: "12px Montserrat", // font. default is "14px Arial"
-      subTitleColor: "#f5a624", // color. default is "4F4F4F"
+      subTitleColor: "#4a4a4a", // color. default is "4F4F4F"
       subTitleTop: 50, // draws y coordinates. default is 0
     });
   }, []);

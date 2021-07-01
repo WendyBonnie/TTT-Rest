@@ -12,7 +12,7 @@
   padding: 30px 30px 58px 30px;
 }
 
-.menuContain .bouton {
+.buttonMenu {
   font-size: 23px;
   margin: 2%;
   padding: 2%;
@@ -22,10 +22,25 @@
   border-radius: 28px;
   border: 0px solid #4a4a4a !important;
 }
-.menuContain .bouton:hover {
+.buttonMenu:hover {
   background-color: #555 !important;
-  color: white !important;
-  border-color: yellow !important;
+  color: #f5a624 !important;
+  border-color: #f5a624 !important ;
+}
+.buttonMenuSup {
+  font-size: 23px;
+  margin: 2%;
+  padding: 2%;
+  background-color: #f4a521;
+  color: white;
+  font-size: 19px;
+  border-radius: 28px;
+  border: 0px solid #4a4a4a !important;
+}
+.buttonMenuSup:hover {
+  background-color: #555 !important;
+  color: #f5a624 !important;
+  border-color: #f5a624 !important ;
 }
 .menuContain .menuOther {
   text-align: center;

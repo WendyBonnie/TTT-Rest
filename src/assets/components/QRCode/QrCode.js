@@ -27,9 +27,8 @@ function QrHook() {
       titleHeight: 70, // height, including subTitle. default is 0
       titleTop: 25, // draws y coordinates. default is 30
       subTitle: "Votre menu avec Tipourboire.", // content
-
       subTitleFont: "11px Montserrat", // font. default is "14px Arial"
-      subTitleColor: "#f5a624", // color. default is "4F4F4F"
+      subTitleColor: "#4a4a4a", // color. default is "4F4F4F"
       subTitleTop: 50, // draws y coordinates. default is 0
     });
   }, []);

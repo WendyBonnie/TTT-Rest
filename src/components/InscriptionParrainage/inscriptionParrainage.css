@@ -31,7 +31,14 @@ body {
   color: #f5a624 !important;
   border-color: #f5a624 !important ;
 }
-
+.Bloc-principal .annonceParrainage {
+  color: #f5a624;
+  font-size: 8px;
+}
+.Bloc-principal .checkboxCGUParrainage {
+  color: #f5a624 !important;
+  font-weight: bolder;
+}
 .Bloc-principal a {
   text-decoration: none !important;
 }

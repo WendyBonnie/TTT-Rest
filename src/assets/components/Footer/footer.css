@@ -14,3 +14,24 @@
 .footer .navbar-light .navbar-brand:hover {
   color: white;
 }
+/**
+* Modal de suppression compte
+*/
+.modalButtonDelete {
+  background-color: #f4a521 !important;
+  color: white !important;
+  border-radius: 58px !important;
+  border-color: #f5a624 !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+}
+.modalButtonDelete:hover {
+  background-color: #555 !important;
+  color: #f5a624 !important;
+  border-color: #f5a624 !important ;
+}
+.modalBody {
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 18px;
+}

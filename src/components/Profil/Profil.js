@@ -397,6 +397,8 @@ class Profil extends Component {
 
     fetch(
       "https://back-end.osc-fr1.scalingo.io/serveur/emailParrainage?_id=" +
+        this.state.email +
+        "&mailSender=" +
         this.state.profil.email,
       options
     )

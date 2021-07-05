@@ -1,13 +1,76 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import DailyMenu from "../../assets/components/DailyMenu/DailyMenu";
 import Profil from "../Profil/Profil";
 import QrCode from "../../assets/components/QRCode/QrCode";
 import QrCodeTicket from "../../assets/QRCodeTicket/QRCodeTicket";
 import Personnel from "../Personnel/Personnel";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 
+import { Image, Col, Row, Container, Button, Modal } from "react-bootstrap";
 import "./HomePage.css";
+
+function Tuto() {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  return (
+    <>
+      <Button className="buttonTuto" onClick={handleShow}>
+        Etape obligatoire{" "}
+        <Button onClick={handleShow} className="flecheTuto">
+          {">"}
+        </Button>
+      </Button>
+
+      <Modal
+        show={show}
+        onHide={handleClose}
+        animation={true}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Rappel d'utilisation</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Image className="imgModalTuto" src="/images/logoOK.png" />
+          <li>
+            {" "}
+            1. Demandez à chaque personne de votre équipe de créer un compte sur
+            serveur.tipourboire.com
+          </li>
+          <br /> <br />
+          <li>
+            {" "}
+            2. Envoyez un mail d'affiliation à chacun depuis votre espace
+            Tipourboire et à votre serveur référant en cas de distribution à la
+            générale.
+          </li>
+          <br /> <br />
+          <p>
+            3. Mettez en évidence les QR Codes Tipourboire dans votre restaurant
+            ; <br /> <br />
+            - QR Code addition Insérez-le sur votre ticket d'addition avec votre
+            logiciel de caisse Imprimez-le et mettez-le en évidence à la caisse,
+            sur le TPE, le support de l'addition, etc...
+            <br /> - QR Code Menu du jour Imprimez le et mettez-le sur chaque
+            table.
+          </p>
+          <p></p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            className="modalButton"
+            variant="secondary"
+            onClick={handleClose}
+          >
+            Fermer
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
+}
 
 class HomePage extends Component {
   constructor(props) {
@@ -95,6 +158,9 @@ class HomePage extends Component {
             <h1 className="titleQR">Mes QR Codes</h1>
 
             <Row>
+              <Col md={{ span: 9, offset: 7 }} className="colTuto">
+                <Tuto />
+              </Col>
               <Col>
                 <p className="titleQR">QR CODE Ticket </p>
                 <p className="qrSub">

@@ -30,3 +30,104 @@
   text-align: center;
   font-size: 14px;
 }
+/**
+* Style modal tuto
+*/
+
+.buttonTuto {
+  background-color: #7200ff !important;
+  position: -webkit-sticky !important;
+  font-size: 20px !important;
+  z-index: 1000 !important;
+  right: -6% !important;
+  top: 45% !important;
+  position: fixed !important;
+  float: right !important;
+  border-width: 0 !important;
+  padding: 2% 2% 2% 2% !important;
+  border-radius: 0px 0px 25px 25px !important;
+  vertical-align: top !important;
+  transform: rotate(7deg) !important;
+  -ms-transform: rotate(90deg) !important; /* IE 9 */
+  -moz-transform: rotate(90deg) !important; /* Firefox */
+  -webkit-transform: rotate(90deg) !important; /* Safari and Chrome */
+  -o-transform: rotate(90deg) !important; /* Opera */
+}
+
+.flecheTuto {
+  margin-left: 0.4rem !important;
+  background-color: #f5a624 !important;
+  color: #7200ff !important;
+  border-width: 0 !important;
+  vertical-align: top !important;
+  border-radius: 25px !important;
+  transform: rotate(7deg) !important;
+  -ms-transform: rotate(270deg) !important; /* IE 9 */
+  -moz-transform: rotate(270deg) !important; /* Firefox */
+  -webkit-transform: rotate(270deg) !important; /* Safari and Chrome */
+  -o-transform: rotate(270deg) !important; /* Opera */
+}
+.flecheTuto:hover {
+  border-color: #f5a624 !important;
+  color: white !important;
+}
+.imgModalTuto {
+  width: 30%;
+  margin-bottom: 3%;
+}
+.modalButton {
+  background-color: #f5a624 !important;
+  border-color: #4a4a4a !important;
+  color: #4a4a4a !important;
+}
+.modalButton:hover {
+  border-color: #f5a624 !important;
+  background-color: #4a4a4a !important;
+  color: #f5a624 !important;
+}
+
+@media (max-width: 800px) {
+  /**
+*TUTO RESPONSIVE
+*/
+  .buttonTuto {
+    background-color: #7200ff !important;
+    position: -webkit-sticky !important;
+    font-size: 20px !important;
+    z-index: 1000 !important;
+    right: -20% !important;
+    position: fixed !important;
+    float: right !important;
+    border-width: 0 !important;
+    padding: 3% 3% 3% 3% !important;
+    border-radius: 0px 0px 25px 25px !important;
+    vertical-align: top !important;
+    transform: rotate(7deg) !important;
+    -ms-transform: rotate(90deg) !important; /* IE 9 */
+    -moz-transform: rotate(90deg) !important; /* Firefox */
+    -webkit-transform: rotate(90deg) !important; /* Safari and Chrome */
+    -o-transform: rotate(90deg) !important; /* Opera */
+  }
+
+  .flecheTuto {
+    margin-left: 0.4rem !important;
+    background-color: #f5a624 !important;
+    color: #7200ff !important;
+    border-width: 0 !important;
+    border-radius: 25px !important;
+    vertical-align: top !important;
+    transform: rotate(7deg) !important;
+    -ms-transform: rotate(270deg) !important; /* IE 9 */
+    -moz-transform: rotate(270deg) !important; /* Firefox */
+    -webkit-transform: rotate(270deg) !important; /* Safari and Chrome */
+    -o-transform: rotate(270deg) !important; /* Opera */
+  }
+  .flecheTuto:hover {
+    border-color: #f5a624 !important;
+    color: white !important;
+  }
+  .imgModalTuto {
+    width: 30%;
+    margin-bottom: 3%;
+  }
+}

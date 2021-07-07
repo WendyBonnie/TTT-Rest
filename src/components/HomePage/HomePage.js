@@ -33,7 +33,6 @@ function Tuto() {
           <Modal.Title>Rappel d'utilisation</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Image className="imgModalTuto" src="/images/logoOK.png" />
           <li>
             {" "}
             1. Demandez à chaque personne de votre équipe de créer un compte sur

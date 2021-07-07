@@ -46,16 +46,17 @@ function Tuto() {
             générale.
           </li>
           <br /> <br />
-          <p>
+          <li>
             3. Mettez en évidence les QR Codes Tipourboire dans votre restaurant
-            ; <br /> <br />
+            ;{" "}
+          </li>
+          <p>
             - QR Code addition Insérez-le sur votre ticket d'addition avec votre
             logiciel de caisse Imprimez-le et mettez-le en évidence à la caisse,
             sur le TPE, le support de l'addition, etc...
             <br /> - QR Code Menu du jour Imprimez le et mettez-le sur chaque
             table.
           </p>
-          <p></p>
         </Modal.Body>
         <Modal.Footer>
           <Button

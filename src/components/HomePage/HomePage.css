@@ -47,7 +47,7 @@
   padding: 2% 2% 2% 2% !important;
   border-radius: 0px 0px 25px 25px !important;
   vertical-align: top !important;
-  transform: rotate(7deg) !important;
+  transform: rotate(90deg) !important;
   -ms-transform: rotate(90deg) !important; /* IE 9 */
   -moz-transform: rotate(90deg) !important; /* Firefox */
   -webkit-transform: rotate(90deg) !important; /* Safari and Chrome */
@@ -61,7 +61,7 @@
   border-width: 0 !important;
   vertical-align: top !important;
   border-radius: 25px !important;
-  transform: rotate(7deg) !important;
+  transform: rotate(90deg) !important;
   -ms-transform: rotate(270deg) !important; /* IE 9 */
   -moz-transform: rotate(270deg) !important; /* Firefox */
   -webkit-transform: rotate(270deg) !important; /* Safari and Chrome */
@@ -85,6 +85,20 @@
   background-color: #4a4a4a !important;
   color: #f5a624 !important;
 }
+.liTitle {
+  font-size: 16px;
+  font-weight: 600;
+}
+.title1 {
+  font-size: 20px;
+  font-weight: 800 !important;
+}
+.para1 {
+  text-align: center !important;
+  display: flex !important;
+  justify-content: center !important;
+  font-size: 14px;
+}
 
 @media (max-width: 800px) {
   /**
@@ -102,7 +116,7 @@
     padding: 3% 3% 3% 3% !important;
     border-radius: 0px 0px 25px 25px !important;
     vertical-align: top !important;
-    transform: rotate(7deg) !important;
+    transform: rotate(90deg) !important;
     -ms-transform: rotate(90deg) !important; /* IE 9 */
     -moz-transform: rotate(90deg) !important; /* Firefox */
     -webkit-transform: rotate(90deg) !important; /* Safari and Chrome */
@@ -116,7 +130,7 @@
     border-width: 0 !important;
     border-radius: 25px !important;
     vertical-align: top !important;
-    transform: rotate(7deg) !important;
+    transform: rotate(90deg) !important;
     -ms-transform: rotate(270deg) !important; /* IE 9 */
     -moz-transform: rotate(270deg) !important; /* Firefox */
     -webkit-transform: rotate(270deg) !important; /* Safari and Chrome */
@@ -129,5 +143,9 @@
   .imgModalTuto {
     width: 30%;
     margin-bottom: 3%;
+  }
+  .liTitle {
+    font-size: 16px;
+    font-weight: 600;
   }
 }

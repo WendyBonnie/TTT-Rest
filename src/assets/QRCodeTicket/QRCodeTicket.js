@@ -23,7 +23,7 @@ function QrHookTicket() {
       titleHeight: 70, // height, including subTitle. default is 0
       titleTop: 25, // draws y coordinates. default is 30
       subTitle: "Scannez, Donnez avec Tipourboire", // content
-      subTitleFont: "12px Montserrat", // font. default is "14px Arial"
+      subTitleFont: "bold 12px Montserrat", // font. default is "14px Arial"
       subTitleColor: "#4a4a4a", // color. default is "4F4F4F"
       subTitleTop: 50, // draws y coordinates. default is 0
     });
@@ -36,13 +36,10 @@ function QrHookTicket() {
         onClick={() => {
           const canvas = document.querySelector("#qrCodeDiv canvas");
           const image = canvas.toDataURL();
-
           const element = document.createElement("a");
           element.setAttribute("href", image);
           element.setAttribute("download", "canvas.png");
-
           document.body.appendChild(element);
-
           element.click();
         }}
       >

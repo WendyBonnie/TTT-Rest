@@ -12,7 +12,7 @@ import "./Abonnement.css";
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
 
 const stripePromise = loadStripe(
-  "pk_test_51HAxRlHoh2Vgz5QdMpHXhINQMDhyGPR4gFvzs9vVzocySBI4WCfw8oPa7De6PC2ZJZlQKVQFRDPLU7FIGmXZC0QA00XGutN1eU"
+  "pk_live_51HAxRlHoh2Vgz5Qdxu3AGz9GC1q2B453vaXplDn3J0Q5wXRCZqwkuoCG5O1Nsr1VsbNIHmjVWj7XJo9cZmljPw7L00wQbxBO6Y"
 );
 
 class Abonnement extends Component {

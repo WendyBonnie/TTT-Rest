@@ -85,6 +85,20 @@
   background-color: #4a4a4a !important;
   color: #f5a624 !important;
 }
+.liTitle {
+  font-size: 16px;
+  font-weight: 600;
+}
+.title1 {
+  font-size: 20px;
+  font-weight: 800 !important;
+}
+.para1 {
+  text-align: center !important;
+  display: flex !important;
+  justify-content: center !important;
+  font-size: 14px;
+}
 
 @media (max-width: 800px) {
   /**
@@ -129,5 +143,9 @@
   .imgModalTuto {
     width: 30%;
     margin-bottom: 3%;
+  }
+  .liTitle {
+    font-size: 16px;
+    font-weight: 600;
   }
 }

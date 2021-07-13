@@ -63,7 +63,7 @@ export default function CheckoutForm() {
             body: JSON.stringify({
               customerId: customerId,
               paymentMethodId: paymentMethodId,
-              priceId: "price_1IGLo3Hoh2Vgz5QdnS6OVonj",
+              priceId: "price_1IGL9iHoh2Vgz5QdlyKQ9pDg",
             }),
           }
         )

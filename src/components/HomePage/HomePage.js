@@ -16,7 +16,7 @@ function Tuto() {
   return (
     <>
       <Button className="buttonTuto" onClick={handleShow}>
-        Etape obligatoire{" "}
+        Etapes obligatoires{" "}
         <Button onClick={handleShow} className="flecheTuto">
           {">"}
         </Button>
@@ -33,29 +33,44 @@ function Tuto() {
           <Modal.Title>Rappel d'utilisation</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <li>
-            {" "}
-            1. Demandez à chaque personne de votre équipe de créer un compte sur
-            serveur.tipourboire.com
-          </li>
-          <br /> <br />
-          <li>
-            {" "}
-            2. Envoyez un mail d'affiliation à chacun depuis votre espace
-            Tipourboire et à votre serveur référant en cas de distribution à la
-            générale.
-          </li>
-          <br /> <br />
-          <li>
-            3. Mettez en évidence les QR Codes Tipourboire dans votre restaurant
-            ;{" "}
-          </li>
-          <p>
-            - QR Code addition Insérez-le sur votre ticket d'addition avec votre
-            logiciel de caisse Imprimez-le et mettez-le en évidence à la caisse,
-            sur le TPE, le support de l'addition, etc...
-            <br /> - QR Code Menu du jour Imprimez le et mettez-le sur chaque
-            table.
+          <p className="title1">
+            Pour que vos clients puissent donner des pourboires selon vos
+            règles, vous devez:
+          </p>
+          <p className="para1">
+            Mettre en évidence les QR Codes Tipourboire dans votre restaurant
+            <br /> <br />
+            QR Code addition
+            <br />
+            Insérez-le sur votre ticket d'addition avec votre logiciel de caisse
+            <br />
+            et/ou
+            <br />
+            Imprimez-le et mettez-le en évidence
+            <br />
+            à la caisse, sur le TPE, le support de l'addition, etc...
+            <br /> <br />
+            QR Code Menu du jour
+            <br />
+            Imprimez le et mettez-le sur chaque table, <br />
+          </p>
+          <p className="title1">
+            Pour que vos équipes puissent recevoir des pourboires selon vos
+            règles, vous devez:
+          </p>
+          <p className="para1">
+            Demander à chaque personne de votre équipe (serveur, cuisinier,
+            plongeur, chef de rang, commis, runner, etc...) de créer son compte
+            sur serveur.tipourboire.com
+            <br /> <br />
+            Leur envoyer à chacun un mail d'affiliation depuis votre espace
+            Tipourboire, pour qu'il soit rattaché à votre établissement.
+            <br /> <br />
+            Envoyer à la personne en charge de la distribution des pourboires
+            (alias "le serveur référant"), un mail d'affiliation depuis votre
+            espace Tipourboire, pour qu'il puisse distribuer le pourboire commun
+            selon vos règles
+            <br />
           </p>
         </Modal.Body>
         <Modal.Footer>

@@ -35,7 +35,8 @@ function Tuto() {
         <Modal.Body>
           <p className="title1">
             Pour que vos clients puissent donner des pourboires selon vos
-            règles, vous devez:
+            règles,
+            <br /> vous devez:
           </p>
           <p className="para1">
             Mettre en évidence les QR Codes Tipourboire dans votre restaurant
@@ -56,7 +57,8 @@ function Tuto() {
           </p>
           <p className="title1">
             Pour que vos équipes puissent recevoir des pourboires selon vos
-            règles, vous devez:
+            règles,
+            <br /> vous devez:
           </p>
           <p className="para1">
             Demander à chaque personne de votre équipe (serveur, cuisinier,

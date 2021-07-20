@@ -39,17 +39,14 @@ class Footer extends Component {
       headers: headers,
     };
 
-    fetch(
-      "https://back-end.osc-fr1.scalingo.io/restaurateur/deleteRestaurant",
-      options
-    )
+    fetch("http://localhost:8080/restaurateur/deleteRestaurant", options)
       .then((response) => {
         return response.json();
       })
       .then(
-        (responseObject) => {
-          this.setState({ message: responseObject.message });
-          localStorage.clear();
+        () => {
+          let link = "https://restaurant.tipourboire.com/";
+          window.location.href = link;
         },
 
         (error) => {

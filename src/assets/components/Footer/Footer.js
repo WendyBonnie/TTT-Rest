@@ -39,7 +39,10 @@ class Footer extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/restaurateur/deleteRestaurant", options)
+    fetch(
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/deleteRestaurant",
+      options
+    )
       .then((response) => {
         return response.json();
       })

@@ -55,7 +55,7 @@ class Inscription extends Component {
         <Row>
           <Col className="colInscr" md={6}>
             <Row className="Titre">
-              <h1>Créer mon compte</h1>
+              <h1>Créer mon compte restaurateur</h1>
             </Row>
             <Row>
               <p>

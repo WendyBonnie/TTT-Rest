@@ -68,16 +68,17 @@ class Personnel extends Component {
                 .then((response) => {
                   return response.json();
                 })
+
                 .then(
                   (data) => {
                     this.getWaiterList();
                   },
+
                   (err) => {
                     console.log(err);
                   }
                 );
-            }}
-          >
+            }}>
             Supprimer
           </button>
         </div>
@@ -115,7 +116,7 @@ class Personnel extends Component {
       })
 
       .then((responseData) => {
-        this.setState({ messageAffi: responseData.messageAffi });
+        alert("Votre demande a bien été prise en compte");
       });
   };
   addReferent = (e) => {
@@ -182,8 +183,7 @@ class Personnel extends Component {
                 animationSpeed: 2000,
                 infinite: false,
               },
-            }}
-          >
+            }}>
             {this.renderMesServeurs()}
           </Carousel>
         </Col>

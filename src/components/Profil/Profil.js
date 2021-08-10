@@ -14,14 +14,6 @@ function UploadPicture() {
   const [message, setMessage] = useState("");
   const [dailyMenu, setDailyMenu] = useState({});
 
-  const upload = (e) => {
-    if (imageStorage == null) return;
-    storage
-      .ref(`/PictureRestau/${imageStorage.name}`)
-      .put(imageStorage)
-      .on("state_changed", alert("Votre logo a bien été enregistré"), alert);
-  };
-
   const getMonProfil = () => {
     const headers = new Headers({
       Authorization: "Bearer " + localStorage.getItem("token"),
@@ -122,7 +114,9 @@ function UploadPicture() {
       <form onSubmit={modifProfilLogo} className="formLogo">
         <img
           className="restaurantLogo"
-          src={"https://back-end.osc-fr1.scalingo.io/" + imageStorage}
+          src={
+            "https://s3.amazonaws.com/b.c.bucket.tipourboire/" + imageStorage
+          }
         ></img>
         <br />
         <br />
@@ -134,7 +128,7 @@ function UploadPicture() {
           }}
         />
         <br />
-        <button className="buttonVal" type="submit" onClick={upload}>
+        <button className="buttonVal" type="submit">
           Valider
         </button>
       </form>

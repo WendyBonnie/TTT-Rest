@@ -167,7 +167,7 @@ function UploadMenu() {
                 setImageStorage(e.target.files[0]);
               }}
             />
-            <button className="bouton" type="submit" onClick={upload}>
+            <button className="bouton" type="submit">
               Valider
             </button>
           </form>
@@ -177,9 +177,9 @@ function UploadMenu() {
 
             <Card.Img
               variant="top"
-              src={"https://back-end.osc-fr1.scalingo.io/" + images}
+              src={"https://s3.amazonaws.com/b.c.bucket.tipourboire/" + images}
               className="dailyMenu"
-              alt="Menu du Jour1231312"
+              alt="Menu du Jour"
             />
 
             <button
@@ -199,16 +199,10 @@ function UploadMenu() {
 class DailyMenu extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-     
-    };
+    this.state = {};
   }
 
-
-  
-  componentDidMount() {
- 
-  }
+  componentDidMount() {}
 
   render() {
     return <UploadMenu />;

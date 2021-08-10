@@ -32,7 +32,8 @@ function UploadPicture() {
       })
       .then(
         (responseObject) => {
-          console.log();
+          console.log(responseObject);
+          setImages(responseObject.logo);
         },
 
         (error) => {
@@ -88,8 +89,7 @@ function UploadPicture() {
             .then(
               (responseObject) => {
                 setImageStorage(responseObject.logo);
-
-                console.log();
+                getMonProfil();
               },
 
               (error) => {
@@ -114,9 +114,7 @@ function UploadPicture() {
       <form onSubmit={modifProfilLogo} className="formLogo">
         <img
           className="restaurantLogo"
-          src={
-            "https://s3.amazonaws.com/b.c.bucket.tipourboire/" + imageStorage
-          }
+          src={"https://s3.amazonaws.com/b.c.bucket.tipourboire/" + images}
         ></img>
         <br />
         <br />
@@ -325,8 +323,6 @@ class Profil extends Component {
         (responseObject) => {
           this.setState({ message: responseObject.message });
           this.setState({ editing: true });
-
-          console.log("ro", responseObject);
         },
 
         (error) => {

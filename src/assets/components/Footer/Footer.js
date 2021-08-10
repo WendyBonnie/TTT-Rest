@@ -47,9 +47,9 @@ class Footer extends Component {
         return response.json();
       })
       .then(
-        (responseObject) => {
-          this.setState({ message: responseObject.message });
-          localStorage.clear();
+        () => {
+          let link = "https://restaurant.tipourboire.com/";
+          window.location.href = link;
         },
 
         (error) => {

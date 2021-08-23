@@ -9,6 +9,11 @@
   padding: 30px 70px;
 }
 
+.personnel .serverPicture {
+  width: 100px;
+  height: 100px;
+}
+
 .personnel .button {
   border-radius: 28px !important;
   background-color: #f5a624 !important;
@@ -77,9 +82,7 @@
 }
 .personnel .serveurDiv {
   border-radius: 28px;
-  margin: 3%;
-  margin-left: 10%;
-  padding: 10%;
+  text-align: center;
 }
 .personnel .serveurP {
   margin-left: 10%;

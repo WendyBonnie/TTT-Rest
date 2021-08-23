@@ -1,5 +1,5 @@
 import React, { Component, Form, Label, Input } from "react";
-import { Row, Col, Button, Container } from "react-bootstrap";
+import { Row, Col, Button, Container, Image } from "react-bootstrap";
 import "@brainhubeu/react-carousel/lib/style.css";
 import Carousel, { Dots } from "@brainhubeu/react-carousel";
 import "./Personnel.css";
@@ -21,7 +21,7 @@ class Personnel extends Component {
     };
 
     fetch(
-      "https://back-end.osc-fr1.scalingo.io/restaurateur/management/waiter-list",
+      "https://back-end.osc-fr1.scalingo.io//restaurateur/management/waiter-list",
       options
     )
       .then((response) => {
@@ -30,7 +30,6 @@ class Personnel extends Component {
       .then(
         (data) => {
           this.setState({ serveur: data });
-          console.log(this.state.serveur);
         },
         (err) => {
           console.log(err);
@@ -43,6 +42,15 @@ class Personnel extends Component {
       return (
         <div className="serveurDiv">
           <p className="serveurP">{element.serveurName}</p>
+          <Image
+            className="serverPicture"
+            src={
+              "https://s3.amazonaws.com/b.c.bucket.tipourboire/" +
+              element.serveurPicture
+            }
+            roundedCircle
+          />
+          <br></br>
           <button
             className="button"
             onClick={() => {
@@ -78,7 +86,8 @@ class Personnel extends Component {
                     console.log(err);
                   }
                 );
-            }}>
+            }}
+          >
             Supprimer
           </button>
         </div>
@@ -183,7 +192,8 @@ class Personnel extends Component {
                 animationSpeed: 2000,
                 infinite: false,
               },
-            }}>
+            }}
+          >
             {this.renderMesServeurs()}
           </Carousel>
         </Col>

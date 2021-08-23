@@ -21,7 +21,7 @@ class Personnel extends Component {
     };
 
     fetch(
-      "https://back-end.osc-fr1.scalingo.io//restaurateur/management/waiter-list",
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/management/waiter-list",
       options
     )
       .then((response) => {

@@ -13,6 +13,8 @@ class Inscription extends Component {
     super(props);
     this.state = {
       restaurantName: "",
+      checkIndiv: true,
+      checkGen: true,
     };
   }
   handleInput = (e) => {
@@ -31,10 +33,7 @@ class Inscription extends Component {
       headers: headers,
     };
 
-    fetch(
-      "https://back-end.osc-fr1.scalingo.io/restaurateur/inscription",
-      options
-    )
+    fetch("http://localhost:8080/restaurateur/inscription", options)
       .then((response) => {
         return response.json();
       })
@@ -167,13 +166,27 @@ class Inscription extends Component {
                         type="checkbox"
                         name="alone"
                         label="Individuel"
-                        onChange={this.handleInput}
+                        checked={this.state.checkIndiv}
+                        onChange={(e) => {
+                          this.setState({
+                            [e.target.name]: !this.state.checkIndiv,
+                          });
+                          this.setState({ checkIndiv: !this.state.checkIndiv });
+                          console.log(e.target.name, this.state.checkIndiv);
+                        }}
                       />
                       <Form.Check
                         type="checkbox"
-                        name="Collectif"
+                        name="collectif"
                         label="Général"
-                        onChange={this.handleInput}
+                        checked={this.state.checkGen}
+                        onChange={(e) => {
+                          this.setState({
+                            [e.target.name]: !this.state.checkGen,
+                          });
+                          this.setState({ checkGen: !this.state.checkGen });
+                          console.log(e.target.name, this.state.checkGen);
+                        }}
                       />
                     </Form.Group>
                   </Col>

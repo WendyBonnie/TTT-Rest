@@ -20,9 +20,12 @@ class Inscription extends Component {
   handleInput = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
   addNewRegister = (e) => {
     e.preventDefault();
+
     const data = new FormData(e.target);
+
     const headers = new Headers({
       "X-Requested-With": "XMLHttpRequest",
     });
@@ -151,43 +154,27 @@ class Inscription extends Component {
                         label="Midi"
                         onChange={this.handleInput}
                       />
-                      <Form.Check
-                        type="checkbox"
-                        name="evening"
-                        label="Soir"
-                        onChange={this.handleInput}
-                      />
                     </Form.Group>
                   </Col>
                   <Col xs={6}>
                     <Form.Group controlId="formService">
-                      <Form.Label>Sytèmes de pourboires</Form.Label>
-                      <Form.Check
+                      <input
                         type="checkbox"
+                        id="individuel"
                         name="alone"
-                        label="Individuel"
-                        checked={this.state.checkIndiv}
-                        onChange={(e) => {
-                          this.setState({
-                            [e.target.name]: !this.state.checkIndiv,
-                          });
-                          this.setState({ checkIndiv: !this.state.checkIndiv });
-                          console.log(e.target.name, this.state.checkIndiv);
-                        }}
+                        checked={this.state.checkIndividuel}
+                        onChange={this.handleInput}
                       />
-                      <Form.Check
+                      <label for="individuel">Pourboire individuel</label>
+                      <br />
+                      <input
                         type="checkbox"
+                        id="general"
                         name="collectif"
-                        label="Général"
-                        checked={this.state.checkGen}
-                        onChange={(e) => {
-                          this.setState({
-                            [e.target.name]: !this.state.checkGen,
-                          });
-                          this.setState({ checkGen: !this.state.checkGen });
-                          console.log(e.target.name, this.state.checkGen);
-                        }}
+                        checked={this.state.checkGeneral}
+                        onChange={this.handleInput}
                       />
+                      <label for="general">Pourboire Général</label>
                     </Form.Group>
                   </Col>
                 </Row>

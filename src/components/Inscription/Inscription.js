@@ -13,14 +13,19 @@ class Inscription extends Component {
     super(props);
     this.state = {
       restaurantName: "",
+      checkIndiv: true,
+      checkGen: true,
     };
   }
   handleInput = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
   addNewRegister = (e) => {
     e.preventDefault();
+
     const data = new FormData(e.target);
+
     const headers = new Headers({
       "X-Requested-With": "XMLHttpRequest",
     });
@@ -31,10 +36,7 @@ class Inscription extends Component {
       headers: headers,
     };
 
-    fetch(
-      "https://back-end.osc-fr1.scalingo.io/restaurateur/inscription",
-      options
-    )
+    fetch("http://localhost:8080/restaurateur/inscription", options)
       .then((response) => {
         return response.json();
       })
@@ -152,29 +154,27 @@ class Inscription extends Component {
                         label="Midi"
                         onChange={this.handleInput}
                       />
-                      <Form.Check
-                        type="checkbox"
-                        name="evening"
-                        label="Soir"
-                        onChange={this.handleInput}
-                      />
                     </Form.Group>
                   </Col>
                   <Col xs={6}>
                     <Form.Group controlId="formService">
-                      <Form.Label>Sytèmes de pourboires</Form.Label>
-                      <Form.Check
+                      <input
                         type="checkbox"
+                        id="individuel"
                         name="alone"
-                        label="Individuel"
+                        checked={this.state.checkIndividuel}
                         onChange={this.handleInput}
                       />
-                      <Form.Check
+                      <label for="individuel">Pourboire individuel</label>
+                      <br />
+                      <input
                         type="checkbox"
-                        name="Collectif"
-                        label="Général"
+                        id="general"
+                        name="collectif"
+                        checked={this.state.checkGeneral}
                         onChange={this.handleInput}
                       />
+                      <label for="general">Pourboire Général</label>
                     </Form.Group>
                   </Col>
                 </Row>

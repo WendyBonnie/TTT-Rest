@@ -142,6 +142,8 @@ class Profil extends Component {
       editing: true,
       show: false,
       redirect: false,
+      checkGeneral: false,
+      checkIndividuel: false,
     };
   }
 
@@ -254,6 +256,10 @@ class Profil extends Component {
             "propsRestaurant",
             JSON.stringify(responseObject.restaurantName)
           );
+          this.setState({ checkGeneral: responseObject.pourboireGeneral });
+          this.setState({
+            checkIndividuel: responseObject.pourboireIndividuel,
+          });
           console.log();
         },
 
@@ -297,6 +303,8 @@ class Profil extends Component {
       email: this.state.profil.email,
       bossFirstName: this.state.profil.bossFirstName,
       phone: this.state.profil.phone,
+      pourboireGeneral: this.state.checkGeneral,
+      pourboireIndividuel: this.state.checkIndividuel,
     };
 
     const headers = new Headers({
@@ -311,10 +319,7 @@ class Profil extends Component {
       headers: headers,
     };
 
-    fetch(
-      "https://back-end.osc-fr1.scalingo.io/restaurateur/profil/edit",
-      options
-    )
+    fetch("http://localhost:8080/restaurateur/profil/edit", options)
       .then((response) => {
         return response.json();
       })
@@ -323,6 +328,7 @@ class Profil extends Component {
         (responseObject) => {
           this.setState({ message: responseObject.message });
           this.setState({ editing: true });
+          this.getMonProfil();
         },
 
         (error) => {
@@ -407,6 +413,9 @@ class Profil extends Component {
 
   componentDidMount() {
     this.getMonProfil();
+
+    console.log("stateIndiv", this.state.checkIndividuel);
+    console.log("stateIndiv", this.state.checkGeneral);
   }
 
   render() {
@@ -511,6 +520,47 @@ class Profil extends Component {
                 />
               )}
             </p>
+            {this.state.editing ? (
+              <div>
+                <span className="textProfil">
+                  {this.state.profil.pourboireGeneral
+                    ? "Pourboire Général Autorisé"
+                    : "Pourboire Général Refusé"}
+                </span>
+                <br />
+                <span className="textProfil">
+                  {this.state.profil.pourboireIndividuel
+                    ? "Pourboire Individuel Autorisé"
+                    : "Pourboire Individuel Refusé"}
+                </span>
+              </div>
+            ) : (
+              <div>
+                <input
+                  type="checkbox"
+                  id="individuel"
+                  name="individuel"
+                  checked={this.state.checkIndividuel}
+                  onChange={() => {
+                    this.setState({
+                      checkIndividuel: !this.state.checkIndividuel,
+                    });
+                  }}
+                />
+                <label for="individuel">Pourboire individuel</label>
+                <input
+                  type="checkbox"
+                  id="general"
+                  name="general"
+                  checked={this.state.checkGeneral}
+                  onChange={() => {
+                    this.setState({ checkGeneral: !this.state.checkGeneral });
+                  }}
+                />
+                <label for="general">Pourboire Général</label>
+              </div>
+            )}
+
             {this.buttonEdit()}
 
             {this.buttonCancel()}

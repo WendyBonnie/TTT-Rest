@@ -27,8 +27,7 @@ function Tuto() {
         onHide={handleClose}
         animation={true}
         backdrop="static"
-        keyboard={false}
-      >
+        keyboard={false}>
         <Modal.Header closeButton>
           <Modal.Title>Rappel d'utilisation</Modal.Title>
         </Modal.Header>
@@ -79,8 +78,7 @@ function Tuto() {
           <Button
             className="modalButton"
             variant="secondary"
-            onClick={handleClose}
-          >
+            onClick={handleClose}>
             Fermer
           </Button>
         </Modal.Footer>
@@ -92,8 +90,42 @@ function Tuto() {
 class HomePage extends Component {
   constructor(props) {
     super(props);
-    this.state = { restaurantName: "" };
+    this.state = { restaurantName: "", isLoading: false };
   }
+
+  handleAfterPrint = () => {
+    console.log("`onAfterPrint` called"); // tslint:disable-line no-console
+  };
+
+  handleBeforePrint = () => {
+    console.log("`onBeforePrint` called"); // tslint:disable-line no-console
+  };
+
+  handleOnBeforeGetContent = () => {
+    console.log("`onBeforeGetContent` called"); // tslint:disable-line no-console
+    this.setState({ text: "Loading new text...", isLoading: true });
+
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        this.setState(
+          { text: "New, Updated Text!", isLoading: false },
+          resolve
+        );
+      }, 2000);
+    });
+  };
+
+  reactToPrintTrigger = () => {
+    // NOTE: could just as easily return <SomeComponent />. Do NOT pass an `onClick` prop
+    // to the root node of the returned component as it will be overwritten.
+
+    // Bad: the `onClick` here will be overwritten by `react-to-print`
+    // return <button onClick={() => alert('This will not work')}>Print this out!</button>;
+
+    // Good
+    return <button>Print </button>;
+  };
+
   getRestaurantName = () => {
     const headers = new Headers({
       Authorization: "Bearer " + localStorage.getItem("token"),
@@ -138,8 +170,7 @@ class HomePage extends Component {
             variant="primary"
             onClick={() => {
               this.props.history.push("/dataClient");
-            }}
-          >
+            }}>
             Accès à mon espace premium <br />
           </button>
         </div>
@@ -152,8 +183,7 @@ class HomePage extends Component {
             variant="primary"
             onClick={() => {
               this.props.history.push("/abonnement");
-            }}
-          >
+            }}>
             Souscrire à l'abonnement premium <br />
           </button>
         </div>
@@ -184,10 +214,12 @@ class HomePage extends Component {
                   à insérer sur vos tickets d'addition depuis votre logiciel de
                   caisse
                 </p>
-                <QrCodeTicket
-                  className="qrCodeTicket"
-                  restaurantName={this.state.restaurantName}
-                />
+                <div>
+                  <QrCodeTicket
+                    className="qrCodeTicket"
+                    restaurantName={this.state.restaurantName}
+                  />
+                </div>
               </Col>
               <Col>
                 <p className="titleQR"> QR CODE Menu </p>
@@ -197,6 +229,7 @@ class HomePage extends Component {
                 <QrCode
                   className="qrCode"
                   restaurantName={this.state.restaurantName}
+                  restaurant="coucou"
                 />
               </Col>
             </Row>

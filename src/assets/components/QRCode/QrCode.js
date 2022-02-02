@@ -51,8 +51,7 @@ function QrHook() {
           element.click();
 
           document.body.removeChild(element);
-        }}
-      >
+        }}>
         Télécharger le QR Code Table
       </button>
     </div>

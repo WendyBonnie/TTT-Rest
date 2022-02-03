@@ -14,6 +14,8 @@ function QrHookTicket(props) {
   const [loading, setLoading] = React.useState(false);
   const [text, setText] = React.useState("old boring text");
 
+  //Print QR code
+
   const handleAfterPrint = React.useCallback(() => {
     console.log("`onAfterPrint` called"); // tslint:disable-line no-console
   }, []);
@@ -100,7 +102,34 @@ function QrHookTicket(props) {
 
   return (
     <div>
-      <div id="qrCodeDiv" />
+      <Row className="backgroundTicketVisible" lg={6}>
+        <Col className="backColLeft">
+          <Row className="rowCode">
+            <Col>
+              <p className="titleName">
+                {localStorage.getItem("propsRestaurant")}
+              </p>
+            </Col>
+            <Col>
+              <div id="qrCodeDiv" />
+            </Col>
+            <Col>
+              <img src="/image/tipourboirePhrase.png" className="tipPicture" />
+            </Col>
+          </Row>
+        </Col>
+        <Col className="backColRight">
+          <Row className="rowCode2">
+            <Col className="col2">
+              {" "}
+              <img src="/image/logoCode.png" className="tipPicture" />
+            </Col>
+            <Col className="col2">
+              <p>Juste pour un merci</p>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
       <div className="QRPrint">
         <div id="qrCodePdf" ref={componentRef}>
           <Row className="backgroundTicket">
@@ -141,7 +170,7 @@ function QrHookTicket(props) {
       <button onClick={handlePrint} className="buttonQrCode">
         Imprimez votre étiquette
       </button>
-      <button
+      {/*<button
         className="buttonQrCode"
         onClick={() => {
           const canvas = document.querySelector("#qrCodePdf canvas");
@@ -153,7 +182,7 @@ function QrHookTicket(props) {
           element.click();
         }}>
         Télécharger le QR Code Ticket
-      </button>
+      </button>*/}
     </div>
   );
 }

@@ -6,6 +6,13 @@
   margin-left: 2%;
 }
 
+.backgroundTicketVisible {
+  width: 100%;
+
+  justify-content: center;
+  margin-bottom: 3%;
+}
+
 .QRPrint {
   display: none;
 }
@@ -19,6 +26,17 @@
   justify-content: center;
 }
 
+.backColLeft {
+  background-color: rgb(34, 11, 11);
+  border-top-left-radius: 10%;
+  border-bottom-left-radius: 10%;
+}
+
+.backColRight {
+  background-color: rgb(34, 11, 11);
+  border-top-right-radius: 10%;
+  border-bottom-right-radius: 10%;
+}
 .rowCode2 {
   flex-direction: column;
   padding-top: 5%;

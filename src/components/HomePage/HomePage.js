@@ -208,7 +208,7 @@ class HomePage extends Component {
               <Col md={{ span: 9, offset: 7 }} className="colTuto">
                 <Tuto />
               </Col>
-              <Col>
+              <Col xs={12} s={12}>
                 <p className="titleQR">QR CODE Ticket </p>
                 <p className="qrSub">
                   à insérer sur vos tickets d'addition depuis votre logiciel de
@@ -221,7 +221,7 @@ class HomePage extends Component {
                   />
                 </div>
               </Col>
-              <Col>
+              <Col xs={12} s={12}>
                 <p className="titleQR"> QR CODE Menu </p>
                 <p className="qrSub">
                   à imprimer et coller sur les tables de votre restaurant

@@ -20,15 +20,13 @@ class Personnel extends Component {
       headers: headers,
     };
 
-    fetch(
-      "https://back-end.osc-fr1.scalingo.io/restaurateur/management/waiter-list",
-      options
-    )
+    fetch("http://localhost:8080/restaurateur/management/waiter-list", options)
       .then((response) => {
         return response.json();
       })
       .then(
         (data) => {
+          console.log("data", data);
           this.setState({ serveur: data });
         },
         (err) => {
@@ -42,6 +40,7 @@ class Personnel extends Component {
       return (
         <div className="serveurDiv">
           <p className="serveurP">{element.serveurName}</p>
+          <p className="serveurN">{element.serveurLastName}</p>
           <Image
             className="serverPicture"
             src={
@@ -86,8 +85,7 @@ class Personnel extends Component {
                     console.log(err);
                   }
                 );
-            }}
-          >
+            }}>
             Supprimer
           </button>
         </div>
@@ -116,16 +114,17 @@ class Personnel extends Component {
       headers: headers,
     };
 
-    fetch(
-      "https://back-end.osc-fr1.scalingo.io/restaurateur/management/affiliation",
-      options
-    )
+    fetch("http://localhost:8080/restaurateur/management/affiliation", options)
       .then((response) => {
         return response.json();
       })
 
       .then((responseData) => {
-        alert("Votre demande a bien été prise en compte");
+        if (responseData === true) {
+          alert("Votre demande a bien été prise en compte");
+        } else {
+          alert(responseData.false);
+        }
       });
   };
   addReferent = (e) => {
@@ -192,8 +191,7 @@ class Personnel extends Component {
                 animationSpeed: 2000,
                 infinite: false,
               },
-            }}
-          >
+            }}>
             {this.renderMesServeurs()}
           </Carousel>
         </Col>

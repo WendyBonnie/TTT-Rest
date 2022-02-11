@@ -8,6 +8,10 @@
   margin-bottom: 5%;
 }
 
+.homepage .rowGlobal {
+  justify-content: center;
+}
+
 .homepage .buttonPremium {
   border-radius: 28px !important;
   background-color: #f5a624 !important;

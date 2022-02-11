@@ -114,8 +114,9 @@ function UploadPicture() {
       <form onSubmit={modifProfilLogo} className="formLogo">
         <img
           className="restaurantLogo"
-          src={"https://s3.amazonaws.com/b.c.bucket.tipourboire/" + images}
-        ></img>
+          src={
+            "https://s3.amazonaws.com/b.c.bucket.tipourboire/" + images
+          }></img>
         <br />
         <br />
         <input
@@ -162,8 +163,7 @@ class Profil extends Component {
             variant="primary"
             onClick={() => {
               this.props.history.push("/dataClient");
-            }}
-          >
+            }}>
             Accès à mon espace premium <br />
           </button>
         </div>
@@ -176,8 +176,7 @@ class Profil extends Component {
             variant="primary"
             onClick={() => {
               this.props.history.push("/abonnement");
-            }}
-          >
+            }}>
             Souscrire à l'abonnement Premium <br />
           </button>
         </div>
@@ -192,8 +191,7 @@ class Profil extends Component {
             className="button"
             onClick={() => {
               this.setState({ editing: false });
-            }}
-          >
+            }}>
             Modifier <br />
           </button>
           {this.renderButtonSub()}
@@ -215,8 +213,7 @@ class Profil extends Component {
           onClick={() => {
             this.setState({ editing: true });
             this.getMonProfil();
-          }}
-        >
+          }}>
           Annuler
         </button>
       );
@@ -536,28 +533,36 @@ class Profil extends Component {
               </div>
             ) : (
               <div>
-                <input
-                  type="checkbox"
-                  id="individuel"
-                  name="individuel"
-                  checked={this.state.checkIndividuel}
-                  onChange={() => {
-                    this.setState({
-                      checkIndividuel: !this.state.checkIndividuel,
-                    });
-                  }}
-                />
-                <label for="individuel">Pourboire individuel</label>
-                <input
-                  type="checkbox"
-                  id="general"
-                  name="general"
-                  checked={this.state.checkGeneral}
-                  onChange={() => {
-                    this.setState({ checkGeneral: !this.state.checkGeneral });
-                  }}
-                />
-                <label for="general">Pourboire Général</label>
+                <div>
+                  <input
+                    className="labelMargin"
+                    type="checkbox"
+                    id="individuel"
+                    name="individuel"
+                    checked={this.state.checkIndividuel}
+                    onChange={() => {
+                      this.setState({
+                        checkIndividuel: !this.state.checkIndividuel,
+                      });
+                    }}
+                  />
+                  <label for="individuel">Pourboire individuel</label>
+                </div>
+                <div>
+                  <input
+                    className="labelMargin"
+                    type="checkbox"
+                    id="general"
+                    name="general"
+                    checked={this.state.checkGeneral}
+                    onChange={() => {
+                      this.setState({ checkGeneral: !this.state.checkGeneral });
+                    }}
+                  />
+                  <label className="labelMargin" for="general">
+                    Pourboire Général
+                  </label>
+                </div>
               </div>
             )}
 
@@ -567,36 +572,44 @@ class Profil extends Component {
           </Col>
           <Row>
             <Col className="colParrainage">
-              <Col md={12}>
-                <label className="demandeParrainage">
-                  Parrainer un Serveur et/ou Restaurateur
-                </label>
-              </Col>
-              <input
-                type="text"
-                name="email"
-                onChange={this.handleInput}
-                placeholder="Email du parrainé"
-                className="inputParrainage"
-              />
-              <input
-                type="submit"
-                value="Envoyer"
-                onClick={this.postParrainage}
-                className="buttonParrainage"
-              />
-              <p className="infoParrainage">
-                " Vous êtes satisfaits : parlez-en autour de vous ! A chaque
-                parrainage d'un restaurateur, vous et votre confrère gagnez 2
-                mois d'abonnements Premium "
-              </p>
+              <Row>
+                <Col md={12}>
+                  <label className="demandeParrainage">
+                    Parrainer un Serveur et/ou Restaurateur
+                  </label>
+                </Col>
+              </Row>
+              <Row className="rowParrain">
+                <Col>
+                  <input
+                    type="text"
+                    name="email"
+                    onChange={this.handleInput}
+                    placeholder="Email du parrainé"
+                    className="inputParrainage"
+                  />
+                </Col>
+                <Col>
+                  <input
+                    type="submit"
+                    value="Envoyer"
+                    onClick={this.postParrainage}
+                    className="buttonParrainage"
+                  />
+                  <p className="infoParrainage">
+                    " Vous êtes satisfaits : parlez-en autour de vous ! A chaque
+                    parrainage d'un restaurateur, vous et votre confrère gagnez
+                    2 mois d'abonnements Premium "
+                  </p>
+                </Col>
+              </Row>
             </Col>
           </Row>
           <Col className="formProfil nomProfil center">
             <h1 className="title">Mes QR Codes </h1>
-            <Row>
-              <Col xs={6}>
-                <p className="qr">QR CODE Ticket </p>
+            <Row className="rowCenter">
+              <Col xs={6} md={6}>
+                <p>QR CODE Ticket </p>
                 <p className="qrSub">
                   à insérer sur vos tickets d'addition depuis votre logiciel de
                   caisse
@@ -607,7 +620,9 @@ class Profil extends Component {
                   restaurantName={this.state.profil.restaurantName}
                 />
               </Col>
-              <Col xs={6}>
+            </Row>
+            <Row className="rowCenter">
+              <Col xs={6} md={6}>
                 <p className="qr"> QR CODE Table </p>
                 <p className="qrSub">
                   à imprimer et coller sur les tables de votre restaurant
@@ -619,6 +634,7 @@ class Profil extends Component {
                 />
               </Col>
             </Row>
+
             <br />
             <Button
               onClick={() => {
@@ -627,8 +643,7 @@ class Profil extends Component {
                 this.props.setLogin(false);
                 this.props.history.push("/");
               }}
-              className="signOut1 button"
-            >
+              className="signOut1 button">
               Déconnexion
             </Button>
           </Col>

@@ -198,46 +198,51 @@ class HomePage extends Component {
   render() {
     return (
       <div className="homepage">
-        <Row>
-          <Col md={{ span: 6, offset: 3 }}>
+        <Row className="rowGlobal">
+          <Col md={10}>
             <Personnel className="personnel" />
             <div className="titleQR">{this.renderButtonSub()}</div>
             <h1 className="titleQR">Mes QR Codes</h1>
 
-            <Row>
+            <Row className="rowGlobal">
               <Col md={{ span: 9, offset: 7 }} className="colTuto">
                 <Tuto />
               </Col>
-              <Col xs={12} s={12}>
-                <p className="titleQR">QR CODE Ticket </p>
-                <p className="qrSub">
-                  à insérer sur vos tickets d'addition depuis votre logiciel de
-                  caisse
-                </p>
-                <div>
-                  <QrCodeTicket
-                    className="qrCodeTicket"
+              <Row className="rowGlobal">
+                <Col xs={12} s={12} md={6}>
+                  <p className="titleQR">QR CODE Ticket </p>
+                  <p className="qrSub">
+                    à insérer sur vos tickets d'addition depuis votre logiciel
+                    de caisse
+                  </p>
+                  <div>
+                    <QrCodeTicket
+                      className="qrCodeTicket"
+                      restaurantName={this.state.restaurantName}
+                    />
+                  </div>
+                </Col>
+              </Row>
+              <Row className="rowGlobal">
+                <Col xs={12} s={12} md={6}>
+                  <p className="titleQR"> QR CODE Menu </p>
+                  <p className="qrSub">
+                    à imprimer et coller sur les tables de votre restaurant
+                  </p>
+                  <QrCode
+                    className="qrCode"
                     restaurantName={this.state.restaurantName}
+                    restaurant="coucou"
                   />
-                </div>
-              </Col>
-              <Col xs={12} s={12}>
-                <p className="titleQR"> QR CODE Menu </p>
-                <p className="qrSub">
-                  à imprimer et coller sur les tables de votre restaurant
-                </p>
-                <QrCode
-                  className="qrCode"
-                  restaurantName={this.state.restaurantName}
-                  restaurant="coucou"
-                />
-              </Col>
+                </Col>
+              </Row>
             </Row>
           </Col>
-
-          <Col md={{ span: 6, offset: 3 }}>
-            <DailyMenu className="menuhome" />
-          </Col>
+          <Row className="rowGlobal">
+            <Col md={6}>
+              <DailyMenu className="menuhome" />
+            </Col>
+          </Row>
         </Row>
       </div>
     );

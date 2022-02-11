@@ -108,19 +108,22 @@ function QrHook() {
 
   return (
     <div>
-      <Row className="backgroundTicketVisible" lg={6}>
+      <Row className="backgroundTicketVisibleWeb">
         <Col className="backColLeft">
           <Row className="rowCode">
             <Col>
-              <p className="titleName">
+              <h4 className="titleName">
                 {localStorage.getItem("propsRestaurant")}
-              </p>
+              </h4>
             </Col>
-            <Col>
+            <Col className="paddingCode">
               <div id="qrCodeDivResto" />
             </Col>
             <Col>
-              <img src="/image/tipourboirePhrase.png" className="tipPicture" />
+              <img
+                src="/image/tipourboirePhrase.png"
+                className="tipPictureWeb"
+              />
             </Col>
           </Row>
         </Col>
@@ -128,10 +131,10 @@ function QrHook() {
           <Row className="rowCode2">
             <Col className="col2">
               {" "}
-              <img src="/image/logoCode.png" className="tipPicture" />
+              <img src="/image/logoCode.png" className="tipPictureWeb" />
             </Col>
             <Col className="col2">
-              <p>Juste pour un merci</p>
+              <img src="/image/justeUnMerci.png" className="tipPictureWeb" />
             </Col>
           </Row>
         </Col>
@@ -164,7 +167,7 @@ function QrHook() {
                   <img src="/image/logoCode.png" className="tipPicture" />
                 </Col>
                 <Col className="col2">
-                  <p>Juste pour un merci</p>
+                  <img src="/image/justeUnMerci.png" className="tipPicture" />
                 </Col>
               </Row>
             </Col>

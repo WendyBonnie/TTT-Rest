@@ -6,9 +6,26 @@
   margin-left: 2%;
 }
 
+.qr {
+  margin-top: 11%;
+}
+
+#qrCodeDiv canvas {
+  width: 100%;
+}
+
+#qrCodeDivResto canvas {
+  width: 100%;
+}
+
 .backgroundTicketVisible {
   width: 100%;
 
+  justify-content: center;
+  margin-bottom: 3%;
+}
+
+.backgroundTicketVisibleWeb {
   justify-content: center;
   margin-bottom: 3%;
 }
@@ -26,20 +43,38 @@
   justify-content: center;
 }
 
+.paddingCode {
+  padding-top: 10%;
+  padding-bottom: 12%;
+}
+
 .backColLeft {
   background-color: rgb(34, 11, 11);
   border-top-left-radius: 10%;
   border-bottom-left-radius: 10%;
+  padding-top: 6%;
+  padding-left: 6%;
 }
 
 .backColRight {
   background-color: rgb(34, 11, 11);
   border-top-right-radius: 10%;
   border-bottom-right-radius: 10%;
+  padding-right: 6%;
 }
 .rowCode2 {
   flex-direction: column;
   padding-top: 5%;
+  padding-bottom: 3%;
+  padding-left: 5%;
+  align-items: center;
+  justify-content: center;
+  padding-right: 5%;
+}
+
+.rowCode2Web {
+  flex-direction: column;
+  padding-top: 10%;
   padding-bottom: 3%;
   padding-left: 5%;
   align-items: center;
@@ -53,6 +88,10 @@
 
 .tipPicture {
   width: 100px;
+}
+
+.tipPictureWeb {
+  width: 100%;
 }
 
 .titleName {
@@ -72,16 +111,17 @@
 .buttonQrCode {
   border-radius: 28px !important;
   background-color: #f5a624 !important;
-  margin-left: 2%;
-  font-weight: 700;
+
   border-color: #f5a624 !important;
-  padding-top: 1% !important;
-  padding-bottom: 1% !important;
+  padding-top: 2% !important;
+  padding-bottom: 2% !important;
   font-size: 18px !important;
   border: 0px solid #4a4a4a !important;
   color: white;
   border-width: 0px;
   margin-bottom: 2%;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 .buttonQrCode:hover {
   background-color: #555 !important;

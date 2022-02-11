@@ -22,7 +22,7 @@
   border-color: #f5a624 !important;
   padding-top: 1% !important;
   padding-bottom: 1% !important;
-  font-size: 23px !important;
+  font-size: 18px !important;
   margin-bottom: 10%;
   color: white;
   border-width: 0px;
@@ -46,11 +46,13 @@
 .dailyMenuContain .boutonSupprimer {
   border-radius: 28px !important;
   background-color: #f5a624 !important;
-
+  margin-top: 3%;
+  padding-left: 3%;
+  padding-right: 3%;
   border-color: #f5a624 !important;
   padding-top: 1% !important;
   padding-bottom: 1% !important;
-  font-size: 23px !important;
+  font-size: 18px !important;
   margin-bottom: 10%;
   color: white;
   border-width: 0px;

@@ -230,7 +230,7 @@ class HomePage extends Component {
 
   componentDidMount() {
     this.getRestaurantName();
-    this.isSubscribed();
+    // this.isSubscribed();
   }
 
   render() {

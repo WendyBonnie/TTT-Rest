@@ -109,7 +109,7 @@ function QrHook() {
   return (
     <div>
       <Row className="backgroundTicketVisibleWeb">
-        <Col className="backColLeft">
+        <Col className="backColLeft" sm={4} md={4} lg={4}>
           <Row className="rowCode">
             <Col>
               <h4 className="titleName">
@@ -127,8 +127,8 @@ function QrHook() {
             </Col>
           </Row>
         </Col>
-        <Col className="backColRight">
-          <Row className="rowCode2">
+        <Col className="backColRight" sm={4} md={4} lg={4}>
+          <Row className="rowCode2Web">
             <Col className="col2">
               {" "}
               <img src="/image/logoCode.png" className="tipPictureWeb" />

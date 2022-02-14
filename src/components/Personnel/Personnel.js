@@ -20,7 +20,10 @@ class Personnel extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/restaurateur/management/waiter-list", options)
+    fetch(
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/management/waiter-list",
+      options
+    )
       .then((response) => {
         return response.json();
       })
@@ -114,7 +117,10 @@ class Personnel extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/restaurateur/management/affiliation", options)
+    fetch(
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/management/affiliation",
+      options
+    )
       .then((response) => {
         return response.json();
       })

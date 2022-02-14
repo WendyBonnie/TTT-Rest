@@ -37,6 +37,15 @@
 .rowCode {
   flex-direction: column;
   padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 5%;
+  align-items: center;
+  justify-content: center;
+}
+
+.rowCodeWeb {
+  flex-direction: column;
+
   padding-bottom: 3%;
   padding-left: 5%;
   align-items: center;
@@ -74,7 +83,7 @@
 
 .rowCode2Web {
   flex-direction: column;
-  padding-top: 10%;
+  padding-top: 25%;
   padding-bottom: 3%;
   padding-left: 5%;
   align-items: center;

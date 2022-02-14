@@ -194,7 +194,6 @@ class Profil extends Component {
             }}>
             Modifier <br />
           </button>
-          {this.renderButtonSub()}
         </>
       );
     } else {
@@ -316,7 +315,10 @@ class Profil extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/restaurateur/profil/edit", options)
+    fetch(
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/profil/edit",
+      options
+    )
       .then((response) => {
         return response.json();
       })

@@ -5,7 +5,15 @@ import QrCode from "../../assets/components/QRCode/QrCode";
 import QrCodeTicket from "../../assets/QRCodeTicket/QRCodeTicket";
 import Personnel from "../Personnel/Personnel";
 
-import { Image, Col, Row, Container, Button, Modal } from "react-bootstrap";
+import {
+  Image,
+  Col,
+  Row,
+  Container,
+  Button,
+  Modal,
+  Alert,
+} from "react-bootstrap";
 import "./HomePage.css";
 
 function Tuto() {
@@ -90,7 +98,11 @@ function Tuto() {
 class HomePage extends Component {
   constructor(props) {
     super(props);
-    this.state = { restaurantName: "", isLoading: false };
+    this.state = {
+      restaurantName: "",
+      isLoading: false,
+      data: { abonne: false },
+    };
   }
 
   handleAfterPrint = () => {
@@ -138,7 +150,7 @@ class HomePage extends Component {
       headers: headers,
     };
 
-    fetch("https://back-end.osc-fr1.scalingo.io/restaurateur/profil", options)
+    fetch("http://localhost:8080/restaurateur/profil", options)
       .then((response) => {
         return response.json();
       })
@@ -150,6 +162,8 @@ class HomePage extends Component {
           );
           this.setState({ restaurantName: responseObject.restaurantName });
           this.setState({ abonne: responseObject.abonne });
+          this.setState({ data: JSON.stringify(responseObject) });
+          console.log("abonne", this.state.data);
           console.log(
             "consolelog",
             JSON.parse(localStorage.getItem("propsRestaurant"))
@@ -191,8 +205,32 @@ class HomePage extends Component {
     }
   };
 
+  isSubscribed = () => {
+    console.log("abonne state", this.state.abonne);
+    if (this.state.data.abonne === false) {
+      return (
+        <Modal.Dialog>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal title</Modal.Title>
+          </Modal.Header>
+
+          <Modal.Body>
+            <p>Modal body text goes here.</p>
+          </Modal.Body>
+
+          <Modal.Footer>
+            <Button variant="secondary">Close</Button>
+            <Button variant="primary">Save changes</Button>
+          </Modal.Footer>
+        </Modal.Dialog>
+      );
+    }
+    return;
+  };
+
   componentDidMount() {
     this.getRestaurantName();
+    this.isSubscribed();
   }
 
   render() {

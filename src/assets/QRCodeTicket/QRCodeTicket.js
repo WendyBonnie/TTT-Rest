@@ -103,8 +103,8 @@ function QrHookTicket(props) {
   return (
     <div>
       <Row className="backgroundTicketVisibleWeb">
-        <Col className="backColLeft">
-          <Row className="rowCode">
+        <Col className="backColLeft" sm={4} md={4}>
+          <Row className="rowCodeWeb">
             <Col>
               <h4 className="titleName">
                 {localStorage.getItem("propsRestaurant")}
@@ -121,7 +121,7 @@ function QrHookTicket(props) {
             </Col>
           </Row>
         </Col>
-        <Col className="backColRight">
+        <Col className="backColRight" sm={4} md={4}>
           <Row className="rowCode2Web">
             <Col className="col2">
               {" "}

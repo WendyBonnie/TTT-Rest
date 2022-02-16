@@ -42,17 +42,16 @@ class Barremenu extends Component {
                     this.props.setLogin(false);
                     this.props.history.push("/");
                   }}
-                  href="/"
-                >
+                  href="/">
                   Déconnexion
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
 
             <Col className="logoPartie1" md={12}>
-              <Link to="/homepage">
+              <a href="https://tipourboire.com/">
                 <img src="/image/logoJaune.png" />
-              </Link>
+              </a>
             </Col>
           </Row>
         </Container>

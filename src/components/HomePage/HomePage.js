@@ -37,49 +37,67 @@ function Tuto() {
         backdrop="static"
         keyboard={false}>
         <Modal.Header closeButton>
-          <Modal.Title>Rappel d'utilisation</Modal.Title>
+          <Modal.Title>Comment activer votre compte ?</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <p className="title1">
-            Pour que vos clients puissent donner des pourboires selon vos
-            règles,
-            <br /> vous devez:
+            Veillez à avoir effectuer les actions suivantes afin de permettre à
+            vos clients de donner des pourboires
           </p>
           <p className="para1">
-            Mettre en évidence les QR Codes Tipourboire dans votre restaurant
+            Définissez les paramètres de redistribution : collectif ou
+            individuel
+            <br />
+            Ajouter vos bénéficiaires et/ou désigner votre référent selon la
+            distribution choisie
+            <br />
+            <br />
+            Demandez à chaque personne de votre équipe de valider sa création de
+            compteà réception de votre mail
+            <br />
+            <br />
+            En cas de non réception, pensez à leur demander de vérifier les
+            courriers indésirables.
             <br /> <br />
-            QR Code addition
+            Le bénéficiaire peut aussi directement créer un compte et être
+            rattaché par la suite à votre établissement. (notamment si cette
+            personne travaille dans plusieurs établissements utilisant
+            Tipourboire.)
             <br />
-            Insérez-le sur votre ticket d'addition avec votre logiciel de caisse
-            <br />
-            et/ou
-            <br />
-            Imprimez-le et mettez-le en évidence
-            <br />
-            à la caisse, sur le TPE, le support de l'addition, etc...
-            <br /> <br />
-            QR Code Menu du jour
-            <br />
-            Imprimez le et mettez-le sur chaque table, <br />
           </p>
+
           <p className="title1">
-            Pour que vos équipes puissent recevoir des pourboires selon vos
-            règles,
-            <br /> vous devez:
+            Et pensez à mettre en avant votre QR Code pour booster vos
+            pourboires !
           </p>
           <p className="para1">
-            Demander à chaque personne de votre équipe (serveur, cuisinier,
-            plongeur, chef de rang, commis, runner, etc...) de créer son compte
-            sur serveur.tipourboire.com
-            <br /> <br />
-            Leur envoyer à chacun un mail d'affiliation depuis votre espace
-            Tipourboire, pour qu'il soit rattaché à votre établissement.
-            <br /> <br />
-            Envoyer à la personne en charge de la distribution des pourboires
-            (alias "le serveur référant"), un mail d'affiliation depuis votre
-            espace Tipourboire, pour qu'il puisse distribuer le pourboire commun
-            selon vos règles
+            Imprimez et mettez en évidence votre QR Code pour permettre au plus
+            grand nombre de le flasher
             <br />
+            sur des présentoirs dans votre établissement
+            <br /> sur le comptoir
+            <br />
+            A côté de votre caisse
+            <br />
+            Sur votre TPE
+            <br />
+            Sur votre ticket de caisse
+            <br />
+            Ou encore dans vos coupelles ou sur vos cartes
+            <br />
+            tous les supports sont bons
+            <br />
+            pour capter l'attention !
+            <br />
+            <br />
+            ET avec QR carte
+            <br />
+            Mettez à disposition votre carte après l'avoir simplement prise en
+            photo
+            <br />
+            et chargée dans votre espace :
+            <br />
+            simple et efficace !
           </p>
         </Modal.Body>
         <Modal.Footer>
@@ -150,7 +168,7 @@ class HomePage extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/restaurateur/profil", options)
+    fetch("https://back-end.osc-fr1.scalingo.io/restaurateur/profil", options)
       .then((response) => {
         return response.json();
       })

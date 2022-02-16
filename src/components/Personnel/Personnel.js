@@ -40,10 +40,12 @@ class Personnel extends Component {
 
   renderMesServeurs = () => {
     return this.state.serveur.tabServeur.map((element) => {
+      console.log(element);
       return (
         <div className="serveurDiv">
           <p className="serveurP">{element.serveurName}</p>
           <p className="serveurN">{element.serveurLastName}</p>
+
           <Image
             className="serverPicture"
             src={
@@ -88,8 +90,15 @@ class Personnel extends Component {
                     console.log(err);
                   }
                 );
-            }}>
+            }}
+          >
             Supprimer
+          </button>
+          <br />
+          <button className="button">
+            {this.state.serveur.referent.email == element.serveurMail
+              ? "Je suis le referent"
+              : "Faire de moi le référent"}
           </button>
         </div>
       );
@@ -126,10 +135,11 @@ class Personnel extends Component {
       })
 
       .then((responseData) => {
+        console.log(responseData);
         if (responseData === true) {
           alert("Votre demande a bien été prise en compte");
         } else {
-          alert(responseData.false);
+          alert(responseData.messageAffi);
         }
       });
   };
@@ -178,7 +188,6 @@ class Personnel extends Component {
           <Carousel
             slidesPerPage={5}
             slidesPerScroll={1}
-            clickToChange
             centered
             infinite={true}
             breakpoints={{
@@ -197,7 +206,8 @@ class Personnel extends Component {
                 animationSpeed: 2000,
                 infinite: false,
               },
-            }}>
+            }}
+          >
             {this.renderMesServeurs()}
           </Carousel>
         </Col>
@@ -218,55 +228,31 @@ class Personnel extends Component {
           <Col className="colAffiliation">
             <Col md={12}>
               <label className="demandeAffiliation">
-                Demande d'affiliation
+                Ajouter un bénéficiaire dans mon équipe
               </label>
             </Col>
             <input
               type="text"
               name="email"
               onChange={this.handleInput}
-              placeholder="Email du serveur"
+              placeholder="Bénéficiaire"
               className="inputAffi"
             />
 
             <input
               type="submit"
-              value="Envoyer"
+              value="Envoyer la demande"
               onClick={this.addAffiliation}
               className="button"
             />
             <p className="infoAffi">
-              "Si votre serveur n'est pas encore sur Tipourboire. Demandez-lui
-              de créer son compte Tipourboire avant de lui envoyer votre mail
-              d'affiliation"
+              "Si votre bénéficiaire n'est pas encore inscrit sur la plateforme
+              Tipourboire, il recevra un mail afin de valider son inscription
+              est compléter son compte. Le bénéficiaire doit valider votre
+              demande afin d'être référencé dans votre équipe. Vous pourrez
+              alors le visualiser"
             </p>
             {this.state.messageAffi}
-            <Col md={12}>
-              <label className="demandeAffiliation">
-                Demande d'affiliation d'un serveur referent (pourboire commun)
-              </label>
-            </Col>
-            <input
-              type="text"
-              name="email"
-              onChange={this.handleInput}
-              placeholder="Email du serveur"
-              className="inputAffi"
-            />
-
-            <input
-              type="submit"
-              value="Envoyer"
-              onClick={this.addReferent}
-              className="button"
-            />
-            <p className="infoAffi">
-              "Si votre serveur référent n'est pas encore sur Tipourboire.
-              Demandez-lui de créer son compte Tipourboire avant de lui envoyer
-              votre mail d'affiliation"
-            </p>
-            <br />
-            {this.state.message}
           </Col>
         </Row>
         <h1 className="titleWaiter">Mon équipe </h1>

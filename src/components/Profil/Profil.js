@@ -114,9 +114,8 @@ function UploadPicture() {
       <form onSubmit={modifProfilLogo} className="formLogo">
         <img
           className="restaurantLogo"
-          src={
-            "https://s3.amazonaws.com/b.c.bucket.tipourboire/" + images
-          }></img>
+          src={"https://s3.amazonaws.com/b.c.bucket.tipourboire/" + images}
+        ></img>
         <br />
         <br />
         <input
@@ -154,35 +153,35 @@ class Profil extends Component {
   handleClose = () => {
     this.setState({ show: false });
   };
-  renderButtonSub = () => {
-    if (this.state.profil.abonne === true) {
-      return (
-        <div>
-          <button
-            className="signOut button"
-            variant="primary"
-            onClick={() => {
-              this.props.history.push("/dataClient");
-            }}>
-            Accès à mon espace premium <br />
-          </button>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <button
-            className="signOut button"
-            variant="primary"
-            onClick={() => {
-              this.props.history.push("/abonnement");
-            }}>
-            Souscrire à l'abonnement Premium <br />
-          </button>
-        </div>
-      );
-    }
-  };
+  // renderButtonSub = () => {
+  //   if (this.state.profil.abonne === true) {
+  //     return (
+  //       <div>
+  //         <button
+  //           className="signOut button"
+  //           variant="primary"
+  //           onClick={() => {
+  //             this.props.history.push("/dataClient");
+  //           }}>
+  //           Accès à mon espace premium <br />
+  //         </button>
+  //       </div>
+  //     );
+  //   } else {
+  //     return (
+  //       <div>
+  //         <button
+  //           className="signOut button"
+  //           variant="primary"
+  //           onClick={() => {
+  //             this.props.history.push("/abonnement");
+  //           }}>
+  //           Souscrire à l'abonnement Premium <br />
+  //         </button>
+  //       </div>
+  //     );
+  //   }
+  // };
   buttonEdit = () => {
     if (this.state.editing == true) {
       return (
@@ -191,7 +190,8 @@ class Profil extends Component {
             className="button"
             onClick={() => {
               this.setState({ editing: false });
-            }}>
+            }}
+          >
             Modifier <br />
           </button>
         </>
@@ -212,7 +212,8 @@ class Profil extends Component {
           onClick={() => {
             this.setState({ editing: true });
             this.getMonProfil();
-          }}>
+          }}
+        >
           Annuler
         </button>
       );
@@ -645,7 +646,8 @@ class Profil extends Component {
                 this.props.setLogin(false);
                 this.props.history.push("/");
               }}
-              className="signOut1 button">
+              className="signOut1 button"
+            >
               Déconnexion
             </Button>
           </Col>

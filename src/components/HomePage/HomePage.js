@@ -35,7 +35,8 @@ function Tuto() {
         onHide={handleClose}
         animation={true}
         backdrop="static"
-        keyboard={false}>
+        keyboard={false}
+      >
         <Modal.Header closeButton>
           <Modal.Title>Comment activer votre compte ?</Modal.Title>
         </Modal.Header>
@@ -104,7 +105,8 @@ function Tuto() {
           <Button
             className="modalButton"
             variant="secondary"
-            onClick={handleClose}>
+            onClick={handleClose}
+          >
             Fermer
           </Button>
         </Modal.Footer>
@@ -193,35 +195,35 @@ class HomePage extends Component {
         }
       );
   };
-  renderButtonSub = () => {
-    if (this.state.abonne === true) {
-      return (
-        <div>
-          <button
-            className="buttonPremium"
-            variant="primary"
-            onClick={() => {
-              this.props.history.push("/dataClient");
-            }}>
-            Accès à mon espace premium <br />
-          </button>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <button
-            className="buttonPremium"
-            variant="primary"
-            onClick={() => {
-              this.props.history.push("/abonnement");
-            }}>
-            Souscrire à l'abonnement premium <br />
-          </button>
-        </div>
-      );
-    }
-  };
+  // renderButtonSub = () => {
+  //   if (this.state.abonne === true) {
+  //     return (
+  //       <div>
+  //         <button
+  //           className="buttonPremium"
+  //           variant="primary"
+  //           onClick={() => {
+  //             this.props.history.push("/dataClient");
+  //           }}>
+  //           Accès à mon espace premium <br />
+  //         </button>
+  //       </div>
+  //     );
+  //   } else {
+  //     return (
+  //       <div>
+  //         <button
+  //           className="buttonPremium"
+  //           variant="primary"
+  //           onClick={() => {
+  //             this.props.history.push("/abonnement");
+  //           }}>
+  //           Souscrire à l'abonnement premium <br />
+  //         </button>
+  //       </div>
+  //     );
+  //   }
+  // };
 
   isSubscribed = () => {
     console.log("abonne state", this.state.abonne);
@@ -257,7 +259,7 @@ class HomePage extends Component {
         <Row className="rowGlobal">
           <Col md={10}>
             <Personnel className="personnel" />
-            <div className="titleQR">{this.renderButtonSub()}</div>
+
             <h1 className="titleQR">Mes QR Codes</h1>
 
             <Row className="rowGlobal">

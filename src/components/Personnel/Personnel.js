@@ -5,11 +5,67 @@ import Carousel, { Dots } from "@brainhubeu/react-carousel";
 import "./Personnel.css";
 import Icon from "react-fa";
 import { Link } from "react-router-dom";
+import Modal from "react-bootstrap/Modal";
 class Personnel extends Component {
   constructor(props) {
     super(props);
-    this.state = { serveur: { tabServeur: [] }, email: "" };
+    this.state = {
+      serveur: { tabServeur: [] },
+      email: "",
+      modalReferent: false,
+      indexRef: 0,
+    };
+
+    this.hideModal = this.hideModal.bind(this);
   }
+
+  popupModal = () => {
+    const handleClose = () => this.setState({ modalReferent: false });
+    console.log(this.state.indexRef);
+    console.log(
+      this.state.serveur.tabServeur[this.state.indexRef]?.serveurMail
+    );
+
+    return (
+      <>
+        <Modal show={this.state.modalReferent} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title style={{ color: "#f5a624" }}>Tipourboire</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            {" "}
+            <div className="modalPopup">
+              <h4>
+                Ajout d'un référent dans votre établissement un mail lui sera
+                envoyé
+              </h4>
+
+              <span className="textePopup">
+                Etes vous sur de vouloir ajouter{" "}
+              </span>
+
+              <button
+                onClick={() => {
+                  this.addReferent(
+                    this.state.serveur.tabServeur[this.state.indexRef]
+                      .serveurMail
+                  );
+                }}
+              >
+                Oui
+              </button>
+              <button>Non</button>
+            </div>
+          </Modal.Body>
+        </Modal>
+      </>
+    );
+  };
+
+  hideModal = () => {
+    this.setState({ modalReferent: false });
+  };
+
   getWaiterList = () => {
     const headers = new Headers({
       Authorization: "bearer " + localStorage.getItem("token"),
@@ -20,10 +76,7 @@ class Personnel extends Component {
       headers: headers,
     };
 
-    fetch(
-      "https://back-end.osc-fr1.scalingo.io/restaurateur/management/waiter-list",
-      options
-    )
+    fetch("http://localhost:8080/restaurateur/management/waiter-list", options)
       .then((response) => {
         return response.json();
       })
@@ -39,8 +92,7 @@ class Personnel extends Component {
   };
 
   renderMesServeurs = () => {
-    return this.state.serveur.tabServeur.map((element) => {
-      console.log(element);
+    return this.state.serveur.tabServeur.map((element, index) => {
       return (
         <div className="serveurDiv">
           <p className="serveurP">{element.serveurName}</p>
@@ -95,7 +147,18 @@ class Personnel extends Component {
             Supprimer
           </button>
           <br />
-          <button className="button">
+          <button
+            className="button"
+            onClick={() => {
+              if (this.state.serveur.referent.email == element.serveurMail) {
+                console.log("je suis ref");
+              } else {
+                console.log("je ne suis pas référent");
+                this.setState({ indexRef: index });
+                this.setState({ modalReferent: true });
+              }
+            }}
+          >
             {this.state.serveur.referent.email == element.serveurMail
               ? "Je suis le referent"
               : "Faire de moi le référent"}
@@ -143,10 +206,10 @@ class Personnel extends Component {
         }
       });
   };
-  addReferent = (e) => {
+  addReferent = (e, mail) => {
     e.preventDefault();
     const data = {
-      email: this.state.email,
+      email: mail,
     };
 
     const headers = new Headers({
@@ -257,6 +320,7 @@ class Personnel extends Component {
         </Row>
         <h1 className="titleWaiter">Mon équipe </h1>
         {this.crew()}
+        {this.popupModal()}
       </Container>
     );
   }

@@ -21,8 +21,9 @@ class Personnel extends Component {
 
   popupModal = () => {
     const handleClose = () => this.setState({ modalReferent: false });
-    console.log(this.state.indexRef);
+    console.log("indexRef", this.state.indexRef);
     console.log(
+      "ndex",
       this.state.serveur.tabServeur[this.state.indexRef]?.serveurMail
     );
 
@@ -50,8 +51,7 @@ class Personnel extends Component {
                     this.state.serveur.tabServeur[this.state.indexRef]
                       .serveurMail
                   );
-                }}
-              >
+                }}>
                 Oui
               </button>
               <button>Non</button>
@@ -142,12 +142,31 @@ class Personnel extends Component {
                     console.log(err);
                   }
                 );
-            }}
-          >
+            }}>
             Supprimer
           </button>
           <br />
-          <button
+
+          {this.state.serveur.referent.email == element.serveurMail ? (
+            <button
+              className="buttonRef"
+              onClick={() => {
+                console.log("je suis ref");
+              }}>
+              Je suis le référent
+            </button>
+          ) : (
+            <button
+              className="button"
+              onClick={() => {
+                console.log("je ne suis pas référent");
+                this.setState({ indexRef: index });
+                this.setState({ modalReferent: true });
+              }}>
+              Je ne suis pas le référent
+            </button>
+          )}
+          {/* <button
             className="button"
             onClick={() => {
               if (this.state.serveur.referent.email == element.serveurMail) {
@@ -157,12 +176,11 @@ class Personnel extends Component {
                 this.setState({ indexRef: index });
                 this.setState({ modalReferent: true });
               }
-            }}
-          >
+            }}>
             {this.state.serveur.referent.email == element.serveurMail
               ? "Je suis le referent"
               : "Faire de moi le référent"}
-          </button>
+            </button>*/}
         </div>
       );
     });
@@ -206,10 +224,10 @@ class Personnel extends Component {
         }
       });
   };
-  addReferent = (e, mail) => {
-    e.preventDefault();
+  addReferent = (e) => {
+    //e.preventDefault();
     const data = {
-      email: mail,
+      email: this.state.serveur.tabServeur[this.state.indexRef]?.serveurMail,
     };
 
     const headers = new Headers({
@@ -224,16 +242,16 @@ class Personnel extends Component {
       headers: headers,
     };
 
-    fetch(
-      "https://back-end.osc-fr1.scalingo.io/restaurateur/management/referent",
-      options
-    )
+    fetch("http://localhost:8080/restaurateur/management/referent", options)
       .then((response) => {
         return response.json();
       })
 
       .then((responseData) => {
         this.setState({ message: responseData.message });
+      })
+      .then(() => {
+        this.hideModal();
       });
   };
   componentDidMount() {
@@ -269,8 +287,7 @@ class Personnel extends Component {
                 animationSpeed: 2000,
                 infinite: false,
               },
-            }}
-          >
+            }}>
             {this.renderMesServeurs()}
           </Carousel>
         </Col>

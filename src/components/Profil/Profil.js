@@ -615,7 +615,7 @@ class Profil extends Component {
             <h1 className="title">Mes QR Codes </h1>
             <Row className="rowCenter">
               <Col xs={6} md={6}>
-                <p>QR CODE Ticket </p>
+                <p>QR CODE pourboire de votre établissement </p>
                 <p className="qrSub">
                   à insérer sur vos tickets d'addition depuis votre logiciel de
                   caisse
@@ -629,9 +629,10 @@ class Profil extends Component {
             </Row>
             <Row className="rowCenter">
               <Col xs={6} md={6}>
-                <p className="qr"> QR CODE Table </p>
+                <p className="qr"> QR CODE carte </p>
                 <p className="qrSub">
-                  à imprimer et coller sur les tables de votre restaurant
+                  À télécharger pour impression sur vos supports ou insertion
+                  dans votre logiciel de caisse ou d'encaissement.
                 </p>
 
                 <QrCode

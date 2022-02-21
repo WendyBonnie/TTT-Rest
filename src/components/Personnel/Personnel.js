@@ -10,7 +10,7 @@ class Personnel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      serveur: { tabServeur: [] },
+      serveur: { tabServeur: [], referent: {} },
       email: "",
       modalReferent: false,
       indexRef: 0,
@@ -76,7 +76,10 @@ class Personnel extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/restaurateur/management/waiter-list", options)
+    fetch(
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/management/waiter-list",
+      options
+    )
       .then((response) => {
         return response.json();
       })
@@ -93,6 +96,12 @@ class Personnel extends Component {
 
   renderMesServeurs = () => {
     return this.state.serveur.tabServeur.map((element, index) => {
+      console.log(
+        "element",
+        element.serveurMail,
+        "serveur",
+        this.state.serveur
+      );
       return (
         <div className="serveurDiv">
           <p className="serveurP">{element.serveurName}</p>
@@ -147,7 +156,7 @@ class Personnel extends Component {
           </button>
           <br />
 
-          {this.state.serveur.referent.email == element.serveurMail ? (
+          {this.state.serveur?.referent?.email === element.serveurMail ? (
             <button
               className="buttonRef"
               onClick={() => {
@@ -227,7 +236,7 @@ class Personnel extends Component {
   addReferent = (e) => {
     //e.preventDefault();
     const data = {
-      email: this.state.serveur.tabServeur[this.state.indexRef]?.serveurMail,
+      email: this.state.serveur?.tabServeur[this.state.indexRef]?.serveurMail,
     };
 
     const headers = new Headers({
@@ -242,7 +251,10 @@ class Personnel extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/restaurateur/management/referent", options)
+    fetch(
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/management/referent",
+      options
+    )
       .then((response) => {
         return response.json();
       })
@@ -294,6 +306,7 @@ class Personnel extends Component {
       );
     }
   };
+
   render() {
     return (
       <Container className="container personnel">

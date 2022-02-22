@@ -35,8 +35,7 @@ function Tuto() {
         onHide={handleClose}
         animation={true}
         backdrop="static"
-        keyboard={false}
-      >
+        keyboard={false}>
         <Modal.Header closeButton>
           <Modal.Title>Comment activer votre compte ?</Modal.Title>
         </Modal.Header>
@@ -49,12 +48,12 @@ function Tuto() {
             Définissez les paramètres de redistribution : collectif ou
             individuel
             <br />
-            Ajouter vos bénéficiaires et/ou désigner votre référent selon la
+            Ajouter z vos bénéficiaires et/ou désignez votre référent selon la
             distribution choisie
             <br />
             <br />
             Demandez à chaque personne de votre équipe de valider sa création de
-            compteà réception de votre mail
+            compte à réception de votre mail
             <br />
             <br />
             En cas de non réception, pensez à leur demander de vérifier les
@@ -76,7 +75,7 @@ function Tuto() {
             grand nombre de le flasher
             <br />
             sur des présentoirs dans votre établissement
-            <br /> sur le comptoir
+            <br /> Sur le comptoir
             <br />
             A côté de votre caisse
             <br />
@@ -105,8 +104,7 @@ function Tuto() {
           <Button
             className="modalButton"
             variant="secondary"
-            onClick={handleClose}
-          >
+            onClick={handleClose}>
             Fermer
           </Button>
         </Modal.Footer>
@@ -121,9 +119,106 @@ class HomePage extends Component {
     this.state = {
       restaurantName: "",
       isLoading: false,
-      data: { abonne: false },
+      data: {},
+      pourboireGeneral: false,
+      tabServeur: [],
+      show: false,
+      email: "",
     };
   }
+
+  isReferent = () => {
+    console.log(
+      "test",
+      this.state.pourboireGeneral === true,
+      this.state.tabServeur.length === 0
+    );
+    if (
+      this.state.pourboireGeneral === true &&
+      this.state.tabServeur.length === 0
+    ) {
+      return this.modalReferent();
+    }
+  };
+
+  handleInput = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  addAffiliation = (e) => {
+    e.preventDefault();
+    const data = {
+      email: this.state.email,
+    };
+
+    const headers = new Headers({
+      "Content-Type": "application/json",
+      "X-Requested-With": "XMLHttpRequest",
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    });
+
+    const options = {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: headers,
+    };
+
+    fetch("http://localhost:8080/restaurateur/management/affiliation", options)
+      .then((response) => {
+        return response.json();
+      })
+
+      .then((responseData) => {
+        console.log(responseData);
+        if (responseData === true) {
+          alert("Votre demande a bien été prise en compte");
+        } else {
+          alert(responseData.messageAffi);
+        }
+      });
+  };
+
+  modalReferent = () => {
+    return (
+      <Modal
+        show={true}
+        onHide={false}
+        animation={true}
+        backdrop={true}
+        keyboard={false}
+        style={{ overlay: { zIndex: 3 } }}>
+        <Modal.Header closeButton>
+          <Modal.Title>Désigner votre référent</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Row>
+            <Col s={12} md={12}>
+              <p>
+                Vous devez désigner un référent en rentrant son adresse mail
+                ci-dessous. Si vous n'avez pas d'autre référent merci de rentrer
+                votre adresse email et de vous créer un compte bénéficiaire.
+              </p>
+            </Col>
+            <Col>
+              <input
+                type="text"
+                name="email"
+                onChange={this.handleInput}
+                placeholder="Bénéficiaire"
+                className="inputAffi"
+              />
+              <input
+                type="submit"
+                value="Envoyer la demande"
+                onClick={this.addAffiliation}
+                className="button"
+              />
+            </Col>
+          </Row>
+        </Modal.Body>
+      </Modal>
+    );
+  };
 
   handleAfterPrint = () => {
     console.log("`onAfterPrint` called"); // tslint:disable-line no-console
@@ -181,9 +276,12 @@ class HomePage extends Component {
             JSON.stringify(responseObject.restaurantName)
           );
           this.setState({ restaurantName: responseObject.restaurantName });
-          this.setState({ abonne: responseObject.abonne });
+          this.setState({ pourboireGeneral: responseObject.pourboireGeneral });
+          this.setState({ tabServeur: responseObject.tabServeur });
+
+          // this.setState({ abonne: responseObject.abonne });
           this.setState({ data: JSON.stringify(responseObject) });
-          console.log("abonne", this.state.data);
+          console.log("abonne", this.state.tabServeur.length);
           console.log(
             "consolelog",
             JSON.parse(localStorage.getItem("propsRestaurant"))
@@ -251,6 +349,11 @@ class HomePage extends Component {
   componentDidMount() {
     this.getRestaurantName();
     // this.isSubscribed();
+    //this.isReferent();
+  }
+
+  componentDidUpdate() {
+    this.isReferent();
   }
 
   render() {
@@ -264,6 +367,7 @@ class HomePage extends Component {
 
             <Row className="rowGlobal">
               <Col md={{ span: 9, offset: 7 }} className="colTuto">
+                {this.isReferent()}
                 <Tuto />
               </Col>
               <Row className="rowGlobal">

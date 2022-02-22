@@ -53,6 +53,11 @@ class Connexion extends Component {
         }
       });
   };
+
+  componentDidMount() {
+    localStorage.clear();
+  }
+
   render() {
     return (
       <Container className="connexion-container">
@@ -84,7 +89,7 @@ class Connexion extends Component {
             fontWeight: "bold",
           }}
           style={{
-            fontSize: "20px",
+            fontSize: "14px",
             fontfamily: "Montserrat",
             fontWeight: "bold",
           }}>

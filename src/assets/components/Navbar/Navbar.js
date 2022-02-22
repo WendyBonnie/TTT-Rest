@@ -73,7 +73,9 @@ class Barremenu extends Component {
 
             <Col className="logoPartie1" md={12}>
               <Link to="/">
-                <img src="/image/logoJaune.png" />
+                <a href="https://tipourboire.com">
+                  <img src="/image/logoJaune.png" />
+                </a>
               </Link>
             </Col>
           </Row>

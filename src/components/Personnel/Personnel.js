@@ -216,10 +216,7 @@ class Personnel extends Component {
       headers: headers,
     };
 
-    fetch(
-      "https://back-end.osc-fr1.scalingo.io/restaurateur/management/affiliation",
-      options
-    )
+    fetch("http://localhost:8080/restaurateur/management/affiliation", options)
       .then((response) => {
         return response.json();
       })
@@ -234,6 +231,10 @@ class Personnel extends Component {
       });
   };
   addReferent = (e) => {
+    console.log(
+      "test",
+      this.state.serveur?.tabServeur[this.state.indexRef]?.serveurMail
+    );
     //e.preventDefault();
     const data = {
       email: this.state.serveur?.tabServeur[this.state.indexRef]?.serveurMail,

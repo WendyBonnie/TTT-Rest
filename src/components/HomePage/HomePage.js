@@ -35,7 +35,8 @@ function Tuto() {
         onHide={handleClose}
         animation={true}
         backdrop="static"
-        keyboard={false}>
+        keyboard={false}
+      >
         <Modal.Header closeButton>
           <Modal.Title>Comment activer votre compte ?</Modal.Title>
         </Modal.Header>
@@ -104,7 +105,8 @@ function Tuto() {
           <Button
             className="modalButton"
             variant="secondary"
-            onClick={handleClose}>
+            onClick={handleClose}
+          >
             Fermer
           </Button>
         </Modal.Footer>
@@ -163,7 +165,10 @@ class HomePage extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/restaurateur/management/affiliation", options)
+    fetch(
+      "https://back-end.osc-fr1.scalingo.io/management/affiliation",
+      options
+    )
       .then((response) => {
         return response.json();
       })
@@ -186,7 +191,8 @@ class HomePage extends Component {
         animation={true}
         backdrop={true}
         keyboard={false}
-        style={{ overlay: { zIndex: 3 } }}>
+        style={{ overlay: { zIndex: 3 } }}
+      >
         <Modal.Header closeButton>
           <Modal.Title>Désigner votre référent</Modal.Title>
         </Modal.Header>

@@ -1,21 +1,18 @@
-.dailyMenuContain .menujour {
+.menujour {
   font-family: "Montserrat", sans-serif;
   text-align: center;
 
   border: none;
   color: #555;
-  padding: 30px 30px 9px 30px;
 }
-.dailyMenuContain .menujour:hover {
+.menujour:hover {
   color: #f5a624;
 }
-.dailyMenuContain {
-  margin-bottom: 40px;
-}
-.dailyMenuContain .linkButton {
+
+.linkButton {
   text-decoration: none;
 }
-.dailyMenuContain .bouton {
+.bouton {
   border-radius: 28px !important;
   background-color: #f5a624 !important;
   width: 47%;
@@ -23,58 +20,62 @@
   padding-top: 1% !important;
   padding-bottom: 1% !important;
   font-size: 18px !important;
-  margin-bottom: 10%;
+  margin-bottom: 20%;
   color: white;
   border-width: 0px;
-  margin-top: 10%;
 }
-.dailyMenuContain .bouton:hover {
+.bouton:hover {
   background-color: #555 !important;
   color: white !important;
   border-color: yellow !important;
 }
-.dailyMenuContain .legend {
+.legend {
   border-radius: 5px;
   font-size: 0.8rem;
   border: 2px solid #4a4a4a !important;
 }
 
-.dailyMenuContain .cardsupp {
+.cardsupp {
   text-align: center;
 }
 
-.dailyMenuContain .boutonSupprimer {
+.boutonSupprimer {
   border-radius: 28px !important;
   background-color: #f5a624 !important;
-  margin-top: 3%;
+
   padding-left: 3%;
   padding-right: 3%;
   border-color: #f5a624 !important;
   padding-top: 1% !important;
   padding-bottom: 1% !important;
   font-size: 18px !important;
-  margin-bottom: 10%;
+
   color: white;
   border-width: 0px;
 }
-.dailyMenuContain .boutonSupprimer:hover {
+.boutonSupprimer:hover {
   background-color: #555 !important;
   color: white !important;
 }
-.dailyMenuContain .colMenu {
+.colMenu {
   text-align: center;
 }
 
-.dailyMenuContain .formMenu {
+.centerRow {
+  justify-content: center;
+}
+
+.formMenu {
   display: inline-block;
   text-align: center;
   align-items: center;
+  margin-top: 10%;
 }
 
-.dailyMenuContain .bouton:hover,
-.dailyMenuContain .boutonSupprimer:hover,
-.dailyMenuContain .boutonSupprimer:active,
-.dailyMenuContain .bouton:active {
+.bouton:hover,
+.boutonSupprimer:hover,
+.boutonSupprimer:active,
+.bouton:active {
   background-color: white;
   color: #f4a521;
 }

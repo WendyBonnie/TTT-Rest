@@ -72,11 +72,9 @@ class Barremenu extends Component {
             </Dropdown>
 
             <Col className="logoPartie1" md={12}>
-              <Link to="/">
-                <a href="https://tipourboire.com">
-                  <img src="/image/logoJaune.png" />
-                </a>
-              </Link>
+              <a href="https://tipourboire.com">
+                <img src="/image/logoJaune.png" />
+              </a>
             </Col>
           </Row>
         </Container>

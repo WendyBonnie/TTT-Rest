@@ -11,6 +11,7 @@ import { Col, Row } from "react-bootstrap";
 import "./QrCode.css";
 import QRCODE from "easyqrcodejs";
 import { useReactToPrint } from "react-to-print";
+import { VscSmiley } from "react-icons/vsc";
 
 function QrHook() {
   const [restaurant, setRestaurant] = useState();
@@ -108,37 +109,51 @@ function QrHook() {
 
   return (
     <div>
-      <Row className="backgroundTicketVisibleWeb">
-        <Col className="backColLeft" sm={4} md={4} lg={4}>
-          <Row className="rowCode">
+      <Row className="rowCenterWeb">
+        <Col className="backgroundTicketVisibleWeb" md={5}>
+          <Row>
             <Col>
-              <h4 className="titleName">
-                {localStorage.getItem("propsRestaurant")}
-              </h4>
-            </Col>
-            <Col className="paddingCode">
-              <div id="qrCodeDivResto" />
-            </Col>
-            <Col>
-              <img
-                src="/image/tipourboirePhrase.png"
-                className="tipPictureWeb"
-              />
-            </Col>
-          </Row>
-        </Col>
-        <Col className="backColRight" sm={4} md={4} lg={4}>
-          <Row className="rowCode2Web">
-            <Col className="col2">
-              {" "}
-              <img src="/image/logoCode.png" className="tipPictureWeb" />
-            </Col>
-            <Col className="col2">
-              <img src="/image/justeUnMerci.png" className="tipPictureWeb" />
+              <Row className="rowCenterWeb">
+                <Col className="borderCol" md={8}>
+                  <div id="qrCodeDivResto" />
+                </Col>
+              </Row>
+              <Row className="rowMargin">
+                <Col md={12}>
+                  <span className="text1">Pour accéder à</span>
+                </Col>
+                <Col md={12}>
+                  <span className="textDeux">notre carte</span>
+                </Col>
+                <Col md={12}>
+                  <span className="text3">scannez</span>
+                </Col>
+                <Col md={12}>
+                  <span className="text3">le QR Code</span>
+                </Col>
+                <Col md={12}>
+                  <span className="text3">ci-dessus</span>
+                </Col>
+              </Row>
+              <Row className="rowCenterWeb rowMargin ">
+                <span className="line"></span>
+                <span>
+                  <VscSmiley />
+                </span>
+                <span className="line"></span>
+              </Row>
+              <Row className="rowMargin">
+                <Col md={12}>
+                  <span className="titleName">
+                    {localStorage.getItem("propsRestaurant")}
+                  </span>
+                </Col>
+              </Row>
             </Col>
           </Row>
         </Col>
       </Row>
+
       <div className="QRPrint">
         <div id="qrCodePdf" ref={componentRef}>
           <Row className="backgroundTicket">

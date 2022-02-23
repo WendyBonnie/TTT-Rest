@@ -79,6 +79,18 @@
 
   color: white;
 }
+
+.button:hover {
+  background-color: #555 !important;
+}
+
+.button:active {
+  background-color: #555 !important;
+}
+.button:visited {
+  background-color: #555 !important;
+}
+
 .styleProfil .button:hover {
   background-color: #555 !important;
   color: #f5a624 !important;

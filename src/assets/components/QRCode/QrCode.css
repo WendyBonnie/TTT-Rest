@@ -1,25 +1,68 @@
 .qrCode {
- text-align: center;
- display: block;
- justify-content: center;
- align-items: center;
- margin: auto;
+  text-align: center;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
 
 .buttonQrCode {
- border-radius: 28px !important;
- background-color: #f5a624 !important;
- margin-left: 2%;
- border-color: #f5a624 !important;
- padding-top: 1% !important;
- padding-bottom: 1% !important;
- font-size: 18px !important;
- border: 0px solid #4a4a4a !important;
- color: white;
- border-width: 0px;
+  border-radius: 28px !important;
+  background-color: #f5a624 !important;
+  margin-left: 2%;
+  border-color: #f5a624 !important;
+  padding-top: 1% !important;
+  padding-bottom: 1% !important;
+  font-size: 18px !important;
+  border: 0px solid #4a4a4a !important;
+  color: white;
+  border-width: 0px;
 }
 .buttonQrCode:hover {
- background-color: #555 !important;
- color: white !important;
- border-color: yellow !important;
+  background-color: #555 !important;
+  color: white !important;
+  border-color: yellow !important;
+}
+
+.buttonQrCode:active {
+  background-color: #555 !important;
+  color: white !important;
+  border-color: yellow !important;
+}
+
+.rowCenterWeb {
+  justify-content: center;
+}
+
+.borderCol {
+  background-color: white;
+  padding: 6%;
+}
+
+.rowMargin {
+  margin-top: 5%;
+}
+
+.text1 {
+  font-family: "Alfa Slab One", cursive;
+  color: white;
+  font-size: 13px;
+}
+
+.textDeux {
+  font-family: "Alfa Slab One", cursive;
+  color: white;
+  font-size: 15px;
+}
+
+.text3 {
+  font-family: "Alfa Slab One", cursive;
+  color: #555;
+  font-size: 15px;
+}
+
+.text4 {
+  font-family: "Alfa Slab One", cursive;
+  color: white;
+  font-size: 18px;
 }

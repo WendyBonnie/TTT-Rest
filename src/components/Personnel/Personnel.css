@@ -14,19 +14,6 @@
   height: 100px;
 }
 
-.personnel .button {
-  border-radius: 28px !important;
-  background-color: #f5a624 !important;
-  margin-left: 2%;
-  border-color: #f5a624 !important;
-  padding-top: 1% !important;
-  padding-bottom: 1% !important;
-  font-size: 12px !important;
-  border: 0px solid #4a4a4a !important;
-  color: white;
-  border-width: 0px;
-}
-
 .personnel .buttonRef {
   border-radius: 28px !important;
   background-color: #555 !important;
@@ -38,6 +25,19 @@
   border: 0px solid #4a4a4a !important;
   color: white;
   border-width: 0px;
+}
+
+.button:hover {
+  background-color: #555 !important;
+  border-width: 0px !important;
+}
+
+.button:active {
+  background-color: #555 !important;
+}
+
+.button:visited {
+  background-color: #555 !important;
 }
 
 .personnel .button:hover {

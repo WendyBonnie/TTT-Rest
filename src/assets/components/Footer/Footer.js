@@ -51,6 +51,7 @@ class Footer extends Component {
         () => {
           let link = "https://restaurant.tipourboire.com/";
           window.location.href = link;
+          localStorage.clear();
         },
 
         (error) => {

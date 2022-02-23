@@ -3,6 +3,7 @@ import QRCode from "qrcode.react";
 import { Col, Row } from "react-bootstrap";
 import "./QrCodeTicket.css";
 import QRCODE from "easyqrcodejs";
+import { VscSmiley } from "react-icons/vsc";
 
 import { useReactToPrint } from "react-to-print";
 
@@ -102,33 +103,48 @@ function QrHookTicket(props) {
 
   return (
     <div>
-      <Row className="backgroundTicketVisibleWeb">
-        <Col className="backColLeft" sm={4} md={4}>
-          <Row className="rowCodeWeb">
+      <Row className="rowCenterWeb">
+        <Col className="backgroundTicketVisibleWeb" md={7}>
+          <Row>
             <Col>
-              <h4 className="titleName">
-                {localStorage.getItem("propsRestaurant")}
-              </h4>
-            </Col>
-            <Col className="paddingCode">
-              <div id="qrCodeDiv" />
-            </Col>
-            <Col>
-              <img
-                src="/image/tipourboirePhrase.png"
-                className="tipPictureWeb"
-              />
-            </Col>
-          </Row>
-        </Col>
-        <Col className="backColRight" sm={4} md={4}>
-          <Row className="rowCode2Web">
-            <Col className="col2">
-              {" "}
-              <img src="/image/logoCode.png" className="tipPictureWeb" />
-            </Col>
-            <Col className="col2">
-              <img src="/image/justeUnMerci.png" className="tipPictureWeb" />
+              <Row className="rowCenterWeb">
+                <Col className="borderCol" md={8}>
+                  <div id="qrCodeDiv" />
+                </Col>
+              </Row>
+              <Row className="rowMargin">
+                <Col md={12}>
+                  <span className="text1">Pour donner un pourboire</span>
+                </Col>
+                <Col md={12}>
+                  <span className="textDeux">Scannez le QR Code ci-dessus</span>
+                </Col>
+                <Col md={12}>
+                  <span className="text3">Rapide & 100% sécurisé</span>
+                </Col>
+              </Row>
+              <Row className="rowCenterWeb rowMargin ">
+                <span className="line"></span>
+                <span>
+                  <VscSmiley />
+                </span>
+                <span className="line"></span>
+              </Row>
+              <Row className="rowMargin">
+                <Col md={12}>
+                  <span className="titleName">
+                    {localStorage.getItem("propsRestaurant")}
+                  </span>
+                </Col>
+                <Col md={12}>
+                  <span className="text4">Vous remercie</span>
+                </Col>
+              </Row>
+              <Row className="colorRow">
+                <Col>
+                  <img src="/image/logoticket.png" />
+                </Col>
+              </Row>
             </Col>
           </Row>
         </Col>

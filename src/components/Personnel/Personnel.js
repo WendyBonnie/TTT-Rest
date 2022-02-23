@@ -221,7 +221,7 @@ class Personnel extends Component {
     };
 
     fetch(
-      "https://back-end.osc-fr1.scalingo.io/management/affiliation",
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/management/affiliation",
       options
     )
       .then((response) => {

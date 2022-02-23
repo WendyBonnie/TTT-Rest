@@ -89,9 +89,10 @@ class Connexion extends Component {
             fontWeight: "bold",
           }}
           style={{
-            fontSize: "14px",
+            fontSize: "10px",
             fontfamily: "Montserrat",
             fontWeight: "bold",
+            zIndex: 2000,
           }}>
           Le Site Tipourboire utilise différents cookies afin d’améliorer ses
           services et effectuer des suivis d’audience. Certains cookies sont

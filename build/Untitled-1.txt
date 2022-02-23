@@ -58,7 +58,7 @@ class CheckoutForm extends Component {
       headers: headers,
       body: JSON.stringify(data),
     };
-    fetch("http://localhost:8080/restaurateur/createsubscription", options)
+    fetch("https://back-end.osc-fr1.scalingo.io/restaurateur/createsubscription", options)
       .then((result) => {
         return {
           paymentMethodId: paymentMethodId,

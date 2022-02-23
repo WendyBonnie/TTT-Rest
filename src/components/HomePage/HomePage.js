@@ -49,7 +49,7 @@ function Tuto() {
             Définissez les paramètres de redistribution : collectif ou
             individuel
             <br />
-            Ajouter z vos bénéficiaires et/ou désignez votre référent selon la
+            Ajoutez vos bénéficiaires et/ou désignez votre référent selon la
             distribution choisie
             <br />
             <br />
@@ -122,12 +122,18 @@ class HomePage extends Component {
       restaurantName: "",
       isLoading: false,
       data: {},
-      pourboireGeneral: false,
+      pourboireGeneral: "",
       tabServeur: [],
       show: false,
       email: "",
     };
+    this.hideModal = this.hideModal.bind(this);
   }
+
+  hideModal = () => {
+    this.setState({ show: false });
+    console.log("this", this.state.show);
+  };
 
   isReferent = () => {
     console.log(
@@ -139,7 +145,9 @@ class HomePage extends Component {
       this.state.pourboireGeneral === true &&
       this.state.tabServeur.length === 0
     ) {
-      return this.modalReferent();
+      this.setState({ show: true });
+    } else {
+      return null;
     }
   };
 
@@ -166,7 +174,7 @@ class HomePage extends Component {
     };
 
     fetch(
-      "https://back-end.osc-fr1.scalingo.io/management/affiliation",
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/management/affiliation",
       options
     )
       .then((response) => {
@@ -174,8 +182,10 @@ class HomePage extends Component {
       })
 
       .then((responseData) => {
-        console.log(responseData);
+        this.hideModal();
         if (responseData === true) {
+          console.log("hello");
+
           alert("Votre demande a bien été prise en compte");
         } else {
           alert(responseData.messageAffi);
@@ -186,18 +196,18 @@ class HomePage extends Component {
   modalReferent = () => {
     return (
       <Modal
-        show={true}
+        show={this.state.show}
         onHide={false}
         animation={true}
         backdrop={true}
         keyboard={false}
         style={{ overlay: { zIndex: 3 } }}
       >
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title>Désigner votre référent</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Row>
+          <Row className="affiPop">
             <Col s={12} md={12}>
               <p>
                 Vous devez désigner un référent en rentrant son adresse mail
@@ -287,11 +297,14 @@ class HomePage extends Component {
 
           // this.setState({ abonne: responseObject.abonne });
           this.setState({ data: JSON.stringify(responseObject) });
-          console.log("abonne", this.state.tabServeur.length);
-          console.log(
-            "consolelog",
-            JSON.parse(localStorage.getItem("propsRestaurant"))
-          );
+          if (
+            responseObject.pourboireGeneral === true &&
+            responseObject.tabServeur.length === 0
+          ) {
+            this.setState({ show: !this.state.show });
+          } else {
+            this.setState({ show: false });
+          }
         },
 
         (error) => {
@@ -355,11 +368,6 @@ class HomePage extends Component {
   componentDidMount() {
     this.getRestaurantName();
     // this.isSubscribed();
-    //this.isReferent();
-  }
-
-  componentDidUpdate() {
-    this.isReferent();
   }
 
   render() {
@@ -373,15 +381,17 @@ class HomePage extends Component {
 
             <Row className="rowGlobal">
               <Col md={{ span: 9, offset: 7 }} className="colTuto">
-                {this.isReferent()}
+                {this.modalReferent()}
                 <Tuto />
               </Col>
               <Row className="rowGlobal">
                 <Col xs={12} s={12} md={6}>
-                  <p className="titleQR">QR CODE Ticket </p>
+                  <p className="titleQR">
+                    QR CODE Pourboire de votre établissement{" "}
+                  </p>
                   <p className="qrSub">
-                    à insérer sur vos tickets d'addition depuis votre logiciel
-                    de caisse
+                    À télécharger pour impression sur vos supports ou insertion
+                    dans votre logiciel de caisse ou d'encaissement
                   </p>
                   <div>
                     <QrCodeTicket
@@ -391,23 +401,23 @@ class HomePage extends Component {
                   </div>
                 </Col>
               </Row>
-              <Row className="rowGlobal">
-                <Col xs={12} s={12} md={6}>
-                  <p className="titleQR"> QR CODE Menu </p>
-                  <p className="qrSub">
-                    à imprimer et coller sur les tables de votre restaurant
-                  </p>
-                  <QrCode
-                    className="qrCode"
-                    restaurantName={this.state.restaurantName}
-                    restaurant="coucou"
-                  />
-                </Col>
-              </Row>
             </Row>
           </Col>
-          <Row className="rowGlobal">
-            <Col md={6}>
+
+          <Row className="rowGlobal marginToop">
+            <Col xs={12} s={12} md={4}>
+              <p className="titleQR"> QR CODE Carte </p>
+              <p className="qrSub">
+                à télécharger pour impression et mise à disposition au sein de
+                votre établissement
+              </p>
+              <QrCode
+                className="qrCode"
+                restaurantName={this.state.restaurantName}
+                restaurant="coucou"
+              />
+            </Col>
+            <Col className="centerCol" md={3}>
               <DailyMenu className="menuhome" />
             </Col>
           </Row>

@@ -27,7 +27,9 @@
 
 .backgroundTicketVisibleWeb {
   justify-content: center;
+  background-color: #f5a624;
   margin-bottom: 3%;
+  padding-top: 5%;
 }
 
 .QRPrint {
@@ -104,8 +106,9 @@
 }
 
 .titleName {
-  color: white;
-  font-family: "Montserrat";
+  color: rgb(247, 0, 226);
+  font-family: "Alfa Slab One", cursive;
+  font-size: 18px;
   text-align: center;
 }
 
@@ -115,6 +118,13 @@
   justify-content: center;
   align-items: center;
   margin: auto;
+}
+
+svg {
+  height: 2em;
+  width: 2em;
+  color: white;
+  width: 79%;
 }
 
 .buttonQrCode {
@@ -136,4 +146,19 @@
   background-color: #555 !important;
   color: #f5a624 !important;
   border-color: #f5a624 !important ;
+}
+
+.line {
+  border-bottom: 2px solid white;
+  width: 58px;
+  margin-bottom: 7%;
+}
+
+.colorRow {
+  background-color: white;
+  padding-top: 10%;
+}
+
+.colorRow img {
+  width: 100%;
 }

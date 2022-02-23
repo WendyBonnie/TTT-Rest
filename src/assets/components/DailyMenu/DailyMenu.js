@@ -89,110 +89,108 @@ function UploadMenu() {
   }, []);
 
   return (
-    <Container className="dailyMenuContain">
-      <Row>
-        <Col md={{ span: 6, offset: 3 }}>
-          <Link className="linkButton" to="/menus">
-            <h1 className="menujour">Menu du Jour</h1>
-          </Link>
-        </Col>
-        <Col className="colMenu" md={12}>
-          <form
-            className="formMenu"
-            onSubmit={(e) => {
-              e.preventDefault();
+    <Row className="centerRow">
+      <Col md={12}>
+        <h6 className="menujour">Charger ma carte</h6>
+      </Col>
+      <Col className="colMenu" md={12}>
+        <p>{label}</p>
+        <Card.Img
+          variant="top"
+          src={"https://s3.amazonaws.com/b.c.bucket.tipourboire/" + images}
+          className="dailyMenu"
+          alt="Menu du Jour"
+        />
+        <form
+          className="formMenu"
+          onSubmit={(e) => {
+            e.preventDefault();
 
-              const data = new FormData(e.target);
+            const data = new FormData(e.target);
 
-              const headers = new Headers({
-                Authorization: "bearer " + localStorage.getItem("token"),
-              });
+            const headers = new Headers({
+              Authorization: "bearer " + localStorage.getItem("token"),
+            });
 
-              const options = {
-                method: "PUT",
-                body: data,
-                headers: headers,
-              };
+            const options = {
+              method: "PUT",
+              body: data,
+              headers: headers,
+            };
 
-              fetch(
-                "https://back-end.osc-fr1.scalingo.io/restaurateur/dailymenu/add",
-                options
-              )
-                .then((response) => {
-                  return response.json();
-                })
-                .then(
-                  (responseData) => {
-                    setMessage(responseData.message);
+            fetch(
+              "https://back-end.osc-fr1.scalingo.io/restaurateur/dailymenu/add",
+              options
+            )
+              .then((response) => {
+                return response.json();
+              })
+              .then(
+                (responseData) => {
+                  setMessage(responseData.message);
 
-                    const headers = new Headers({
-                      Authorization: "bearer " + localStorage.getItem("token"),
-                    });
+                  const headers = new Headers({
+                    Authorization: "bearer " + localStorage.getItem("token"),
+                  });
 
-                    const options = {
-                      method: "GET",
-                      headers: headers,
-                    };
+                  const options = {
+                    method: "GET",
+                    headers: headers,
+                  };
 
-                    fetch(
-                      "https://back-end.osc-fr1.scalingo.io/restaurateur/menu",
-                      options
-                    )
-                      .then((response) => {
-                        return response.json();
-                      })
-                      .then(
-                        (data) => {
-                          setImageStorage(data.menu.dailyMenu.picture);
-                          setLabel(data.menu.dailyMenu.label);
-                          setDailyMenu(data.menu);
-                        },
-                        (err) => {
-                          console.log(err);
-                        }
-                      );
-                    getDailyMenu();
-                  },
-                  (err) => {
-                    console.log(err);
-                  }
-                );
+                  fetch(
+                    "https://back-end.osc-fr1.scalingo.io/restaurateur/menu",
+                    options
+                  )
+                    .then((response) => {
+                      return response.json();
+                    })
+                    .then(
+                      (data) => {
+                        setImageStorage(data.menu.dailyMenu.picture);
+                        setLabel(data.menu.dailyMenu.label);
+                        setDailyMenu(data.menu);
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    );
+                  getDailyMenu();
+                },
+                (err) => {
+                  console.log(err);
+                }
+              );
+          }}>
+          <input
+            className="button"
+            type="file"
+            name="file"
+            onChange={(e) => {
+              setImageStorage(e.target.files[0]);
             }}
-          >
-            <input
-              className="button"
-              type="file"
-              name="file"
-              onChange={(e) => {
-                setImageStorage(e.target.files[0]);
-              }}
-            />
-            <button className="bouton" type="submit">
-              Valider
-            </button>
-          </form>
-
+          />
+          <p>
+            {" "}
+            Si vous avez déjà chargé un visuel et souhaitez le modifier, cliquez
+            ci-dessous pour choisir un nouveau fichier.
+            <br />
+            <i> format jpg, jpeg et png</i>
+          </p>
           <Card.Body className="cardsupp">
-            <p>{label}</p>
-
-            <Card.Img
-              variant="top"
-              src={"https://s3.amazonaws.com/b.c.bucket.tipourboire/" + images}
-              className="dailyMenu"
-              alt="Menu du Jour"
-            />
-
             <button
               className="boutonSupprimer"
               type="submit"
-              onClick={() => deleteMenu()}
-            >
+              onClick={() => deleteMenu()}>
               Supprimer le menu
             </button>
           </Card.Body>
-        </Col>
-      </Row>
-    </Container>
+          <button className="bouton" type="submit">
+            Valider
+          </button>
+        </form>
+      </Col>
+    </Row>
   );
 }
 

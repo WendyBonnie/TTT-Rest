@@ -30,6 +30,7 @@
     "react-dom": "^16.13.1",
     "react-fa": "^5.0.0",
     "react-html-table-to-excel": "^2.0.0",
+    "react-icons": "^4.3.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-to-pdf": "0.0.14",

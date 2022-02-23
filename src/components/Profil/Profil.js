@@ -114,9 +114,8 @@ function UploadPicture() {
       <form onSubmit={modifProfilLogo} className="formLogo">
         <img
           className="restaurantLogo"
-          src={
-            "https://s3.amazonaws.com/b.c.bucket.tipourboire/" + images
-          }></img>
+          src={"https://s3.amazonaws.com/b.c.bucket.tipourboire/" + images}
+        ></img>
         <br />
         <br />
         <input
@@ -191,7 +190,8 @@ class Profil extends Component {
             className="button"
             onClick={() => {
               this.setState({ editing: false });
-            }}>
+            }}
+          >
             Modifier <br />
           </button>
         </>
@@ -213,7 +213,8 @@ class Profil extends Component {
           onClick={() => {
             this.setState({ editing: true });
             this.getMonProfil();
-          }}>
+          }}
+        >
           Annuler
         </button>
       );
@@ -650,7 +651,8 @@ class Profil extends Component {
                 this.props.setLogin(false);
                 this.props.history.push("/");
               }}
-              className="signOut1 button">
+              className="signOut1 button"
+            >
               Déconnexion
             </Button>
           </Col>

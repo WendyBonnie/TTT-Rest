@@ -1,9 +1,10 @@
 .backgroundTicket {
-  background-color: rgb(34, 11, 11);
-  width: 25%;
-  border-radius: 5%;
+  background-color: #f5a624;
+  width: 45mm;
+  height: 70mm;
   margin-top: 2%;
   margin-left: 2%;
+  padding-top: 1%;
 }
 
 .qr {
@@ -29,7 +30,7 @@
   justify-content: center;
   background-color: #f5a624;
   margin-bottom: 3%;
-  padding-top: 5%;
+  padding-top: 8%;
 }
 
 .QRPrint {
@@ -107,8 +108,22 @@
 
 .titleName {
   color: rgb(247, 0, 226);
-  font-family: "Alfa Slab One", cursive;
-  font-size: 18px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 21px;
+  text-align: center;
+}
+
+.titleNamePrint {
+  color: rgb(247, 0, 226);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 13px;
+  text-align: center;
+}
+
+.titleNameMenu {
+  color: rgb(247, 0, 226);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 10px;
   text-align: center;
 }
 
@@ -161,4 +176,28 @@ svg {
 
 .colorRow img {
   width: 100%;
+}
+
+.colCenter {
+  text-align: center;
+}
+
+.colMargin {
+  margin-top: -8%;
+}
+
+.colMarginRap {
+  margin-top: -12%;
+}
+
+.colMarginWord {
+  margin-top: -3%;
+}
+
+.colMarginWord {
+  margin-top: -3%;
+}
+
+.colMarginThanks {
+  margin-top: -5%;
 }

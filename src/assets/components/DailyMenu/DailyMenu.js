@@ -52,7 +52,7 @@ function UploadMenu() {
   };
   const deleteMenu = (e) => {
     window.confirm("Etes-vous sur de vouloir supprimer le menu du jour ?");
-    e.preventDefault();
+    //e.preventDefault();
     const data = {
       dailyMenu: dailyMenu,
     };
@@ -163,7 +163,6 @@ function UploadMenu() {
               );
           }}>
           <input
-            className="button"
             type="file"
             name="file"
             onChange={(e) => {
@@ -182,7 +181,7 @@ function UploadMenu() {
               className="boutonSupprimer"
               type="submit"
               onClick={() => deleteMenu()}>
-              Supprimer le menu
+              Supprimer
             </button>
           </Card.Body>
           <button className="bouton" type="submit">

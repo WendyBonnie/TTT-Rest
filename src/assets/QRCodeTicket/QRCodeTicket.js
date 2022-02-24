@@ -86,8 +86,8 @@ function QrHookTicket(props) {
 
     new QRCODE(document.getElementById("qrCodeDiv2"), {
       text: encodeURI(uri),
-      width: 100,
-      height: 100,
+      width: 80,
+      height: 80,
       //title: "Tipourboire", // content
       titleFont: "bold 20px  Montserrat", //font. default is "bold 16px Arial"
       titleColor: "#f5a624", // color. default is "#000"
@@ -104,7 +104,7 @@ function QrHookTicket(props) {
   return (
     <div>
       <Row className="rowCenterWeb">
-        <Col className="backgroundTicketVisibleWeb" md={7}>
+        <Col className="backgroundTicketVisibleWeb" md={8}>
           <Row>
             <Col>
               <Row className="rowCenterWeb">
@@ -124,11 +124,9 @@ function QrHookTicket(props) {
                 </Col>
               </Row>
               <Row className="rowCenterWeb rowMargin ">
-                <span className="line"></span>
-                <span>
-                  <VscSmiley />
-                </span>
-                <span className="line"></span>
+                <Col>
+                  <img src="/image/emoticone.png" className="tipPicture" />
+                </Col>
               </Row>
               <Row className="rowMargin">
                 <Col md={12}>
@@ -136,8 +134,8 @@ function QrHookTicket(props) {
                     {localStorage.getItem("propsRestaurant")}
                   </span>
                 </Col>
-                <Col md={12}>
-                  <span className="text4">Vous remercie</span>
+                <Col className="colThanks" md={12}>
+                  <span className="text4Ticket">Vous remercie !</span>
                 </Col>
               </Row>
               <Row className="colorRow">
@@ -151,37 +149,51 @@ function QrHookTicket(props) {
       </Row>
       <div className="QRPrint">
         <div id="qrCodePdf" ref={componentRef}>
-          <Row className="backgroundTicket">
-            <Col>
-              <Row className="rowCode">
-                <Col>
-                  <p className="titleName">
-                    {localStorage.getItem("propsRestaurant")}
-                  </p>
-                </Col>
-                <Col>
-                  <div id="qrCodeDiv2" />
-                </Col>
-                <Col>
-                  <img
-                    src="/image/tipourboirePhrase.png"
-                    className="tipPicture"
-                  />
-                </Col>
-              </Row>
-            </Col>
-            <Col>
-              <Row className="rowCode2">
-                <Col className="col2">
-                  {" "}
-                  <img src="/image/logoCode.png" className="tipPicture" />
-                </Col>
-                <Col className="col2">
-                  <img src="/image/justeUnMerci.png" className="tipPicture" />
-                </Col>
-              </Row>
-            </Col>
-          </Row>
+          <Col className="backgroundTicket">
+            <Row>
+              <Col>
+                <Row className="rowCenterWeb">
+                  <Col className="borderColPrint">
+                    <div id="qrCodeDiv2" />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col className="colCenter colMarginWord" md={12}>
+                    <span className="text1Print">Pour donner un pourboire</span>
+                  </Col>
+                  <Col className="colCenter colMargin" md={12}>
+                    <span className="textDeuxPrint">
+                      Scannez le QR Code ci-dessus
+                    </span>
+                  </Col>
+                  <Col className="colCenter colMarginRap" md={12}>
+                    <span className="text3Print">Rapide & 100% sécurisé</span>
+                  </Col>
+                </Row>
+                <Row className="rowCenterWeb colMarginEmo">
+                  <Col className="colCenter ">
+                    <img src="/image/emoticone.png" className="tipPicture" />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col className="colCenter " md={12}>
+                    <span className="titleName">
+                      {localStorage.getItem("propsRestaurant")}
+                    </span>
+                  </Col>
+                  <Col className="colThanks colCenter colMarginThanks " md={12}>
+                    <span className="text4">Vous remercie !</span>
+                  </Col>
+                </Row>
+                <Row className="colorRow">
+                  <Col>
+                    <img src="/image/logoticket.png" />
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+          </Col>
+
           {loading && <p className="indicator">impression ...</p>}
         </div>
       </div>

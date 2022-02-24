@@ -35,8 +35,7 @@ function Tuto() {
         onHide={handleClose}
         animation={true}
         backdrop="static"
-        keyboard={false}
-      >
+        keyboard={false}>
         <Modal.Header closeButton>
           <Modal.Title>Comment activer votre compte ?</Modal.Title>
         </Modal.Header>
@@ -105,8 +104,7 @@ function Tuto() {
           <Button
             className="modalButton"
             variant="secondary"
-            onClick={handleClose}
-          >
+            onClick={handleClose}>
             Fermer
           </Button>
         </Modal.Footer>
@@ -126,6 +124,7 @@ class HomePage extends Component {
       tabServeur: [],
       show: false,
       email: "",
+      menu: {},
     };
     this.hideModal = this.hideModal.bind(this);
   }
@@ -201,8 +200,7 @@ class HomePage extends Component {
         animation={true}
         backdrop={true}
         keyboard={false}
-        style={{ overlay: { zIndex: 3 } }}
-      >
+        style={{ overlay: { zIndex: 3 } }}>
         <Modal.Header>
           <Modal.Title>Désigner votre référent</Modal.Title>
         </Modal.Header>
@@ -210,9 +208,13 @@ class HomePage extends Component {
           <Row className="affiPop">
             <Col s={12} md={12}>
               <p>
-                Vous devez désigner un référent en rentrant son adresse mail
-                ci-dessous. Si vous n'avez pas d'autre référent merci de rentrer
-                votre adresse email et de vous créer un compte bénéficiaire.
+                C'est lui qui répartira le pot commun aux équipes,
+                <br />
+                selon vos règles,
+                <br />
+                rentrez son mail, et si c'est vous-même qui distribuez,
+                <br />
+                alors inscrivez votre mail personnel.
               </p>
             </Col>
             <Col>
@@ -229,6 +231,11 @@ class HomePage extends Component {
                 onClick={this.addAffiliation}
                 className="button"
               />
+            </Col>
+            <Col s={12} md={12}>
+              <p>
+                À réception du mail, le référent pourra commencer à répartir.
+              </p>
             </Col>
           </Row>
         </Modal.Body>
@@ -294,6 +301,7 @@ class HomePage extends Component {
           this.setState({ restaurantName: responseObject.restaurantName });
           this.setState({ pourboireGeneral: responseObject.pourboireGeneral });
           this.setState({ tabServeur: responseObject.tabServeur });
+          this.setState({ menu: responseObject.menu.dailyMenu.picture });
 
           // this.setState({ abonne: responseObject.abonne });
           this.setState({ data: JSON.stringify(responseObject) });
@@ -368,6 +376,7 @@ class HomePage extends Component {
   componentDidMount() {
     this.getRestaurantName();
     // this.isSubscribed();
+    console.log("menu", this.state.menu);
   }
 
   render() {
@@ -403,20 +412,21 @@ class HomePage extends Component {
               </Row>
             </Row>
           </Col>
-
           <Row className="rowGlobal marginToop">
-            <Col xs={12} s={12} md={4}>
-              <p className="titleQR"> QR CODE Carte </p>
-              <p className="qrSub">
-                à télécharger pour impression et mise à disposition au sein de
-                votre établissement
-              </p>
-              <QrCode
-                className="qrCode"
-                restaurantName={this.state.restaurantName}
-                restaurant="coucou"
-              />
-            </Col>
+            {this.state.menu === "" ? null : (
+              <Col xs={12} s={12} md={4}>
+                <p className="titleQR"> QR CODE Carte </p>
+                <p className="qrSub">
+                  à télécharger pour impression et mise à disposition au sein de
+                  votre établissement
+                </p>
+                <QrCode
+                  className="qrCode"
+                  restaurantName={this.state.restaurantName}
+                  restaurant="coucou"
+                />
+              </Col>
+            )}
             <Col className="centerCol" md={3}>
               <DailyMenu className="menuhome" />
             </Col>

@@ -92,8 +92,8 @@ function QrHook() {
 
     new QRCODE(document.getElementById("qrCodeDivResto2"), {
       text: encodeURI(uri),
-      width: 100,
-      height: 100,
+      width: 83,
+      height: 83,
       //title: "Tipourboire", // content
       titleFont: "bold 20px Montserrat", //font. default is "bold 16px Arial"
       titleColor: "#f5a624", // color. default is "#000"
@@ -110,8 +110,8 @@ function QrHook() {
   return (
     <div>
       <Row className="rowCenterWeb">
-        <Col className="backgroundTicketVisibleWeb" md={5}>
-          <Row>
+        <Col className="backgroundTicketVisibleWeb" md={6}>
+          <Row className="rowMarginCard">
             <Col>
               <Row className="rowCenterWeb">
                 <Col className="borderCol" md={8}>
@@ -123,24 +123,22 @@ function QrHook() {
                   <span className="text1">Pour accéder à</span>
                 </Col>
                 <Col md={12}>
-                  <span className="textDeux">notre carte</span>
+                  <span className="textDeuxMenu">notre carte</span>
                 </Col>
                 <Col md={12}>
-                  <span className="text3">scannez</span>
+                  <span className="text3Menu">scannez le</span>
                 </Col>
                 <Col md={12}>
-                  <span className="text3">le QR Code</span>
+                  <span className="text3Menu"> QR Code</span>
                 </Col>
                 <Col md={12}>
-                  <span className="text3">ci-dessus</span>
+                  <span className="text3Menu">ci-dessus</span>
                 </Col>
               </Row>
               <Row className="rowCenterWeb rowMargin ">
-                <span className="line"></span>
-                <span>
-                  <VscSmiley />
-                </span>
-                <span className="line"></span>
+                <Col>
+                  <img src="/image/emoticone.png" className="tipPicture" />
+                </Col>
               </Row>
               <Row className="rowMargin">
                 <Col md={12}>
@@ -156,37 +154,46 @@ function QrHook() {
 
       <div className="QRPrint">
         <div id="qrCodePdf" ref={componentRef}>
-          <Row className="backgroundTicket">
-            <Col>
-              <Row className="rowCode">
-                <Col>
-                  <p className="titleName">
-                    {localStorage.getItem("propsRestaurant")}
-                  </p>
-                </Col>
-                <Col>
-                  <div id="qrCodeDivResto2" />
-                </Col>
-                <Col>
-                  <img
-                    src="/image/tipourboirePhrase.png"
-                    className="tipPicture"
-                  />
-                </Col>
-              </Row>
-            </Col>
-            <Col>
-              <Row className="rowCode2">
-                <Col className="col2">
-                  {" "}
-                  <img src="/image/logoCode.png" className="tipPicture" />
-                </Col>
-                <Col className="col2">
-                  <img src="/image/justeUnMerci.png" className="tipPicture" />
-                </Col>
-              </Row>
-            </Col>
-          </Row>
+          <Col className="backgroundTicket">
+            <Row>
+              <Col>
+                <Row className="rowCenterWeb">
+                  <Col className="borderColPrint">
+                    <div id="qrCodeDivResto2" />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col className="colCenter colMarginWord" md={12}>
+                    <span className="text1PrintMenu">Pour accéder à</span>
+                  </Col>
+                  <Col className="colCenter colMarginMenu" md={12}>
+                    <span className="textDeuxPrintMenu">notre carte</span>
+                  </Col>
+                  <Col className="colCenter colMarginMenu" md={12}>
+                    <span className="text3PrintMenu c">scannez le</span>
+                  </Col>
+                  <Col className="colCenter colMarginMenu" md={12}>
+                    <span className="text3PrintMenuGrey">QR Code</span>
+                  </Col>
+                  <Col className="colCenter colMarginMenu" md={12}>
+                    <span className="text3PrintMenu">ci-dessus</span>
+                  </Col>
+                </Row>
+                <Row className="rowCenterWeb colMarginEmo">
+                  <Col className="colCenter ">
+                    <img src="/image/emoticone.png" className="tipPicture" />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col className="colCenter " md={12}>
+                    <span className="titleNameMenu">
+                      {localStorage.getItem("propsRestaurant")}
+                    </span>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+          </Col>
           {loading && <p className="indicator">impression ...</p>}
         </div>
       </div>

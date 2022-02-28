@@ -51,7 +51,8 @@ class Personnel extends Component {
                     this.state.serveur.tabServeur[this.state.indexRef]
                       .serveurMail
                   );
-                }}>
+                }}
+              >
                 Oui
               </button>
               <button>Non</button>
@@ -96,12 +97,6 @@ class Personnel extends Component {
 
   renderMesServeurs = () => {
     return this.state.serveur.tabServeur.map((element, index) => {
-      console.log(
-        "element",
-        element.serveurMail,
-        "serveur",
-        this.state.serveur
-      );
       return (
         <div className="serveurDiv">
           <p className="serveurP">{element.serveurName}</p>
@@ -151,7 +146,8 @@ class Personnel extends Component {
                     console.log(err);
                   }
                 );
-            }}>
+            }}
+          >
             Supprimer
           </button>
           <br />
@@ -161,17 +157,18 @@ class Personnel extends Component {
               className="buttonRef"
               onClick={() => {
                 console.log("je suis ref");
-              }}>
+              }}
+            >
               Référent désigné
             </button>
           ) : (
             <button
               className="buttonNonRef"
               onClick={() => {
-                console.log("je ne suis pas référent");
                 this.setState({ indexRef: index });
                 this.setState({ modalReferent: true });
-              }}>
+              }}
+            >
               Non référent
             </button>
           )}
@@ -234,10 +231,6 @@ class Personnel extends Component {
       });
   };
   addReferent = (e) => {
-    console.log(
-      "test",
-      this.state.serveur?.tabServeur[this.state.indexRef]?.serveurMail
-    );
     //e.preventDefault();
     const data = {
       email: this.state.serveur?.tabServeur[this.state.indexRef]?.serveurMail,
@@ -303,7 +296,8 @@ class Personnel extends Component {
                 animationSpeed: 2000,
                 infinite: false,
               },
-            }}>
+            }}
+          >
             {this.renderMesServeurs()}
           </Carousel>
         </Col>

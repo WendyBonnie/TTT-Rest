@@ -208,13 +208,13 @@ function QrHook(props) {
 class QrCode extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { restaurantName: props.restaurant };
   }
   componentDidMount() {}
   render() {
     return (
       <Row className="qrCode">
-        <QrHook className="qr" />
+        <QrHook className="qr" restaurant={this.state.restaurantName} />
       </Row>
     );
   }

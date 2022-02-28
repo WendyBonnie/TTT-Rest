@@ -35,7 +35,8 @@ function Tuto() {
         onHide={handleClose}
         animation={true}
         backdrop="static"
-        keyboard={false}>
+        keyboard={false}
+      >
         <Modal.Header closeButton>
           <Modal.Title>Comment activer votre compte ?</Modal.Title>
         </Modal.Header>
@@ -104,7 +105,8 @@ function Tuto() {
           <Button
             className="modalButton"
             variant="secondary"
-            onClick={handleClose}>
+            onClick={handleClose}
+          >
             Fermer
           </Button>
         </Modal.Footer>
@@ -200,7 +202,8 @@ class HomePage extends Component {
         animation={true}
         backdrop={true}
         keyboard={false}
-        style={{ overlay: { zIndex: 3 } }}>
+        style={{ overlay: { zIndex: 3 } }}
+      >
         <Modal.Header>
           <Modal.Title>Désigner votre référent</Modal.Title>
         </Modal.Header>
@@ -378,7 +381,6 @@ class HomePage extends Component {
   componentDidMount() {
     this.getRestaurantName();
     // this.isSubscribed();
-    console.log("menu", this.state.menu, this.state.restaurantName);
   }
 
   render() {
@@ -406,8 +408,9 @@ class HomePage extends Component {
                   </p>
                   <div>
                     <QrCodeTicket
-                      className="qrCodeTicket"
-                      restaurant={this.state.restaurantName}
+                      restaurant={JSON.parse(
+                        localStorage.getItem("propsRestaurant")
+                      )}
                     />
                   </div>
                 </Col>
@@ -422,10 +425,11 @@ class HomePage extends Component {
                       <br />
                       et mise à disposition au sein de votre établissement
                     </p>
+
                     <QrCode
-                      className="qrCode"
-                      restaurant={this.state.restaurantName}
-                      restaurant="coucou"
+                      restaurant={JSON.parse(
+                        localStorage.getItem("propsRestaurant")
+                      )}
                     />
                   </Col>
                 )}

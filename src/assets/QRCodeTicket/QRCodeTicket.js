@@ -221,13 +221,13 @@ function QrHookTicket(props) {
 class QrCodeTicket extends Component {
   constructor(props) {
     super(props);
-    this.state = { isLoading: false };
+    this.state = { isLoading: false, restaurant: props.restaurant };
   }
 
   render() {
     return (
       <Row className="qrCode">
-        <QrHookTicket className="qr" />
+        <QrHookTicket className="qr" restaurant={this.state.restaurant} />
       </Row>
     );
   }

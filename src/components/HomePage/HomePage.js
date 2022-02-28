@@ -276,7 +276,7 @@ class HomePage extends Component {
     return <button>Print </button>;
   };
 
-  getRestaurantName = () => {
+  getRestaurantName = async () => {
     const headers = new Headers({
       Authorization: "Bearer " + localStorage.getItem("token"),
 
@@ -298,7 +298,9 @@ class HomePage extends Component {
             "propsRestaurant",
             JSON.stringify(responseObject.restaurantName)
           );
-          this.setState({ restaurantName: responseObject.restaurantName });
+          this.setState({
+            restaurantName: responseObject.restaurantName,
+          });
           this.setState({ pourboireGeneral: responseObject.pourboireGeneral });
           this.setState({ tabServeur: responseObject.tabServeur });
           this.setState({ menu: responseObject.menu.dailyMenu.picture });
@@ -376,7 +378,7 @@ class HomePage extends Component {
   componentDidMount() {
     this.getRestaurantName();
     // this.isSubscribed();
-    console.log("menu", this.state.menu);
+    console.log("menu", this.state.menu, this.state.restaurantName);
   }
 
   render() {
@@ -394,9 +396,9 @@ class HomePage extends Component {
                 <Tuto />
               </Col>
               <Row className="rowGlobal">
-                <Col xs={12} s={12} md={6}>
+                <Col xs={9} s={9} md={6}>
                   <p className="titleQR">
-                    QR CODE Pourboire de votre établissement{" "}
+                    <strong> QR CODE Pourboire de votre établissement</strong>
                   </p>
                   <p className="qrSub">
                     À télécharger pour impression sur vos supports ou insertion
@@ -405,28 +407,32 @@ class HomePage extends Component {
                   <div>
                     <QrCodeTicket
                       className="qrCodeTicket"
-                      restaurantName={this.state.restaurantName}
+                      restaurant={this.state.restaurantName}
                     />
                   </div>
                 </Col>
+                {this.state.menu === "" ? null : (
+                  <Col xs={9} s={9} md={6}>
+                    <p className="titleQR">
+                      {" "}
+                      <strong>QR CODE Carte</strong>{" "}
+                    </p>
+                    <p className="qrSub">
+                      À télécharger pour impression
+                      <br />
+                      et mise à disposition au sein de votre établissement
+                    </p>
+                    <QrCode
+                      className="qrCode"
+                      restaurant={this.state.restaurantName}
+                      restaurant="coucou"
+                    />
+                  </Col>
+                )}
               </Row>
             </Row>
           </Col>
           <Row className="rowGlobal marginToop">
-            {this.state.menu === "" ? null : (
-              <Col xs={12} s={12} md={4}>
-                <p className="titleQR"> QR CODE Carte </p>
-                <p className="qrSub">
-                  à télécharger pour impression et mise à disposition au sein de
-                  votre établissement
-                </p>
-                <QrCode
-                  className="qrCode"
-                  restaurantName={this.state.restaurantName}
-                  restaurant="coucou"
-                />
-              </Col>
-            )}
             <Col className="centerCol" md={3}>
               <DailyMenu className="menuhome" />
             </Col>

@@ -94,7 +94,15 @@ function UploadMenu() {
         <h6 className="menujour">Charger ma carte</h6>
       </Col>
       <Col className="colMenu" md={12}>
-        <p>{label}</p>
+        <p> Carte en cours, téléchargé le : {label}</p>
+        <Card.Body className="cardsupp">
+          <button
+            className="boutonSupprimer"
+            type="submit"
+            onClick={() => deleteMenu()}>
+            Supprimer la carte en cours
+          </button>
+        </Card.Body>
         <Card.Img
           variant="top"
           src={"https://s3.amazonaws.com/b.c.bucket.tipourboire/" + images}
@@ -176,16 +184,9 @@ function UploadMenu() {
             <br />
             <i> format jpg, jpeg et png</i>
           </p>
-          <Card.Body className="cardsupp">
-            <button
-              className="boutonSupprimer"
-              type="submit"
-              onClick={() => deleteMenu()}>
-              Supprimer
-            </button>
-          </Card.Body>
+
           <button className="bouton" type="submit">
-            Valider
+            Valider la carte
           </button>
         </form>
       </Col>

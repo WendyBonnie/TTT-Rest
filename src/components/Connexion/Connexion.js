@@ -61,7 +61,7 @@ class Connexion extends Component {
   render() {
     return (
       <Container className="connexion-container">
-        <CookieConsent
+        {/* <CookieConsent
           location="bottom"
           buttonText="J'accepte"
           declineButtonText="Je refuse"
@@ -109,7 +109,7 @@ class Connexion extends Component {
             }}>
             Politique de cookies
           </a>
-        </CookieConsent>
+        </CookieConsent>*/}
         <Row>
           <Col>
             <h1>Déja inscrit ? </h1>

@@ -65,7 +65,7 @@ function QrHookTicket(props) {
 
   let uri =
     "https://back-end.osc-fr1.scalingo.io/client/getMenuTicket?restaurantName=" +
-    localStorage.getItem("propsRestaurant");
+    props.restaurant;
 
   useEffect(() => {
     new QRCODE(document.getElementById("qrCodeDiv"), {
@@ -104,7 +104,7 @@ function QrHookTicket(props) {
   return (
     <div>
       <Row className="rowCenterWeb">
-        <Col className="backgroundTicketVisibleWeb" md={8}>
+        <Col className="backgroundTicketVisibleWeb" md={6}>
           <Row>
             <Col>
               <Row className="rowCenterWeb">

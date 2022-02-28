@@ -51,8 +51,7 @@ class Personnel extends Component {
                     this.state.serveur.tabServeur[this.state.indexRef]
                       .serveurMail
                   );
-                }}
-              >
+                }}>
                 Oui
               </button>
               <button>Non</button>
@@ -152,8 +151,7 @@ class Personnel extends Component {
                     console.log(err);
                   }
                 );
-            }}
-          >
+            }}>
             Supprimer
           </button>
           <br />
@@ -163,20 +161,18 @@ class Personnel extends Component {
               className="buttonRef"
               onClick={() => {
                 console.log("je suis ref");
-              }}
-            >
-              Je suis le référent
+              }}>
+              Référent désigné
             </button>
           ) : (
             <button
-              className="button"
+              className="buttonNonRef"
               onClick={() => {
                 console.log("je ne suis pas référent");
                 this.setState({ indexRef: index });
                 this.setState({ modalReferent: true });
-              }}
-            >
-              Je ne suis pas le référent
+              }}>
+              Non référent
             </button>
           )}
           {/* <button
@@ -307,8 +303,7 @@ class Personnel extends Component {
                 animationSpeed: 2000,
                 infinite: false,
               },
-            }}
-          >
+            }}>
             {this.renderMesServeurs()}
           </Carousel>
         </Col>

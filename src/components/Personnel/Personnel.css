@@ -16,20 +16,32 @@
 
 .personnel .buttonRef {
   border-radius: 28px !important;
-  background-color: #555 !important;
+  background-color: #7200ff !important;
   margin-left: 2%;
   border-color: #f5a624 !important;
   padding-top: 1% !important;
   padding-bottom: 1% !important;
   font-size: 12px !important;
   border: 0px solid #4a4a4a !important;
-  color: white;
+  color: #f5a624;
   border-width: 0px;
 }
 
 .button:hover {
   background-color: #555 !important;
   border-width: 0px !important;
+}
+
+.buttonNonRef {
+  border-radius: 28px !important;
+  background-color: #555 !important;
+  margin-left: 2%;
+  padding-top: 1% !important;
+  padding-bottom: 1% !important;
+  border: 0 solid #4a4a4a !important;
+  color: #fff;
+  border-width: 0;
+  font-size: 12px;
 }
 
 .button:active {

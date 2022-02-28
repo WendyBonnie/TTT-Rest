@@ -107,21 +107,21 @@
 }
 
 .titleName {
-  color: rgb(247, 0, 226);
+  color: #555;
   font-family: "Barlow Condensed", sans-serif;
   font-size: 21px;
   text-align: center;
 }
 
 .titleNamePrint {
-  color: rgb(247, 0, 226);
+  color: #555;
   font-family: "Barlow Condensed", sans-serif;
   font-size: 13px;
   text-align: center;
 }
 
 .titleNameMenu {
-  color: rgb(247, 0, 226);
+  color: #555;
   font-family: "Barlow Condensed", sans-serif;
   font-size: 10px;
   text-align: center;

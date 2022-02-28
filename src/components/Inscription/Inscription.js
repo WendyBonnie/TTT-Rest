@@ -156,6 +156,12 @@ class Inscription extends Component {
                         label="Midi"
                         onChange={this.handleInput}
                       />
+                      <Form.Check
+                        type="checkbox"
+                        name="soir"
+                        label="Soir"
+                        onChange={this.handleInput}
+                      />
                     </Form.Group>
                   </Col>
                   <Col xs={6}>

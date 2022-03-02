@@ -153,7 +153,7 @@ function QrHook(props) {
       </Row>
 
       <div className="QRPrint">
-        <div id="qrCodePdf" ref={componentRef}>
+        <div id="qrCodePdf2" ref={componentRef}>
           <Col className="backgroundTicket">
             <Row>
               <Col>

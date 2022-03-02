@@ -51,7 +51,7 @@ function UploadMenu() {
       );
   };
   const deleteMenu = (e) => {
-    window.confirm("Etes-vous sur de vouloir supprimer le menu du jour ?");
+    window.confirm("Etes-vous sur de vouloir supprimer la carte en cours ?");
     //e.preventDefault();
     const data = {
       dailyMenu: dailyMenu,

@@ -60,7 +60,7 @@ class Inscription extends Component {
         <Row>
           <Col className="colInscr" md={6}>
             <Row className="Titre">
-              <h1>Créer mon compte restaurateur</h1>
+              <h1>Créer mon compte propriétaire d'établissement</h1>
             </Row>
             <Row>
               <p>
@@ -75,7 +75,7 @@ class Inscription extends Component {
                     <Form.Group controlId="formNom">
                       <Form.Control
                         type="text"
-                        placeholder="Nom du restaurant"
+                        placeholder="Nom de l'établissement"
                         name="restaurantName"
                         onChange={this.handleInput}
                       />
@@ -117,6 +117,14 @@ class Inscription extends Component {
                     type="text"
                     placeholder="Ville"
                     name="city"
+                    onChange={this.handleInput}
+                  />
+                </Form.Group>
+                <Form.Group controlId="formPostal">
+                  <Form.Control
+                    type="text"
+                    placeholder="Code postal"
+                    name="postal"
                     onChange={this.handleInput}
                   />
                 </Form.Group>

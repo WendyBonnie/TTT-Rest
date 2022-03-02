@@ -29,34 +29,49 @@ class Personnel extends Component {
 
     return (
       <>
-        <Modal show={this.state.modalReferent} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title style={{ color: "#f5a624" }}>Tipourboire</Modal.Title>
+        <Modal
+          show={this.state.modalReferent}
+          onHide={handleClose}
+          animation={true}
+          backdrop={true}
+          keyboard={false}
+          style={{ overlay: { zIndex: 3 } }}>
+          <Modal.Header>
+            <Modal.Title>Modifier votre référent</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            {" "}
-            <div className="modalPopup">
-              <h4>
-                Ajout d'un référent dans votre établissement un mail lui sera
-                envoyé
-              </h4>
-
-              <span className="textePopup">
-                Etes vous sur de vouloir ajouter{" "}
-              </span>
-
-              <button
-                onClick={() => {
-                  this.addReferent(
-                    this.state.serveur.tabServeur[this.state.indexRef]
-                      .serveurMail
-                  );
-                }}
-              >
-                Oui
-              </button>
-              <button>Non</button>
-            </div>
+            <Row className="affiPop">
+              <Col s={12} md={12}>
+                <p>
+                  C'est lui qui remplacera votre référent actuel et qui
+                  répartira le pot commun aux équipes,
+                  <br />
+                  selon vos règles.
+                  <br />
+                  Envoyez lui un mail pour le désigner.
+                  <br />
+                </p>
+              </Col>
+              <Col>
+                <input
+                  type="submit"
+                  value="Envoyer un mail"
+                  onClick={() => {
+                    this.addReferent(
+                      this.state.serveur.tabServeur[this.state.indexRef]
+                        .serveurMail
+                    );
+                  }}
+                  className="button"
+                />
+              </Col>
+              <Col s={12} md={12}>
+                <p>
+                  <br />À réception du mail, le référent pourra commencer à
+                  répartir.
+                </p>
+              </Col>
+            </Row>
           </Modal.Body>
         </Modal>
       </>
@@ -146,8 +161,7 @@ class Personnel extends Component {
                     console.log(err);
                   }
                 );
-            }}
-          >
+            }}>
             Supprimer
           </button>
           <br />
@@ -157,8 +171,7 @@ class Personnel extends Component {
               className="buttonRef"
               onClick={() => {
                 console.log("je suis ref");
-              }}
-            >
+              }}>
               Référent désigné
             </button>
           ) : (
@@ -167,8 +180,7 @@ class Personnel extends Component {
               onClick={() => {
                 this.setState({ indexRef: index });
                 this.setState({ modalReferent: true });
-              }}
-            >
+              }}>
               Non référent
             </button>
           )}
@@ -296,8 +308,7 @@ class Personnel extends Component {
                 animationSpeed: 2000,
                 infinite: false,
               },
-            }}
-          >
+            }}>
             {this.renderMesServeurs()}
           </Carousel>
         </Col>
@@ -348,6 +359,16 @@ class Personnel extends Component {
         </Row>
         <h1 className="titleWaiter">Mon équipe </h1>
         {this.crew()}
+        <Row className="centerRef">
+          <Col>
+            <p>
+              {" "}
+              Vous pouvez changer de référent à tout moment en cliquant sur le
+              bouton "non référent" du bénéficiaire que vous avez choisi pour
+              répartir le pot commun.
+            </p>
+          </Col>
+        </Row>
         {this.popupModal()}
       </Container>
     );

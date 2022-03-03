@@ -624,7 +624,7 @@ class Profil extends Component {
 
                 <QrCodeTicket
                   className="qrCodeTicket"
-                  restaurantName={this.state.profil.restaurantName}
+                  restaurantName={localStorage.getItem("propsRestaurant")}
                 />
               </Col>
             </Row>
@@ -638,7 +638,7 @@ class Profil extends Component {
 
                 <QrCode
                   className="qrCode"
-                  restaurantName={this.state.profil.restaurantName}
+                  restaurantName={localStorage.getItem("propsRestaurant")}
                 />
               </Col>
             </Row>

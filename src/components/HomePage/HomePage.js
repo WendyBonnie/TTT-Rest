@@ -279,7 +279,7 @@ class HomePage extends Component {
     return <button>Print </button>;
   };
 
-  getRestaurantName = async () => {
+  getRestaurantName = () => {
     const headers = new Headers({
       Authorization: "Bearer " + localStorage.getItem("token"),
 
@@ -407,11 +407,7 @@ class HomePage extends Component {
                     dans votre logiciel de caisse ou d'encaissement
                   </p>
                   <div>
-                    <QrCodeTicket
-                      restaurant={JSON.parse(
-                        localStorage.getItem("propsRestaurant")
-                      )}
-                    />
+                    <QrCodeTicket />
                   </div>
                 </Col>
                 {this.state.menu === "" ? null : (
@@ -426,11 +422,7 @@ class HomePage extends Component {
                       et mise à disposition au sein de votre établissement
                     </p>
 
-                    <QrCode
-                      restaurant={JSON.parse(
-                        localStorage.getItem("propsRestaurant")
-                      )}
-                    />
+                    <QrCode />
                   </Col>
                 )}
               </Row>

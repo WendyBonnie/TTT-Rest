@@ -7,6 +7,9 @@ import { VscSmiley } from "react-icons/vsc";
 
 import { useReactToPrint } from "react-to-print";
 
+let uri = `https://back-end.osc-fr1.scalingo.io/client/getMenuTicket?restaurantName=${localStorage.getItem(
+  "propsRestaurant"
+)}`;
 function QrHookTicket(props) {
   const componentRef = React.useRef(null);
 
@@ -14,6 +17,40 @@ function QrHookTicket(props) {
 
   const [loading, setLoading] = React.useState(false);
   const [text, setText] = React.useState("old boring text");
+
+  useEffect(() => {
+    new QRCODE(document.getElementById("qrCodeDiv"), {
+      text: uri,
+      width: 100,
+      height: 100,
+      //title: "Tipourboire", // content
+      titleFont: "bold 20px  Montserrat", //font. default is "bold 16px Arial"
+      titleColor: "#f5a624", // color. default is "#000"
+      titleBackgroundColor: "#fff", // background color. default is "#fff"
+      titleHeight: 70, // height, including subTitle. default is 0
+      titleTop: 25, // draws y coordinates. default is 30
+      //subTitle: "Scannez & Donnez ", // content
+      subTitleFont: "bold 16px Montserrat", // font. default is "14px Arial"
+      subTitleColor: "#4a4a4a", // color. default is "4F4F4F"
+      subTitleTop: 50, // draws y coordinates. default is 0
+    });
+
+    new QRCODE(document.getElementById("qrCodeDiv2"), {
+      text: uri,
+      width: 80,
+      height: 80,
+      //title: "Tipourboire", // content
+      titleFont: "bold 20px  Montserrat", //font. default is "bold 16px Arial"
+      titleColor: "#f5a624", // color. default is "#000"
+      titleBackgroundColor: "#fff", // background color. default is "#fff"
+      titleHeight: 70, // height, including subTitle. default is 0
+      titleTop: 25, // draws y coordinates. default is 30
+      //subTitle: "Scannez & Donnez ", // content
+      subTitleFont: "bold 16px Montserrat", // font. default is "14px Arial"
+      subTitleColor: "#4a4a4a", // color. default is "4F4F4F"
+      subTitleTop: 50, // draws y coordinates. default is 0
+    });
+  }, []);
 
   //Print QR code
 
@@ -62,44 +99,6 @@ function QrHookTicket(props) {
       onBeforeGetContentResolve.current();
     }
   }, [onBeforeGetContentResolve.current, text]);
-
-  let uri =
-    "https://back-end.osc-fr1.scalingo.io/client/getMenuTicket?restaurantName=" +
-    props.restaurant;
-
-  useEffect(() => {
-    new QRCODE(document.getElementById("qrCodeDiv"), {
-      text: encodeURI(uri),
-      width: 100,
-      height: 100,
-      //title: "Tipourboire", // content
-      titleFont: "bold 20px  Montserrat", //font. default is "bold 16px Arial"
-      titleColor: "#f5a624", // color. default is "#000"
-      titleBackgroundColor: "#fff", // background color. default is "#fff"
-      titleHeight: 70, // height, including subTitle. default is 0
-      titleTop: 25, // draws y coordinates. default is 30
-      //subTitle: "Scannez & Donnez ", // content
-      subTitleFont: "bold 16px Montserrat", // font. default is "14px Arial"
-      subTitleColor: "#4a4a4a", // color. default is "4F4F4F"
-      subTitleTop: 50, // draws y coordinates. default is 0
-    });
-
-    new QRCODE(document.getElementById("qrCodeDiv2"), {
-      text: encodeURI(uri),
-      width: 80,
-      height: 80,
-      //title: "Tipourboire", // content
-      titleFont: "bold 20px  Montserrat", //font. default is "bold 16px Arial"
-      titleColor: "#f5a624", // color. default is "#000"
-      titleBackgroundColor: "#fff", // background color. default is "#fff"
-      titleHeight: 70, // height, including subTitle. default is 0
-      titleTop: 25, // draws y coordinates. default is 30
-      //subTitle: "Scannez & Donnez ", // content
-      subTitleFont: "bold 16px Montserrat", // font. default is "14px Arial"
-      subTitleColor: "#4a4a4a", // color. default is "4F4F4F"
-      subTitleTop: 50, // draws y coordinates. default is 0
-    });
-  }, []);
 
   return (
     <div>
@@ -222,6 +221,10 @@ class QrCodeTicket extends Component {
   constructor(props) {
     super(props);
     this.state = { isLoading: false, restaurant: props.restaurant };
+  }
+
+  componentDidMount() {
+    console.log("LA DANS LE DIDMOUNT", this.state.restaurant);
   }
 
   render() {

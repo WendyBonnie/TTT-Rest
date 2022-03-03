@@ -32,6 +32,11 @@
   border-width: 0px !important;
 }
 
+.centerRef {
+  justify-content: center;
+  text-align: center;
+}
+
 .buttonNonRef {
   border-radius: 28px !important;
   background-color: #555 !important;

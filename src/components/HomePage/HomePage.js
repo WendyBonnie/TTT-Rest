@@ -410,21 +410,20 @@ class HomePage extends Component {
                     <QrCodeTicket />
                   </div>
                 </Col>
-                {this.state.menu === "" ? null : (
-                  <Col xs={9} s={9} md={6}>
-                    <p className="titleQR">
-                      {" "}
-                      <strong>QR CODE Carte</strong>{" "}
-                    </p>
-                    <p className="qrSub">
-                      À télécharger pour impression
-                      <br />
-                      et mise à disposition au sein de votre établissement
-                    </p>
 
-                    <QrCode />
-                  </Col>
-                )}
+                <Col xs={9} s={9} md={6}>
+                  <p className="titleQR">
+                    {" "}
+                    <strong>QR CODE Carte</strong>{" "}
+                  </p>
+                  <p className="qrSub">
+                    À télécharger pour impression
+                    <br />
+                    et mise à disposition au sein de votre établissement
+                  </p>
+
+                  <QrCode />
+                </Col>
               </Row>
             </Row>
           </Col>

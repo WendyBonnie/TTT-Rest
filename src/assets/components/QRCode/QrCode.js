@@ -12,6 +12,9 @@ import "./QrCode.css";
 import QRCODE from "easyqrcodejs";
 import { useReactToPrint } from "react-to-print";
 import { VscSmiley } from "react-icons/vsc";
+let uri = `https://back-end.osc-fr1.scalingo.io/client/getMenuTicket?restaurantName=${localStorage.getItem(
+  "propsRestaurant"
+)}`;
 
 function QrHook(props) {
   const [restaurant, setRestaurant] = useState();
@@ -20,9 +23,6 @@ function QrHook(props) {
 
   const [loading, setLoading] = React.useState(false);
   const [text, setText] = React.useState("old boring text");
-  let uri = `https://back-end.osc-fr1.scalingo.io/client/getMenuTicket?restaurantName=${localStorage.getItem(
-    "propsRestaurant"
-  )}`;
 
   useEffect(() => {
     new QRCODE(document.getElementById("qrCodeDivResto"), {

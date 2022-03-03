@@ -249,18 +249,17 @@ class Profil extends Component {
       })
       .then(
         (responseObject) => {
-          const monProfil = responseObject;
-          this.setState({ profil: monProfil });
-
           localStorage.setItem(
             "propsRestaurant",
             JSON.stringify(responseObject.restaurantName)
           );
+          const monProfil = responseObject;
+          this.setState({ profil: monProfil });
+
           this.setState({ checkGeneral: responseObject.pourboireGeneral });
           this.setState({
             checkIndividuel: responseObject.pourboireIndividuel,
           });
-          console.log();
         },
 
         (error) => {

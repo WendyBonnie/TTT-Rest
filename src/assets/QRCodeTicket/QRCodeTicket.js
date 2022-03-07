@@ -176,16 +176,16 @@ function QrHookTicket(props) {
                   </Col>
                 </Row>
                 <Row>
-                  <Col className="colCenter " md={12}>
-                    <span className="titleName">
+                  <Col className="colCenter  " md={12}>
+                    <span className="titleNamePrint">
                       {localStorage.getItem("propsRestaurant")}
                     </span>
-                  </Col>
-                  <Col className="colThanks colCenter colMarginThanks " md={12}>
+                    <br />
                     <span className="text4">Vous remercie !</span>
                   </Col>
+                  <Col className="colCenter " md={12}></Col>
                 </Row>
-                <Row className="colorRow">
+                <Row className="colorRowPrint">
                   <Col>
                     <img src="/image/logoticket.png" />
                   </Col>

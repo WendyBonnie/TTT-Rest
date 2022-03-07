@@ -107,7 +107,7 @@ function UploadMenu() {
           variant="top"
           src={"https://s3.amazonaws.com/b.c.bucket.tipourboire/" + images}
           className="dailyMenu"
-          alt="Menu du Jour"
+          alt="Aucun menu ni Carte de Prestation téléchargés"
         />
         <form
           className="formMenu"

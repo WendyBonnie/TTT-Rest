@@ -112,14 +112,6 @@ class Inscription extends Component {
                     onChange={this.handleInput}
                   />
                 </Form.Group>
-                <Form.Group controlId="formCity">
-                  <Form.Control
-                    type="text"
-                    placeholder="Ville"
-                    name="city"
-                    onChange={this.handleInput}
-                  />
-                </Form.Group>
                 <Form.Group controlId="formPostal">
                   <Form.Control
                     type="text"
@@ -128,6 +120,15 @@ class Inscription extends Component {
                     onChange={this.handleInput}
                   />
                 </Form.Group>
+                <Form.Group controlId="formCity">
+                  <Form.Control
+                    type="text"
+                    placeholder="Ville"
+                    name="city"
+                    onChange={this.handleInput}
+                  />
+                </Form.Group>
+
                 <Row>
                   <Col>
                     <Form.Group controlId="formVille">

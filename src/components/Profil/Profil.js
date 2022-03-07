@@ -249,18 +249,17 @@ class Profil extends Component {
       })
       .then(
         (responseObject) => {
-          const monProfil = responseObject;
-          this.setState({ profil: monProfil });
-
           localStorage.setItem(
             "propsRestaurant",
             JSON.stringify(responseObject.restaurantName)
           );
+          const monProfil = responseObject;
+          this.setState({ profil: monProfil });
+
           this.setState({ checkGeneral: responseObject.pourboireGeneral });
           this.setState({
             checkIndividuel: responseObject.pourboireIndividuel,
           });
-          console.log();
         },
 
         (error) => {
@@ -624,7 +623,7 @@ class Profil extends Component {
 
                 <QrCodeTicket
                   className="qrCodeTicket"
-                  restaurantName={this.state.profil.restaurantName}
+                  restaurantName={localStorage.getItem("propsRestaurant")}
                 />
               </Col>
             </Row>
@@ -638,7 +637,7 @@ class Profil extends Component {
 
                 <QrCode
                   className="qrCode"
-                  restaurantName={this.state.profil.restaurantName}
+                  restaurantName={localStorage.getItem("propsRestaurant")}
                 />
               </Col>
             </Row>

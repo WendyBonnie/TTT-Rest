@@ -279,7 +279,7 @@ class HomePage extends Component {
     return <button>Print </button>;
   };
 
-  getRestaurantName = async () => {
+  getRestaurantName = () => {
     const headers = new Headers({
       Authorization: "Bearer " + localStorage.getItem("token"),
 
@@ -407,32 +407,23 @@ class HomePage extends Component {
                     dans votre logiciel de caisse ou d'encaissement
                   </p>
                   <div>
-                    <QrCodeTicket
-                      restaurant={JSON.parse(
-                        localStorage.getItem("propsRestaurant")
-                      )}
-                    />
+                    <QrCodeTicket />
                   </div>
                 </Col>
-                {this.state.menu === "" ? null : (
-                  <Col xs={9} s={9} md={6}>
-                    <p className="titleQR">
-                      {" "}
-                      <strong>QR CODE Carte</strong>{" "}
-                    </p>
-                    <p className="qrSub">
-                      À télécharger pour impression
-                      <br />
-                      et mise à disposition au sein de votre établissement
-                    </p>
 
-                    <QrCode
-                      restaurant={JSON.parse(
-                        localStorage.getItem("propsRestaurant")
-                      )}
-                    />
-                  </Col>
-                )}
+                <Col xs={9} s={9} md={6}>
+                  <p className="titleQR">
+                    {" "}
+                    <strong>QR CODE Carte</strong>{" "}
+                  </p>
+                  <p className="qrSub">
+                    À télécharger pour impression
+                    <br />
+                    et mise à disposition au sein de votre établissement
+                  </p>
+
+                  <QrCode />
+                </Col>
               </Row>
             </Row>
           </Col>

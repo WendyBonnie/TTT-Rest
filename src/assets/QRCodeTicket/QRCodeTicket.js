@@ -11,6 +11,9 @@ let uri = `https://back-end.osc-fr1.scalingo.io/client/getMenuTicket?restaurantN
   "propsRestaurant"
 )}`;
 function QrHookTicket(props) {
+  /**
+   * COUCOU
+   */
   const componentRef = React.useRef(null);
 
   const onBeforeGetContentResolve = React.useRef(null);

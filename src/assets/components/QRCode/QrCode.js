@@ -109,7 +109,7 @@ function QrHook(props) {
   return (
     <div>
       <Row className="rowCenterWeb">
-        <Col className="backgroundTicketVisibleWeb" md={6}>
+        <Col className="backgroundTicketVisibleWebCarte" md={6}>
           <Row className="rowMarginCard">
             <Col>
               <Row className="rowCenterWeb">
@@ -184,7 +184,7 @@ function QrHook(props) {
                   </Col>
                 </Row>
                 <Row>
-                  <Col className="colCenter " md={12}>
+                  <Col className="colCenter marginrestau " md={12}>
                     <span className="titleNameMenu">
                       {localStorage.getItem("propsRestaurant")}
                     </span>

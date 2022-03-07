@@ -576,7 +576,7 @@ class Profil extends Component {
 
             {this.buttonCancel()}
           </Col>
-          <Row>
+          {/* {  <Row>
             <Col className="colParrainage">
               <Row>
                 <Col md={12}>
@@ -610,7 +610,7 @@ class Profil extends Component {
                 </Col>
               </Row>
             </Col>
-          </Row>
+          </Row>} */}
           <Col className="formProfil nomProfil center">
             <h1 className="title">Mes QR Codes </h1>
             <Row className="rowCenter">

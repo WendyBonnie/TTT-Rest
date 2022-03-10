@@ -36,10 +36,7 @@ class Inscription extends Component {
       headers: headers,
     };
 
-    fetch(
-      "https://back-end.osc-fr1.scalingo.io/restaurateur/inscription",
-      options
-    )
+    fetch("http://localhost:8080/restaurateur/inscription", options)
       .then((response) => {
         return response.json();
       })
@@ -155,7 +152,8 @@ class Inscription extends Component {
                   <Col xs={6}>
                     <Form.Group
                       className="servicePropose"
-                      controlId="formService">
+                      controlId="formService"
+                    >
                       <Form.Label controlId="formService">
                         Services proposés
                       </Form.Label>
@@ -226,19 +224,15 @@ class Inscription extends Component {
                         <a
                           className="cgvLink"
                           href="/CGV_TIPTOTHANK.pdf"
-                          target="_blanck">
+                          target="_blanck"
+                        >
                           CGU
                         </a>
                       </Row>
                     </Form.Group>
                   </Col>
                   <Col md={3}>
-                    <Button
-                      className="submitButtonRestau"
-                      block
-                      type="submit"
-                      block
-                      type="submit">
+                    <Button className="submitButtonRestau" block type="submit">
                       S'inscrire
                     </Button>
                   </Col>

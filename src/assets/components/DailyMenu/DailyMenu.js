@@ -20,7 +20,7 @@ function UploadMenu() {
     storage
       .ref(`/DailyMenu/${imageStorage.name}`)
       .put(imageStorage)
-      .on("state_changed", alert("Votre menu a bien été enregistré"), alert);
+      .on("state_changed", alert("Votre carte a bien été enregistrée"), alert);
   };
 
   const getDailyMenu = () => {
@@ -103,12 +103,17 @@ function UploadMenu() {
             Supprimer la carte en cours
           </button>
         </Card.Body>
-        <Card.Img
-          variant="top"
-          src={"https://s3.amazonaws.com/b.c.bucket.tipourboire/" + images}
-          className="dailyMenu"
-          alt="Aucun menu ni Carte de Prestation téléchargés"
-        />
+        {!images ? (
+          <p>Aucun Menu ni Carte de Prestations téléchargés</p>
+        ) : (
+          <Card.Img
+            variant="top"
+            src={"https://s3.amazonaws.com/b.c.bucket.tipourboire/" + images}
+            className="dailyMenu"
+            alt="Aucun menu ni Carte de Prestation téléchargés"
+          />
+        )}
+
         <form
           className="formMenu"
           onSubmit={(e) => {

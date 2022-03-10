@@ -44,7 +44,10 @@ class PasswordRenew extends Component {
       body: JSON.stringify(data),
     };
 
-    fetch("http://localhost:8080/restaurateur/password-renew", options)
+    fetch(
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/password-renew",
+      options
+    )
       .then((response) => response.json())
       .then(
         (responseObject) => {

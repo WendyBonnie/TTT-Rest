@@ -10,7 +10,7 @@ body {
 
 .Bloc-principal .annonce {
   color: #f5a624;
-  font-size: 8px;
+  font-size: 11px;
 }
 .Bloc-principal .form-group .form-control {
   font-size: 1.2rem;
@@ -60,8 +60,12 @@ body {
   padding-top: 3px;
   padding-left: 10px;
 }
+.Bloc-principal .cgvLinkHover:hover {
+  text-decoration: underline;
+  text-decoration-color: #f5a624;
+}
 .Bloc-principal .detailPassword {
-  font-size: 10px;
+  font-size: 11px;
   margin-bottom: 3px;
 }
 

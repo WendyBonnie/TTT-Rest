@@ -219,17 +219,20 @@ class Inscription extends Component {
                         className="checkboxCGU"
                         type="checkbox"
                         name="acceptControl"
-                        label="J'ai lu et j'accepte les CGU et CGV"
+                        label="J'ai lu et j'accepte les CGU et CGA"
                         onChange={this.handleInput}
                         required
                       />
-                      <Row style={{ marginLeft: "10px", fontWeight: "bold" }}>
+                      <Row
+                        className="cgvLinkHover"
+                        style={{ marginLeft: "10px", fontWeight: "bold" }}
+                      >
                         <a
                           className="cgvLink"
                           href="/CGV_TIPTOTHANK.pdf"
                           target="_blanck"
                         >
-                          CGU
+                          CGU - CGA
                         </a>
                       </Row>
                     </Form.Group>

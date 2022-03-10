@@ -211,13 +211,9 @@ class HomePage extends Component {
           <Row className="affiPop">
             <Col s={12} md={12}>
               <p>
-                C'est lui qui répartira le pot commun aux équipes,
-                <br />
-                selon vos règles,
-                <br />
-                rentrez son mail, et si c'est vous-même qui distribuez,
-                <br />
-                alors inscrivez votre mail personnel.
+                Saisissez ci-dessous le mail de la personne <br />
+                qui sera en charge de répartir le pot selon les modalités
+                choisies
               </p>
             </Col>
             <Col>

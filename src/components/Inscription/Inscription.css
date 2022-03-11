@@ -56,14 +56,12 @@ body {
 }
 
 .Bloc-principal .cgvLink {
+  text-decoration: underline;
   color: #f5a624 !important;
   padding-top: 3px;
   padding-left: 10px;
 }
-.Bloc-principal .cgvLinkHover:hover {
-  text-decoration: underline;
-  text-decoration-color: #f5a624;
-}
+
 .Bloc-principal .detailPassword {
   font-size: 11px;
   margin-bottom: 3px;

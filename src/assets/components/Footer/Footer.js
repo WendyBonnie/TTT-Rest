@@ -114,7 +114,7 @@ class Footer extends Component {
               >
                 Mentions Légales
               </Nav.Link>
-              <Nav.Link href="CGV/CGA.pdf" className="textFooter">
+              <Nav.Link href="/CGU/CGA.pdf" className="textFooter">
                 CGU-CGA
               </Nav.Link>
               <Nav.Link

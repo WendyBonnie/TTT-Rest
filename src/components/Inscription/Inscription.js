@@ -229,7 +229,7 @@ class Inscription extends Component {
                       >
                         <a
                           className="cgvLink"
-                          href="/CGV_TIPTOTHANK.pdf"
+                          href="/CGU/CGA.pdf"
                           target="_blanck"
                         >
                           CGU - CGA

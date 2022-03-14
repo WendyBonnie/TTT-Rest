@@ -14,11 +14,11 @@ let app = express();
 app.use(logger("dev"));
 
 /* Serve static files */
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "build")));
 
 /* Handle routes for react router */
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/public/index.html"));
+  res.sendFile(path.join(__dirname + "/build/index.html"));
 });
 
 module.exports = app;

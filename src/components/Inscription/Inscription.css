@@ -56,10 +56,10 @@ body {
 }
 
 .Bloc-principal .cgvLink {
-  text-decoration: underline;
   color: #f5a624 !important;
   padding-top: 3px;
   padding-left: 10px;
+  text-decoration: underline !important;
 }
 
 .Bloc-principal .detailPassword {

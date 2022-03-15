@@ -49,7 +49,7 @@ class Footer extends Component {
       })
       .then(
         () => {
-          let link = "https://restaurant.tipourboire.com/";
+          let link = "https://etablissement.tipourboire.com/";
           window.location.href = link;
           localStorage.clear();
         },

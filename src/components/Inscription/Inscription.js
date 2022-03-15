@@ -155,8 +155,7 @@ class Inscription extends Component {
                   <Col xs={6}>
                     <Form.Group
                       className="servicePropose"
-                      controlId="formService"
-                    >
+                      controlId="formService">
                       <Form.Label controlId="formService">
                         Services proposés
                       </Form.Label>
@@ -219,19 +218,17 @@ class Inscription extends Component {
                         className="checkboxCGU"
                         type="checkbox"
                         name="acceptControl"
-                        label="J'ai lu et j'accepte les CGU et CGA"
+                        label="J'ai lu et j'accepte les CGU"
                         onChange={this.handleInput}
                         required
                       />
                       <Row
                         className="cgvLinkHover"
-                        style={{ marginLeft: "10px", fontWeight: "bold" }}
-                      >
+                        style={{ marginLeft: "10px", fontWeight: "bold" }}>
                         <a
                           className="cgvLink"
                           href="/CGU/CGA.pdf"
-                          target="_blanck"
-                        >
+                          target="_blanck">
                           CGU
                         </a>
                       </Row>

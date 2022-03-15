@@ -358,8 +358,7 @@ class Personnel extends Component {
           </Col>
         </Row>
         <h1 className="titleWaiter">Mon équipe </h1>
-        <p>
-          {" "}
+        <p className="centerRef">
           Si vous avez déjà désigné un référent et envoyé une demande à
           celui-ci, vous n'avez pas à le saisir de nouveau dans votre équipe.
         </p>

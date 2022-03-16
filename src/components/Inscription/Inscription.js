@@ -227,7 +227,7 @@ class Inscription extends Component {
                         style={{ marginLeft: "10px", fontWeight: "bold" }}>
                         <a
                           className="cgvLink"
-                          href="/CGU/CGA.pdf"
+                          href="/CGV/CGU.pdf"
                           target="_blanck">
                           CGU
                         </a>

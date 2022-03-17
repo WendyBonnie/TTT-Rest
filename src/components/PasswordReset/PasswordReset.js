@@ -49,6 +49,8 @@ class PasswordReset extends Component {
       .then(
         (responseObject) => {
           this.setState({ message: responseObject.message });
+          alert(this.state.message);
+          this.props.history.push("/");
         },
         (error) => {
           console.log(error);
@@ -82,7 +84,6 @@ class PasswordReset extends Component {
             <Button onClick={this.passwordReset} className="resetButton">
               Confirmer
             </Button>
-            <p>{this.state.message}</p>
           </Col>
         </Row>
       </Container>

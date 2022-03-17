@@ -52,6 +52,7 @@ class PasswordRenew extends Component {
       .then(
         (responseObject) => {
           this.setState({ message: responseObject.message });
+          this.props.history.push("/");
         },
         (error) => {
           console.log(error);

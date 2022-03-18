@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { AiFillEye } from "react-icons/fa";
 
 class Inscription extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class Inscription extends Component {
       restaurantName: "",
       checkIndiv: true,
       checkGen: true,
+      isRevealPwd: false,
     };
   }
   handleInput = (e) => {
@@ -203,13 +205,31 @@ class Inscription extends Component {
                       chiffre et 1 caractère spécial
                     </p>
                   </Form.Label>
-                  <Form.Control
-                    type="password"
-                    placeholder="Mot de passe"
-                    name="password"
-                    onChange={this.handleInput}
-                  />
+                  <div className="pwd-container">
+                    <Form.Control
+                      type={this.state.isRevealPwd ? "text" : "password"}
+                      placeholder="Mot de passe"
+                      name="password"
+                      onChange={this.handleInput}
+                    />
+                    {this.state.isRevealPwd ? (
+                      <a
+                        onClick={() => {
+                          this.setState({ isRevealPwd: false });
+                        }}>
+                        <img src="/image/oeil.png" />
+                      </a>
+                    ) : (
+                      <a
+                        onClick={() => {
+                          this.setState({ isRevealPwd: true });
+                        }}>
+                        <img src="/image/invisible.png" />
+                      </a>
+                    )}
+                  </div>
                 </Form.Group>
+
                 <Row>
                   <Col md={9}>
                     <Form.Group controlId="formBasicCheckbox">

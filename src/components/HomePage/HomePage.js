@@ -182,12 +182,12 @@ class HomePage extends Component {
       })
 
       .then((responseData) => {
+        localStorage.setItem("affi", "ok");
         this.hideModal();
         if (responseData === true) {
-          console.log("hello");
+          console.log("hellooooooooooooooo");
 
           alert("Votre demande a bien été prise en compte");
-          localStorage.setItem("affi", "ok");
         } else {
           alert(responseData.messageAffi);
         }
@@ -363,10 +363,12 @@ class HomePage extends Component {
             localStorage.getItem("affi") &&
             responseObject.tabServeur.length === 0
           ) {
+            //this.setState({ show: false });
             this.setState({ show2: true });
+            console.log("show2", this.state.show2);
           }
 
-          if (responseObject.referent.email) {
+          if (responseObject.referent?.email) {
             localStorage.removeItem("affi");
           }
         },

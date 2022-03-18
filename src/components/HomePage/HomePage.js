@@ -35,8 +35,7 @@ function Tuto() {
         onHide={handleClose}
         animation={true}
         backdrop="static"
-        keyboard={false}
-      >
+        keyboard={false}>
         <Modal.Header closeButton>
           <Modal.Title>Comment activer votre compte ?</Modal.Title>
         </Modal.Header>
@@ -105,8 +104,7 @@ function Tuto() {
           <Button
             className="modalButton"
             variant="secondary"
-            onClick={handleClose}
-          >
+            onClick={handleClose}>
             Fermer
           </Button>
         </Modal.Footer>
@@ -125,6 +123,7 @@ class HomePage extends Component {
       pourboireGeneral: "",
       tabServeur: [],
       show: false,
+      show2: false,
       email: "",
       menu: {},
     };
@@ -188,12 +187,14 @@ class HomePage extends Component {
           console.log("hello");
 
           alert("Votre demande a bien été prise en compte");
+          localStorage.setItem("affi", "ok");
         } else {
           alert(responseData.messageAffi);
         }
       });
   };
 
+  //lorsqu'il n'y a pas de référent
   modalReferent = () => {
     return (
       <Modal
@@ -202,8 +203,7 @@ class HomePage extends Component {
         animation={true}
         backdrop={true}
         keyboard={false}
-        style={{ overlay: { zIndex: 3 } }}
-      >
+        style={{ overlay: { zIndex: 3 } }}>
         <Modal.Header>
           <Modal.Title>Désigner votre référent</Modal.Title>
         </Modal.Header>
@@ -235,6 +235,50 @@ class HomePage extends Component {
               <p>
                 À réception du mail, le référent pourra commencer à répartir.
               </p>
+            </Col>
+          </Row>
+        </Modal.Body>
+      </Modal>
+    );
+  };
+
+  // lorsque le mail est envoyé mais pas validé par le benef
+  modalNearlyReferent = () => {
+    return (
+      <Modal
+        show={this.state.show2}
+        onHide={false}
+        animation={true}
+        backdrop={true}
+        keyboard={false}
+        style={{ overlay: { zIndex: 3 } }}>
+        <Modal.Header>
+          <Modal.Title>Désigner votre référent</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Row className="affiPop">
+            <Col s={12} md={12}>
+              <p>
+                Le référent que vous avez désigné pour répartir le pot commun
+                n'a pas encore accepté votre affiliation référent.
+              </p>
+            </Col>
+
+            <Col s={12} md={12}>
+              <p>
+                Demandez lui de consulter ses mails pour accepter l'affiliation
+                référent sinon les pourboires ne pourront pas être redistribués.
+              </p>
+            </Col>
+            <Col>
+              <input
+                type="submit"
+                value="J'ai compris"
+                onClick={() => {
+                  this.setState({ show2: false });
+                }}
+                className="button"
+              />
             </Col>
           </Row>
         </Modal.Body>
@@ -313,6 +357,17 @@ class HomePage extends Component {
             this.setState({ show: !this.state.show });
           } else {
             this.setState({ show: false });
+          }
+
+          if (
+            localStorage.getItem("affi") &&
+            responseObject.tabServeur.length === 0
+          ) {
+            this.setState({ show2: true });
+          }
+
+          if (responseObject.referent.email) {
+            localStorage.removeItem("affi");
           }
         },
 

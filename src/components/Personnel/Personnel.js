@@ -291,7 +291,6 @@ class Personnel extends Component {
             slidesPerPage={5}
             slidesPerScroll={1}
             centered
-            infinite={true}
             breakpoints={{
               1000: {
                 // these props will be applied when screen width is less than 1000px

@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 class Connexion extends Component {
   constructor(props) {
     super(props);
-    this.state = { email: "", message: "" };
+    this.state = { email: "", message: "", isRevealPwd: false };
   }
   handleInput = (e) => {
     this.setState({ [e.target.name]: e.target.value });
@@ -126,15 +126,32 @@ class Connexion extends Component {
             onChange={this.handleInput}
             value={this.state.email}
           />
-          <Form.Control
-            name="password"
-            type="password"
-            ClassName="formMail"
-            placeholder="Votre mot de passe"
-            id="password"
-            onChange={this.handleInput}
-            value={this.state.password}
-          />
+          <div className="pwd-container">
+            <Form.Control
+              type={this.state.isRevealPwd ? "text" : "password"}
+              placeholder="Votre mot de passe"
+              name="password"
+              id="password"
+              ClassName="formMail"
+              onChange={this.handleInput}
+              value={this.state.password}
+            />
+            {this.state.isRevealPwd ? (
+              <a
+                onClick={() => {
+                  this.setState({ isRevealPwd: false });
+                }}>
+                <img src="/image/oeil.png" />
+              </a>
+            ) : (
+              <a
+                onClick={() => {
+                  this.setState({ isRevealPwd: true });
+                }}>
+                <img src="/image/invisible.png" />
+              </a>
+            )}
+          </div>
         </Form.Group>
         <Col className="colMdp" xs={12} md={12}>
           <Link className="forgetpwd" to="/passwordReset">

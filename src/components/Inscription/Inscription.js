@@ -157,7 +157,8 @@ class Inscription extends Component {
                   <Col xs={6}>
                     <Form.Group
                       className="servicePropose"
-                      controlId="formService">
+                      controlId="formService"
+                    >
                       <Form.Label controlId="formService">
                         Services proposés
                       </Form.Label>
@@ -216,14 +217,16 @@ class Inscription extends Component {
                       <a
                         onClick={() => {
                           this.setState({ isRevealPwd: false });
-                        }}>
+                        }}
+                      >
                         <img src="/image/oeil.png" />
                       </a>
                     ) : (
                       <a
                         onClick={() => {
                           this.setState({ isRevealPwd: true });
-                        }}>
+                        }}
+                      >
                         <img src="/image/invisible.png" />
                       </a>
                     )}
@@ -244,11 +247,13 @@ class Inscription extends Component {
                       />
                       <Row
                         className="cgvLinkHover"
-                        style={{ marginLeft: "10px", fontWeight: "bold" }}>
+                        style={{ marginLeft: "10px", fontWeight: "bold" }}
+                      >
                         <a
                           className="cgvLink"
                           href="/CGV/CGU.pdf"
-                          target="_blanck">
+                          target="_blanck"
+                        >
                           CGU
                         </a>
                       </Row>

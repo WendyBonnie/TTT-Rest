@@ -21,11 +21,6 @@ class Personnel extends Component {
 
   popupModal = () => {
     const handleClose = () => this.setState({ modalReferent: false });
-    console.log("indexRef", this.state.indexRef);
-    console.log(
-      "ndex",
-      this.state.serveur.tabServeur[this.state.indexRef]?.serveurMail
-    );
 
     return (
       <>
@@ -111,7 +106,7 @@ class Personnel extends Component {
   };
 
   renderMesServeurs = () => {
-    return this.state.serveur.tabServeur.map((element, index) => {
+    return this.state.serveur?.tabServeur?.map((element, index) => {
       return (
         <div className="serveurDiv">
           <p className="serveurP">{element.serveurName}</p>

@@ -5,7 +5,7 @@
 /* Modules and components imports */
 import React, { Component } from "react";
 import "./PasswordRenew.css";
-import { Row, Col, Container, Button } from "react-bootstrap";
+import { Row, Col, Container, Button, Form } from "react-bootstrap";
 /* PasswordRenew component */
 class PasswordRenew extends Component {
   constructor(props) {
@@ -14,6 +14,7 @@ class PasswordRenew extends Component {
       email: "",
       password: "",
       message: "",
+      isRevealPwd: false,
     };
   }
 
@@ -63,8 +64,8 @@ class PasswordRenew extends Component {
   render() {
     return (
       <Container className="renewPass">
-        <Row>
-          <Col className="PassRenewCol" md={12}>
+        <Row className="rowPass">
+          <Col className="PassRenewCol" md={6}>
             <h1 className="newPass"> Votre nouveau mot de passe</h1>
             <form className="formRenew" onSubmit={this.passwordRenew}>
               <input
@@ -76,16 +77,32 @@ class PasswordRenew extends Component {
                 placeholder="Email"
               />
 
-              <br />
+              <div className="pwd-container">
+                <Form.Control
+                  type={this.state.isRevealPwd ? "text" : "password"}
+                  placeholder="Nouveau mot de passe"
+                  id="password"
+                  name="password"
+                  className="inputRenew"
+                  onChange={this.handleInput}
+                />
+                {this.state.isRevealPwd ? (
+                  <a
+                    onClick={() => {
+                      this.setState({ isRevealPwd: false });
+                    }}>
+                    <img src="/image/oeil.png" />
+                  </a>
+                ) : (
+                  <a
+                    onClick={() => {
+                      this.setState({ isRevealPwd: true });
+                    }}>
+                    <img src="/image/invisible.png" />
+                  </a>
+                )}
+              </div>
 
-              <input
-                className="inputRenew"
-                type="password"
-                id="password"
-                name="password"
-                onChange={this.handleInput}
-                placeholder="Nouveau mot de passe"
-              />
               <br />
               <span>{this.state.message}</span>
               <br />

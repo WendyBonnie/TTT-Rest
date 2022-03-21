@@ -13,6 +13,7 @@ class PasswordReset extends Component {
     this.state = {
       email: "",
       message: "",
+      isRevealPwd: false,
     };
   }
 

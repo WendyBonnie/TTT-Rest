@@ -236,6 +236,14 @@ class HomePage extends Component {
                 À réception du mail, le référent pourra commencer à répartir.
               </p>
             </Col>
+            <Col s={12} md={12}>
+              <p>
+                <strong>
+                  Cette pop up s'affichera tant que votre référant n'a pas
+                  accepté l'affiliation.
+                </strong>
+              </p>
+            </Col>
           </Row>
         </Modal.Body>
       </Modal>
@@ -243,7 +251,7 @@ class HomePage extends Component {
   };
 
   // lorsque le mail est envoyé mais pas validé par le benef
-  modalNearlyReferent = () => {
+  /* modalNearlyReferent = () => {
     return (
       <Modal
         show={this.state.show2}
@@ -284,7 +292,7 @@ class HomePage extends Component {
         </Modal.Body>
       </Modal>
     );
-  };
+  };*/
 
   handleAfterPrint = () => {
     console.log("`onAfterPrint` called"); // tslint:disable-line no-console

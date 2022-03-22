@@ -199,12 +199,14 @@ class HomePage extends Component {
     return (
       <Modal
         show={this.state.show}
-        onHide={false}
+        onHide={() => {
+          this.setState({ show: false });
+        }}
         animation={true}
         backdrop={true}
         keyboard={false}
         style={{ overlay: { zIndex: 3 } }}>
-        <Modal.Header>
+        <Modal.Header closeButton>
           <Modal.Title>Désigner votre référent</Modal.Title>
         </Modal.Header>
         <Modal.Body>

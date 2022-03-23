@@ -30,8 +30,7 @@ class Personnel extends Component {
           animation={true}
           backdrop={true}
           keyboard={false}
-          style={{ overlay: { zIndex: 3 } }}
-        >
+          style={{ overlay: { zIndex: 3 } }}>
           <Modal.Header>
             <Modal.Title>Modifier votre référent</Modal.Title>
           </Modal.Header>
@@ -157,8 +156,7 @@ class Personnel extends Component {
                     console.log(err);
                   }
                 );
-            }}
-          >
+            }}>
             Supprimer
           </button>
           <br />
@@ -168,8 +166,7 @@ class Personnel extends Component {
               className="buttonRef"
               onClick={() => {
                 console.log("je suis ref");
-              }}
-            >
+              }}>
               Référent désigné
             </button>
           ) : (
@@ -178,8 +175,7 @@ class Personnel extends Component {
               onClick={() => {
                 this.setState({ indexRef: index });
                 this.setState({ modalReferent: true });
-              }}
-            >
+              }}>
               Non référent
             </button>
           )}
@@ -306,8 +302,7 @@ class Personnel extends Component {
                 animationSpeed: 2000,
                 infinite: false,
               },
-            }}
-          >
+            }}>
             {this.renderMesServeurs()}
           </Carousel>
         </Col>
@@ -347,11 +342,11 @@ class Personnel extends Component {
               className="button"
             />
             <p className="infoAffi">
-              "Si votre bénéficiaire n'est pas encore inscrit sur la plateforme
+              Si votre bénéficiaire n'est pas encore inscrit sur la plateforme
               Tipourboire, il recevra un mail afin de valider son inscription et
               compléter son compte. Le bénéficiaire doit valider votre demande
               afin d'être référencé dans votre équipe. Vous pourrez alors le
-              visualiser"
+              visualiser.
             </p>
             {this.state.messageAffi}
           </Col>

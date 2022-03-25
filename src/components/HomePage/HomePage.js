@@ -208,14 +208,9 @@ class HomePage extends Component {
         animation={true}
         backdrop={true}
         keyboard={false}
-<<<<<<< HEAD
         style={{ overlay: { zIndex: 3 } }}
       >
-        <Modal.Header>
-=======
-        style={{ overlay: { zIndex: 3 } }}>
         <Modal.Header closeButton>
->>>>>>> e29543017866d773cb2b16e16e8b4fab04ac4aaa
           <Modal.Title>Désigner votre référent</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -273,7 +268,8 @@ class HomePage extends Component {
         animation={true}
         backdrop={true}
         keyboard={false}
-        style={{ overlay: { zIndex: 3 } }}>
+        style={{ overlay: { zIndex: 3 } }}
+      >
         <Modal.Header closeButton>
           <Modal.Title>Vous avez de l'argent dans votre pot commun</Modal.Title>
         </Modal.Header>

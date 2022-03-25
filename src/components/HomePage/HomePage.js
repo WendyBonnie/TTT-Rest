@@ -126,6 +126,7 @@ class HomePage extends Component {
       tabServeur: [],
       show: false,
       show2: false,
+      show3: false,
       email: "",
       menu: {},
     };
@@ -201,13 +202,20 @@ class HomePage extends Component {
     return (
       <Modal
         show={this.state.show}
-        onHide={false}
+        onHide={() => {
+          this.setState({ show: false });
+        }}
         animation={true}
         backdrop={true}
         keyboard={false}
+<<<<<<< HEAD
         style={{ overlay: { zIndex: 3 } }}
       >
         <Modal.Header>
+=======
+        style={{ overlay: { zIndex: 3 } }}>
+        <Modal.Header closeButton>
+>>>>>>> e29543017866d773cb2b16e16e8b4fab04ac4aaa
           <Modal.Title>Désigner votre référent</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -245,6 +253,57 @@ class HomePage extends Component {
                   Cette pop up s'affichera tant que votre référant n'a pas
                   accepté l'affiliation.
                 </strong>
+              </p>
+            </Col>
+          </Row>
+        </Modal.Body>
+      </Modal>
+    );
+  };
+
+  //Modal si plus de référent et tips dans communTips
+
+  modalTips = () => {
+    return (
+      <Modal
+        show={this.state.show3}
+        onHide={() => {
+          this.setState({ show: false });
+        }}
+        animation={true}
+        backdrop={true}
+        keyboard={false}
+        style={{ overlay: { zIndex: 3 } }}>
+        <Modal.Header closeButton>
+          <Modal.Title>Vous avez de l'argent dans votre pot commun</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Row className="affiPop">
+            <Col s={12} md={12}>
+              <p>
+                Il vous reste des pourboires dans votre pot commun mais vous
+                n'avez aucun référent pour le distribuer. Désignez un référent
+                dés maintenant pour pouvoir bénéficier de vos pourboires.
+              </p>
+            </Col>
+            <Col>
+              <input
+                type="text"
+                name="email"
+                onChange={this.handleInput}
+                placeholder="Bénéficiaire"
+                className="inputAffi"
+              />
+              <input
+                type="submit"
+                value="Envoyer la demande"
+                onClick={this.addAffiliation}
+                className="button"
+              />
+            </Col>
+            <Col s={12} md={12}>
+              <p>
+                À réception du mail, le référent pourra commencer à répartir.
               </p>
             </Col>
           </Row>
@@ -383,6 +442,33 @@ class HomePage extends Component {
           if (responseObject.referent?.email) {
             localStorage.removeItem("affi");
           }
+
+          if (responseObject.referent.email === "") {
+            const headers = new Headers({
+              Authorization: "Bearer " + localStorage.getItem("token"),
+
+              "X-Requested-With": "XMLHttpRequest",
+            });
+
+            const options = {
+              method: "GET",
+              headers: headers,
+            };
+
+            fetch(
+              "https://back-end.osc-fr1.scalingo.io/restaurateur/getWallet",
+              options
+            )
+              .then((response) => {
+                return response.json();
+              })
+              .then((responseObject) => {
+                console.log("response", responseObject);
+                if (responseObject > 0) {
+                  this.setState({ show3: true });
+                }
+              });
+          }
         },
 
         (error) => {
@@ -390,6 +476,7 @@ class HomePage extends Component {
         }
       );
   };
+
   // renderButtonSub = () => {
   //   if (this.state.abonne === true) {
   //     return (
@@ -460,6 +547,7 @@ class HomePage extends Component {
             <Row className="rowGlobal">
               <Col md={{ span: 9, offset: 7 }} className="colTuto">
                 {this.modalReferent()}
+                {this.modalTips()}
                 <Tuto />
               </Col>
               <Row className="rowGlobal">

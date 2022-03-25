@@ -35,7 +35,8 @@ function Tuto() {
         onHide={handleClose}
         animation={true}
         backdrop="static"
-        keyboard={false}>
+        keyboard={false}
+      >
         <Modal.Header closeButton>
           <Modal.Title>Comment activer votre compte ?</Modal.Title>
         </Modal.Header>
@@ -104,7 +105,8 @@ function Tuto() {
           <Button
             className="modalButton"
             variant="secondary"
-            onClick={handleClose}>
+            onClick={handleClose}
+          >
             Fermer
           </Button>
         </Modal.Footer>
@@ -203,7 +205,8 @@ class HomePage extends Component {
         animation={true}
         backdrop={true}
         keyboard={false}
-        style={{ overlay: { zIndex: 3 } }}>
+        style={{ overlay: { zIndex: 3 } }}
+      >
         <Modal.Header>
           <Modal.Title>Désigner votre référent</Modal.Title>
         </Modal.Header>
@@ -359,8 +362,9 @@ class HomePage extends Component {
           // this.setState({ abonne: responseObject.abonne });
           this.setState({ data: JSON.stringify(responseObject) });
           if (
-            responseObject.pourboireGeneral === true &&
-            responseObject.tabServeur.length === 0
+            (responseObject.pourboireGeneral === true &&
+              responseObject.tabServeur.length === 0) ||
+            responseObject.referent.email == ""
           ) {
             this.setState({ show: !this.state.show });
           } else {

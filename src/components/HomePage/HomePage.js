@@ -260,7 +260,7 @@ class HomePage extends Component {
       <Modal
         show={this.state.show3}
         onHide={() => {
-          this.setState({ show: false });
+          this.setState({ show3: false });
         }}
         animation={true}
         backdrop={true}
@@ -408,7 +408,7 @@ class HomePage extends Component {
           });
           this.setState({ pourboireGeneral: responseObject.pourboireGeneral });
           this.setState({ tabServeur: responseObject.tabServeur });
-          this.setState({ menu: responseObject.menu.dailyMenu.picture });
+          this.setState({ menu: responseObject?.menu?.dailyMenu?.picture });
 
           // this.setState({ abonne: responseObject.abonne });
           this.setState({ data: JSON.stringify(responseObject) });
@@ -430,11 +430,7 @@ class HomePage extends Component {
             console.log("show2", this.state.show2);
           }
 
-          if (responseObject.referent?.email) {
-            localStorage.removeItem("affi");
-          }
-
-          if (responseObject.referent.email === "") {
+          if (responseObject.referent?.email === "") {
             const headers = new Headers({
               Authorization: "Bearer " + localStorage.getItem("token"),
 

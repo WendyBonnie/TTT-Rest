@@ -39,11 +39,9 @@ function UploadMenu() {
       })
       .then(
         (data) => {
-          setImages(data.menu.dailyMenu.picture);
-          setLabel(data.menu.dailyMenu.label);
-          setDailyMenu(data.menu);
-          console.log("image", data.menu.dailyMenu.picture);
-          console.log("image", images);
+          setImages(data.menu?.dailyMenu?.picture);
+          setLabel(data.menu?.dailyMenu?.label);
+          setDailyMenu(data?.menu);
         },
         (err) => {
           console.log(err);
@@ -75,7 +73,7 @@ function UploadMenu() {
       })
       .then(
         (responseData) => {
-          setMessage(responseData.message);
+          setMessage(responseData?.message);
           getDailyMenu();
         },
         (err) => {
@@ -160,9 +158,9 @@ function UploadMenu() {
                     })
                     .then(
                       (data) => {
-                        setImageStorage(data.menu.dailyMenu.picture);
-                        setLabel(data.menu.dailyMenu.label);
-                        setDailyMenu(data.menu);
+                        setImageStorage(data?.menu.dailyMenu?.picture);
+                        setLabel(data?.menu.dailyMenu?.label);
+                        setDailyMenu(data?.menu);
                       },
                       (err) => {
                         console.log(err);

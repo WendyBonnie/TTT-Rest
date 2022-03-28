@@ -141,7 +141,7 @@ class Personnel extends Component {
               };
 
               fetch(
-                "https://back-end.osc-fr1.scalingo.io/restaurateur/management/waiter-delete",
+                "http://localhost:8080/restaurateur/management/waiter-delete",
                 options
               )
                 .then((response) => {

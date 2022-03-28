@@ -30,7 +30,8 @@ class Personnel extends Component {
           animation={true}
           backdrop={true}
           keyboard={false}
-          style={{ overlay: { zIndex: 3 } }}>
+          style={{ overlay: { zIndex: 3 } }}
+        >
           <Modal.Header>
             <Modal.Title>Modifier votre référent</Modal.Title>
           </Modal.Header>
@@ -156,7 +157,8 @@ class Personnel extends Component {
                     console.log(err);
                   }
                 );
-            }}>
+            }}
+          >
             Supprimer
           </button>
           <br />
@@ -166,7 +168,8 @@ class Personnel extends Component {
               className="buttonRef"
               onClick={() => {
                 console.log("je suis ref");
-              }}>
+              }}
+            >
               Référent désigné
             </button>
           ) : (
@@ -175,7 +178,8 @@ class Personnel extends Component {
               onClick={() => {
                 this.setState({ indexRef: index });
                 this.setState({ modalReferent: true });
-              }}>
+              }}
+            >
               Non référent
             </button>
           )}
@@ -220,7 +224,10 @@ class Personnel extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:8080/restaurateur/management/affiliation", options)
+    fetch(
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/management/affiliation",
+      options
+    )
       .then((response) => {
         return response.json();
       })
@@ -299,7 +306,8 @@ class Personnel extends Component {
                 animationSpeed: 2000,
                 infinite: false,
               },
-            }}>
+            }}
+          >
             {this.renderMesServeurs()}
           </Carousel>
         </Col>

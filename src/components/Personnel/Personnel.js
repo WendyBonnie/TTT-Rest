@@ -6,6 +6,7 @@ import "./Personnel.css";
 import Icon from "react-fa";
 import { Link } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
+
 class Personnel extends Component {
   constructor(props) {
     super(props);
@@ -30,8 +31,7 @@ class Personnel extends Component {
           animation={true}
           backdrop={true}
           keyboard={false}
-          style={{ overlay: { zIndex: 3 } }}
-        >
+          style={{ overlay: { zIndex: 3 } }}>
           <Modal.Header>
             <Modal.Title>Modifier votre référent</Modal.Title>
           </Modal.Header>
@@ -157,8 +157,7 @@ class Personnel extends Component {
                     console.log(err);
                   }
                 );
-            }}
-          >
+            }}>
             Supprimer
           </button>
           <br />
@@ -168,8 +167,7 @@ class Personnel extends Component {
               className="buttonRef"
               onClick={() => {
                 console.log("je suis ref");
-              }}
-            >
+              }}>
               Référent désigné
             </button>
           ) : (
@@ -178,8 +176,7 @@ class Personnel extends Component {
               onClick={() => {
                 this.setState({ indexRef: index });
                 this.setState({ modalReferent: true });
-              }}
-            >
+              }}>
               Non référent
             </button>
           )}
@@ -204,6 +201,33 @@ class Personnel extends Component {
   };
   handleInput = (e) => {
     this.setState({ [e.target.name]: e.target.value });
+  };
+
+  getRestaurantName = () => {
+    const headers = new Headers({
+      Authorization: "Bearer " + localStorage.getItem("token"),
+
+      "X-Requested-With": "XMLHttpRequest",
+    });
+
+    const options = {
+      method: "GET",
+      headers: headers,
+    };
+
+    fetch("https://back-end.osc-fr1.scalingo.io/restaurateur/profil", options)
+      .then((response) => {
+        return response.json();
+      })
+      .then(
+        (responseObject) => {
+          this.setState({ email: responseObject.referent.email });
+        },
+
+        (error) => {
+          console.log(error);
+        }
+      );
   };
 
   addAffiliation = (e) => {
@@ -276,6 +300,7 @@ class Personnel extends Component {
   };
   componentDidMount() {
     this.getWaiterList();
+    this.getRestaurantName();
   }
 
   crew = () => {
@@ -306,8 +331,7 @@ class Personnel extends Component {
                 animationSpeed: 2000,
                 infinite: false,
               },
-            }}
-          >
+            }}>
             {this.renderMesServeurs()}
           </Carousel>
         </Col>
@@ -332,27 +356,38 @@ class Personnel extends Component {
                 Ajouter un bénéficiaire dans mon équipe
               </label>
             </Col>
-            <input
-              type="text"
-              name="email"
-              onChange={this.handleInput}
-              placeholder="Bénéficiaire"
-              className="inputAffi"
-            />
+            {console.log("referent", this.state.email)}
+            {!this.state.email ? (
+              <p>
+                Vous devez désigner un référent pour pouvoir rajouter de
+                nouveaux bénéficiaires
+              </p>
+            ) : (
+              <Col>
+                <input
+                  type="text"
+                  name="email"
+                  onChange={this.handleInput}
+                  placeholder="Bénéficiaire"
+                  className="inputAffi"
+                />
 
-            <input
-              type="submit"
-              value="Envoyer la demande"
-              onClick={this.addAffiliation}
-              className="button"
-            />
-            <p className="infoAffi">
-              Si votre bénéficiaire n'est pas encore inscrit sur la plateforme
-              Tipourboire, il recevra un mail afin de valider son inscription et
-              compléter son compte. Le bénéficiaire doit valider votre demande
-              afin d'être référencé dans votre équipe. Vous pourrez alors le
-              visualiser.
-            </p>
+                <input
+                  type="submit"
+                  value="Envoyer la demande"
+                  onClick={this.addAffiliation}
+                  className="button"
+                />
+                <p className="infoAffi">
+                  Si votre bénéficiaire n'est pas encore inscrit sur la
+                  plateforme Tipourboire, il recevra un mail afin de valider son
+                  inscription et compléter son compte. Le bénéficiaire doit
+                  valider votre demande afin d'être référencé dans votre équipe.
+                  Vous pourrez alors le visualiser.
+                </p>
+              </Col>
+            )}
+
             {this.state.messageAffi}
           </Col>
         </Row>

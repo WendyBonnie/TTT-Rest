@@ -35,8 +35,7 @@ function Tuto() {
         onHide={handleClose}
         animation={true}
         backdrop="static"
-        keyboard={false}
-      >
+        keyboard={false}>
         <Modal.Header closeButton>
           <Modal.Title>Comment activer votre compte ?</Modal.Title>
         </Modal.Header>
@@ -105,8 +104,7 @@ function Tuto() {
           <Button
             className="modalButton"
             variant="secondary"
-            onClick={handleClose}
-          >
+            onClick={handleClose}>
             Fermer
           </Button>
         </Modal.Footer>
@@ -208,8 +206,7 @@ class HomePage extends Component {
         animation={true}
         backdrop={true}
         keyboard={false}
-        style={{ overlay: { zIndex: 3 } }}
-      >
+        style={{ overlay: { zIndex: 3 } }}>
         <Modal.Header closeButton>
           <Modal.Title>Désigner votre référent</Modal.Title>
         </Modal.Header>
@@ -268,8 +265,7 @@ class HomePage extends Component {
         animation={true}
         backdrop={true}
         keyboard={false}
-        style={{ overlay: { zIndex: 3 } }}
-      >
+        style={{ overlay: { zIndex: 3 } }}>
         <Modal.Header closeButton>
           <Modal.Title>Vous avez de l'argent dans votre pot commun</Modal.Title>
         </Modal.Header>
@@ -499,32 +495,8 @@ class HomePage extends Component {
   //   }
   // };
 
-  isSubscribed = () => {
-    console.log("abonne state", this.state.abonne);
-    if (this.state.data.abonne === false) {
-      return (
-        <Modal.Dialog>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal title</Modal.Title>
-          </Modal.Header>
-
-          <Modal.Body>
-            <p>Modal body text goes here.</p>
-          </Modal.Body>
-
-          <Modal.Footer>
-            <Button variant="secondary">Close</Button>
-            <Button variant="primary">Save changes</Button>
-          </Modal.Footer>
-        </Modal.Dialog>
-      );
-    }
-    return;
-  };
-
   componentDidMount() {
     this.getRestaurantName();
-    // this.isSubscribed();
   }
 
   render() {

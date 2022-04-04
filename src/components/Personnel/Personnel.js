@@ -106,6 +106,43 @@ class Personnel extends Component {
       );
   };
 
+  deleteWaiter = (email) => {
+    const data = {
+      mail: email,
+    };
+
+    const headers = new Headers({
+      "Content-Type": "application/json",
+      Authorization: "bearer " + localStorage.getItem("token"),
+    });
+
+    const options = {
+      method: "DELETE",
+      headers: headers,
+      body: JSON.stringify(data),
+    };
+
+    fetch(
+      "https://back-end.osc-fr1.scalingo.io/restaurateur/management/waiter-delete",
+      options
+    )
+      .then((response) => {
+        return response.json();
+      })
+
+      .then(
+        (data) => {
+          alert("votre bénéficiaire a bien été supprimé");
+
+          this.getWaiterList();
+        },
+
+        (err) => {
+          console.log(err);
+        }
+      );
+  };
+
   renderMesServeurs = () => {
     return this.state.serveur?.tabServeur?.map((element, index) => {
       return (
@@ -124,40 +161,7 @@ class Personnel extends Component {
           <br></br>
           <button
             className="button"
-            onClick={() => {
-              const data = {
-                mail: element.serveurMail,
-              };
-
-              const headers = new Headers({
-                "Content-Type": "application/json",
-                Authorization: "bearer " + localStorage.getItem("token"),
-              });
-
-              const options = {
-                method: "DELETE",
-                headers: headers,
-                body: JSON.stringify(data),
-              };
-
-              fetch(
-                "https://back-end.osc-fr1.scalingo.io/restaurateur/management/waiter-delete",
-                options
-              )
-                .then((response) => {
-                  return response.json();
-                })
-
-                .then(
-                  (data) => {
-                    this.getWaiterList();
-                  },
-
-                  (err) => {
-                    console.log(err);
-                  }
-                );
-            }}>
+            onClick={() => this.deleteWaiter(element.serveurMail)}>
             Supprimer
           </button>
           <br />

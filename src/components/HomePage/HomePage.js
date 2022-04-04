@@ -399,6 +399,7 @@ class HomePage extends Component {
       })
       .then(
         (responseObject) => {
+          console.log("ResponseObject",responseObject);
           localStorage.setItem(
             "propsRestaurant",
             JSON.stringify(responseObject.restaurantName)
@@ -413,9 +414,9 @@ class HomePage extends Component {
           // this.setState({ abonne: responseObject.abonne });
           this.setState({ data: JSON.stringify(responseObject) });
           if (
-            (responseObject.pourboireGeneral === true &&
+            ( responseObject.pourboireGeneral === true &&
               responseObject.tabServeur.length === 0) ||
-            responseObject.referent.email == ""
+              (!responseObject.referent || responseObject.referent.email == "")
           ) {
             this.setState({ show: !this.state.show });
           } else {

@@ -409,9 +409,9 @@ class HomePage extends Component {
           this.setState({ pourboireGeneral: responseObject.pourboireGeneral });
           this.setState({ tabServeur: responseObject.tabServeur });
           this.setState({ menu: responseObject?.menu?.dailyMenu?.picture });
-
-          // this.setState({ abonne: responseObject.abonne });
           this.setState({ data: JSON.stringify(responseObject) });
+
+          //condition pour afficher popup référent si pas de référent en pourboireGénéral
           if (
             (responseObject.pourboireGeneral === true &&
               responseObject.tabServeur.length === 0) ||

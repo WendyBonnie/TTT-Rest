@@ -134,7 +134,7 @@ class Personnel extends Component {
         (data) => {
           alert("votre bénéficiaire a bien été supprimé");
 
-          this.getWaiterList();
+          // this.getWaiterList();
         },
 
         (err) => {
@@ -361,7 +361,7 @@ class Personnel extends Component {
               </label>
             </Col>
             {console.log("referent", this.state.email)}
-            {!this.state.email ? (
+            {!this.state.email || this.state.email === "" ? (
               <p>
                 Vous devez désigner un référent pour pouvoir rajouter de
                 nouveaux bénéficiaires

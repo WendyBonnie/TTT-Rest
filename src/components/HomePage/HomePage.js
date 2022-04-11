@@ -35,7 +35,8 @@ function Tuto() {
         onHide={handleClose}
         animation={true}
         backdrop="static"
-        keyboard={false}>
+        keyboard={false}
+      >
         <Modal.Header closeButton>
           <Modal.Title>Comment activer votre compte ?</Modal.Title>
         </Modal.Header>
@@ -104,7 +105,8 @@ function Tuto() {
           <Button
             className="modalButton"
             variant="secondary"
-            onClick={handleClose}>
+            onClick={handleClose}
+          >
             Fermer
           </Button>
         </Modal.Footer>
@@ -206,7 +208,8 @@ class HomePage extends Component {
         animation={true}
         backdrop={true}
         keyboard={false}
-        style={{ overlay: { zIndex: 3 } }}>
+        style={{ overlay: { zIndex: 3 } }}
+      >
         <Modal.Header closeButton>
           <Modal.Title>Désigner votre référent</Modal.Title>
         </Modal.Header>
@@ -265,7 +268,8 @@ class HomePage extends Component {
         animation={true}
         backdrop={true}
         keyboard={false}
-        style={{ overlay: { zIndex: 3 } }}>
+        style={{ overlay: { zIndex: 3 } }}
+      >
         <Modal.Header closeButton>
           <Modal.Title>Vous avez de l'argent dans votre pot commun</Modal.Title>
         </Modal.Header>
@@ -399,6 +403,7 @@ class HomePage extends Component {
       })
       .then(
         (responseObject) => {
+          console.log("ResponseObject", responseObject);
           localStorage.setItem(
             "propsRestaurant",
             JSON.stringify(responseObject.restaurantName)
@@ -415,6 +420,7 @@ class HomePage extends Component {
           if (
             (responseObject.pourboireGeneral === true &&
               responseObject.tabServeur.length === 0) ||
+            !responseObject.referent ||
             responseObject.referent.email == ""
           ) {
             this.setState({ show: !this.state.show });
@@ -524,7 +530,7 @@ class HomePage extends Component {
                     dans votre logiciel de caisse ou d'encaissement
                   </p>
                   <div>
-                    <QrCodeTicket />
+                    <QrCodeTicket />;
                   </div>
                 </Col>
 

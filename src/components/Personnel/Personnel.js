@@ -15,6 +15,7 @@ class Personnel extends Component {
       email: "",
       modalReferent: false,
       indexRef: 0,
+      general: false,
     };
 
     this.hideModal = this.hideModal.bind(this);
@@ -225,7 +226,16 @@ class Personnel extends Component {
       })
       .then(
         (responseObject) => {
-          this.setState({ email: responseObject.referent.email });
+          console.log("responseObjectPersonnel", responseObject);
+
+          /**
+           * Condition: SI il n'y a pas de référent on ne modifie pas le mail
+           */
+          responseObject.referent
+            ? this.setState({ email: responseObject.referent.email })
+            : this.setState({ email: "" });
+
+          this.setState({ general: responseObject.pourboireGeneral });
         },
 
         (error) => {
@@ -361,7 +371,8 @@ class Personnel extends Component {
               </label>
             </Col>
             {console.log("referent", this.state.email)}
-            {!this.state.email || this.state.email === "" ? (
+            {!this.state.email ||
+            (this.state.email === "" && this.state.general === true) ? (
               <p>
                 Vous devez désigner un référent pour pouvoir rajouter de
                 nouveaux bénéficiaires

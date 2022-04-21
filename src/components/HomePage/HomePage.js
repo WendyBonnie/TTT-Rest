@@ -35,8 +35,7 @@ function Tuto() {
         onHide={handleClose}
         animation={true}
         backdrop="static"
-        keyboard={false}
-      >
+        keyboard={false}>
         <Modal.Header closeButton>
           <Modal.Title>Comment activer votre compte ?</Modal.Title>
         </Modal.Header>
@@ -105,8 +104,7 @@ function Tuto() {
           <Button
             className="modalButton"
             variant="secondary"
-            onClick={handleClose}
-          >
+            onClick={handleClose}>
             Fermer
           </Button>
         </Modal.Footer>
@@ -129,6 +127,7 @@ class HomePage extends Component {
       show3: false,
       email: "",
       menu: {},
+      viewCode: false,
     };
     this.hideModal = this.hideModal.bind(this);
   }
@@ -208,8 +207,7 @@ class HomePage extends Component {
         animation={true}
         backdrop={true}
         keyboard={false}
-        style={{ overlay: { zIndex: 3 } }}
-      >
+        style={{ overlay: { zIndex: 3 } }}>
         <Modal.Header closeButton>
           <Modal.Title>Désigner votre référent</Modal.Title>
         </Modal.Header>
@@ -268,8 +266,7 @@ class HomePage extends Component {
         animation={true}
         backdrop={true}
         keyboard={false}
-        style={{ overlay: { zIndex: 3 } }}
-      >
+        style={{ overlay: { zIndex: 3 } }}>
         <Modal.Header closeButton>
           <Modal.Title>Vous avez de l'argent dans votre pot commun</Modal.Title>
         </Modal.Header>
@@ -416,6 +413,12 @@ class HomePage extends Component {
           this.setState({ menu: responseObject?.menu?.dailyMenu?.picture });
           this.setState({ data: JSON.stringify(responseObject) });
 
+          if (!this.state.menu) {
+            this.setState({ viewCode: false });
+          } else {
+            this.setState({ viewCode: true });
+          }
+
           //condition pour afficher popup référent si pas de référent en pourboireGénéral
           if (
             (responseObject.pourboireGeneral === true &&
@@ -544,8 +547,14 @@ class HomePage extends Component {
                     <br />
                     et mise à disposition au sein de votre établissement
                   </p>
-
-                  <QrCode />
+                  {this.state.viewCode === false ? (
+                    <p className="qrSub">
+                      Veuillez télécharger une carte pour utiliser votre QRcode
+                      carte
+                    </p>
+                  ) : (
+                    <QrCode />
+                  )}
                 </Col>
               </Row>
             </Row>

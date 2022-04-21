@@ -24,6 +24,8 @@ function QrHook(props) {
   const [loading, setLoading] = React.useState(false);
   const [text, setText] = React.useState("old boring text");
 
+  console.log("QQQQ", props.viewCode);
+
   const getRestaurantName = () => {
     const headers = new Headers({
       Authorization: "Bearer " + localStorage.getItem("token"),

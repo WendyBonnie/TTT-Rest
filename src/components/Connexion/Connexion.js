@@ -18,6 +18,7 @@ class Connexion extends Component {
   }
   handleInput = (e) => {
     this.setState({ [e.target.name]: e.target.value });
+
   };
   addLogin = (e) => {
     e.preventDefault();
